@@ -34,8 +34,75 @@ export function WebsiteDesignPage({
 
           <div className="website-detail-content">
             <div className="website-detail-heading">
-              <h1 className="website-detail-title">{service.detailTitle}</h1>
+              <div className="website-detail-heading__column">
+                <h1 className="website-detail-title">{service.detailTitle}</h1>
+                <p className="website-detail-subtitle">
+                  Helping individuals, creatives and small businesses represent
+                  themselves online, and making ideas, offers, and digital
+                  experiences easier to understand, trust, and engage with,
+                  including in more structured, complex, or multilingual
+                  contexts.
+                </p>
+              </div>
+              <div className="website-detail-heading__column" aria-hidden="true" />
             </div>
+
+            <section className="website-detail-section">
+              <div className="website-detail-section__grid">
+                <div className="website-detail-section__column">
+                  <h2 className="website-detail-section__title">Design Focus</h2>
+                </div>
+                <div className="website-detail-section__column website-detail-section__column--focus-list">
+                  <div className="website-focus-list">
+                    <article className="website-focus-item">
+                      <h2 className="website-focus-item__title">Clarity</h2>
+                      <div className="website-focus-item__copy">
+                        <p>
+                          Helping users understand what you offer, who it is
+                          for, and what matters first through clear page
+                          structure, hierarchy, navigation, and content
+                          direction.
+                        </p>
+                      </div>
+                    </article>
+
+                    <article className="website-focus-item">
+                      <h2 className="website-focus-item__title">Credibility</h2>
+                      <div className="website-focus-item__copy">
+                        <p>
+                          Making a business feel more considered, trustworthy,
+                          and easier to believe through design direction, visual
+                          restraint, image use, and how proof is placed.
+                        </p>
+                      </div>
+                    </article>
+
+                    <article className="website-focus-item">
+                      <h2 className="website-focus-item__title">Usability</h2>
+                      <div className="website-focus-item__copy">
+                        <p>
+                          Making information easier to find and actions easier
+                          to take across desktop and mobile through practical UX
+                          decisions, page flow, and mobile behaviour.
+                        </p>
+                      </div>
+                    </article>
+
+                    <article className="website-focus-item">
+                      <h2 className="website-focus-item__title">Delivery</h2>
+                      <div className="website-focus-item__copy">
+                        <p>
+                          Designing, building, refining, and maintaining the
+                          site as a real working tool, with room for
+                          implementation, iteration, updates, and ongoing
+                          refinement.
+                        </p>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </div>
