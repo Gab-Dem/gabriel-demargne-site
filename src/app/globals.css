@@ -117,7 +117,7 @@ a {
 }
 
 .split-page__right--website {
-  padding: 18px 0 0;
+  padding: 0;
   overflow: hidden;
 }
 
@@ -125,8 +125,52 @@ a {
   padding-left: 0;
 }
 
-.split-page__right--website .right-title {
-  padding: 0 28px;
+.website-detail-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.website-detail-back__arrow {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 10px;
+  flex: 0 0 auto;
+}
+
+.website-detail-back__arrow::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: translateY(-50%);
+}
+
+.website-detail-back__arrow::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-left: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.website-detail-title {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.02;
 }
 
 .right-content {
@@ -142,6 +186,9 @@ a {
 .right-content--website {
   --website-overlay-trigger-height: 64px;
   overflow: hidden;
+  padding-top: 0;
+  position: relative;
+  min-height: 0;
 }
 
 .service-stack {
@@ -153,17 +200,17 @@ a {
 .service-card {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  grid-template-areas:
-    "title ."
-    "copy link";
-  column-gap: 16px;
-  row-gap: 7px;
   border: 1px solid var(--line);
+}
+
+.service-card__body {
+  display: grid;
+  gap: 7px;
   padding: 10px 14px;
+  border-right: 1px solid var(--line);
 }
 
 .service-card__title {
-  grid-area: title;
   margin: 0;
   font-size: 16px;
   font-weight: 700;
@@ -171,7 +218,6 @@ a {
 }
 
 .service-card__copy {
-  grid-area: copy;
   margin: 0;
   font-size: 14px;
   font-weight: 400;
@@ -179,14 +225,17 @@ a {
 }
 
 .service-card__link {
-  grid-area: link;
-  align-self: start;
+  align-self: stretch;
   display: inline-flex;
-  align-items: baseline;
+  align-items: center;
+  justify-content: center;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.2;
   white-space: nowrap;
+  min-width: 112px;
+  padding: 0 16px;
+  text-decoration: none;
 }
 
 .service-card__link-arrow {
@@ -205,12 +254,35 @@ a {
 }
 
 .service-card--hover-full:hover {
-  background: rgba(0, 0, 0, 0.035);
-  border-color: rgba(0, 0, 0, 1);
+  background: #000000;
+  border-color: #000000;
+  color: #ffffff;
 }
 
 .service-card--hover-full:hover .service-card__link-arrow {
   transform: translateX(3px);
+}
+
+.service-example-card.service-card--hover-full:hover {
+  background: transparent;
+  border-color: var(--line);
+  color: inherit;
+}
+
+.service-card.service-card--hover-full:hover {
+  background: transparent;
+  border-color: var(--line);
+  color: inherit;
+}
+
+.service-card.service-card--hover-full:hover .service-card__link {
+  background: #000000;
+  color: #ffffff;
+}
+
+.service-example-card.service-card--hover-full:hover .service-example-card__link {
+  background: #000000;
+  color: #ffffff;
 }
 
 .placeholder-copy {
@@ -227,8 +299,8 @@ a {
 .service-detail {
   max-width: 640px;
   display: grid;
-  gap: 28px;
-  padding-top: 28px;
+  gap: 40px;
+  padding-top: 8px;
 }
 
 .service-detail--website {
@@ -237,19 +309,46 @@ a {
 
 .website-detail-shell {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 28px;
-  min-height: 100%;
+  height: 100%;
   padding-bottom: var(--website-overlay-trigger-height);
 }
 
+.website-detail-top {
+  display: grid;
+  gap: 42px;
+  padding: 21px 28px 0;
+}
+
 .website-detail-content {
-  padding: 0 28px;
+  display: grid;
+  gap: 32px;
+  padding: 0;
+}
+
+.website-detail-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.website-detail-subtitle {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+@media (max-width: 640px) {
+  .website-detail-heading {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
 }
 
 .service-detail__intro,
+.service-detail__supporting,
+.service-detail__label,
 .service-detail__section h2,
 .service-detail__section ul,
 .service-detail__section li {
@@ -257,15 +356,66 @@ a {
 }
 
 .service-detail__intro,
+.service-detail__supporting,
 .service-detail__section li {
   font-size: 14px;
   font-weight: 400;
   line-height: 1.45;
 }
 
+.service-detail__supporting {
+  max-width: 720px;
+}
+
 .service-detail__section {
   display: grid;
-  gap: 10px;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+
+.service-detail__section--intro {
+  gap: 14px;
+}
+
+.service-detail__section--benefits {
+  grid-template-columns: 1fr;
+  gap: 32px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
+}
+
+.service-detail__label {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.service-detail__section--intro > .service-detail__label {
+  grid-column: 1 / span 2;
+}
+
+.service-detail__section--intro > .service-detail__intro {
+  grid-column: 3 / -1;
+}
+
+.service-detail__section-header {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  grid-column: 1 / -1;
+  max-width: 720px;
+}
+
+@media (max-width: 640px) {
+  .service-detail__section {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .service-detail__section--intro {
+    gap: 8px;
+  }
 }
 
 .service-detail__section h2 {
@@ -294,28 +444,42 @@ a {
 
 .service-function-list {
   display: grid;
-  gap: 14px;
+  gap: 24px;
+  align-content: start;
 }
 
 .service-function {
   display: grid;
-  gap: 7px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--line);
+  gap: 12px;
+  align-content: start;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
 }
 
-.service-function:last-child {
-  padding-bottom: 14px;
-  border-bottom: 0;
+.service-function:first-child {
+  padding-top: 0;
+  border-top: 0;
 }
 
-.service-function h2,
-.service-example-section__title,
-.service-example-card__body h3 {
+.service-function__heading {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.service-function__heading h3 {
   margin: 0;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.2;
+}
+
+.service-function__index {
+  display: inline-block;
+  min-width: 24px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #666666;
+  letter-spacing: 0.12em;
 }
 
 .service-function p,
@@ -326,10 +490,44 @@ a {
   line-height: 1.4;
 }
 
+.service-function h2,
+.service-function h3,
+.service-example-section__title,
+.service-example-card__body h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 640px) {
+  .service-detail__section--benefits {
+    gap: 24px;
+  }
+
+  .service-function {
+    gap: 8px;
+    padding-top: 20px;
+  }
+
+  .service-function:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .service-function h2,
+  .service-function h3,
+  .service-example-section__title,
+  .service-example-card__body h3 {
+    font-size: 18px;
+  }
+}
+
 .service-example-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 14px;
+  gap: 21px;
 }
 
 .service-example-card {
@@ -353,18 +551,17 @@ a {
   min-width: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 10px 14px;
 }
 
 .service-example-card__content {
-  max-width: 28rem;
   transform: translateY(4px);
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 .service-example-card__copy {
-  max-width: 28rem;
+  margin: 0;
 }
 
 .service-example-card__image {
@@ -374,26 +571,31 @@ a {
 .service-example-card__link {
   flex: 0 0 auto;
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   align-self: stretch;
+  width: auto;
+  height: 100%;
+  min-width: 0;
   aspect-ratio: 1 / 1;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.2;
-  white-space: nowrap;
-  padding: 0 14px;
+  padding: 0 10px;
   border-left: 1px solid currentColor;
+  text-align: center;
+  text-decoration: none;
 }
 
 .website-overlay-trigger {
   width: 100%;
   margin: 0;
   border: 0;
-  border-top: 1px solid #000000;
-  border-bottom: 1px solid #000000;
-  background: #ffffff;
-  color: #000000;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  background: #000000;
+  color: #ffffff;
   min-height: 64px;
   padding: 14px 24px 16px;
   display: flex;
@@ -410,6 +612,7 @@ a {
 }
 
 .website-overlay.is-open .website-overlay-trigger {
+  border-top: 0;
   padding-bottom: 2px;
 }
 
@@ -438,6 +641,7 @@ a {
   right: 0;
   bottom: 0;
   top: 0;
+  background: #000000;
   display: flex;
   flex-direction: column;
   transform: translateY(calc(100% - var(--website-overlay-trigger-height)));
@@ -453,17 +657,39 @@ a {
   flex: 1 1 auto;
   min-height: 0;
   overflow: hidden;
-  padding: 14px;
+  padding: 28px;
   background: #ffffff;
   color: #000000;
   display: grid;
-  align-content: start;
+  grid-template-rows: 1fr auto;
   gap: 14px;
+}
+
+.website-overlay__examples {
+  min-height: 0;
+  display: grid;
+  align-content: end;
+  gap: 3px;
+}
+
+.website-overlay__title {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.02;
+  transform: translateX(-6px);
+  align-self: end;
+  justify-self: center;
+  margin-bottom: 35px;
 }
 
 .website-overlay .service-example-card__body {
   background: #ffffff;
   color: #000000;
+}
+
+.website-overlay .service-example-card__copy {
+  max-width: 66.666%;
 }
 
 .website-overlay__header {
@@ -588,14 +814,16 @@ a {
 
   .service-card {
     grid-template-columns: 1fr;
-    grid-template-areas:
-      "title"
-      "copy"
-      "link";
+  }
+
+  .service-card__body {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
   }
 
   .service-card__link {
     align-self: start;
+    min-height: 56px;
   }
 
   .arrow-grid {
@@ -619,6 +847,10 @@ a {
   .service-example-card__body {
     display: flex;
     gap: 14px;
+  }
+
+  .website-overlay .service-example-card__copy {
+    max-width: none;
   }
 
   .service-example-card__link {
