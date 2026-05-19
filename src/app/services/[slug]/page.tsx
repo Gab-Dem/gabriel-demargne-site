@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SplitShell } from "@/components/split-shell";
+import { UXResearchPage } from "@/components/ux-research-page";
 import { WebsiteDesignPage } from "@/components/website-design-page";
 import { getServiceBySlug, services } from "@/data/site";
 
@@ -38,7 +40,6 @@ export default async function ServiceDetailPage({ params }: Props) {
     return (
       <SplitShell
         activePath="/services"
-        rightTitle={service.detailTitle}
         rightPanelClassName="split-page__right--website"
       >
         <WebsiteDesignPage service={service} />
@@ -46,29 +47,31 @@ export default async function ServiceDetailPage({ params }: Props) {
     );
   }
 
+  if (service.slug === "ux-research") {
+    return (
+      <SplitShell activePath="/services" rightPanelClassName="split-page__right--detail">
+        <UXResearchPage service={service} />
+      </SplitShell>
+    );
+  }
+
   return (
-    <SplitShell activePath="/services" rightTitle={service.detailTitle}>
-      <div className="right-content">
-        <div className="service-detail">
-          <p className="service-detail__intro">{service.intro}</p>
+    <SplitShell activePath="/services" rightPanelClassName="split-page__right--detail">
+      <div className="service-detail-page">
+        <div className="website-detail-top">
+          <Link href="/services" className="website-detail-back">
+            <span className="website-detail-back__arrow" aria-hidden="true" />
+            <span>Back</span>
+          </Link>
 
-          <section className="service-detail__section">
-            <h2>What this includes</h2>
-            <ul>
-              {service.includes.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </section>
-
-          <section className="service-detail__section">
-            <h2>Relevant experience</h2>
-            <ul>
-              {service.evidence.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </section>
+          <div className="website-detail-content">
+            <div className="website-detail-heading">
+              <div className="website-detail-heading__column">
+                <h1 className="website-detail-title">{service.detailTitle}</h1>
+              </div>
+              <div className="website-detail-heading__column" aria-hidden="true" />
+            </div>
+          </div>
         </div>
       </div>
     </SplitShell>
