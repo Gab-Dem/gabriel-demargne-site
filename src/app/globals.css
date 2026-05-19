@@ -123,6 +123,7 @@ a {
 
 .split-page__right--detail {
   padding: 0;
+  overflow-x: hidden;
 }
 
 .right-title {
@@ -193,6 +194,10 @@ a {
 
 .right-content--bottom {
   align-items: flex-end;
+}
+
+.right-content--detail-topless {
+  padding-top: 0;
 }
 
 .right-content--website {
@@ -337,6 +342,10 @@ a {
   padding: 0;
 }
 
+.website-detail-content--body {
+  padding: 0 28px;
+}
+
 .website-detail-heading {
   display: grid;
   grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
@@ -403,6 +412,10 @@ a {
 
   .website-detail-services {
     gap: 14px;
+  }
+
+  .website-detail-content--body {
+    padding: 0 21px;
   }
 
 }
@@ -633,6 +646,137 @@ a {
   transform: translateX(4px) scale(1.08);
 }
 
+.photography-service-page {
+  flex: 1;
+  display: grid;
+  align-content: start;
+  padding: 0 0 28px;
+}
+
+.photography-service-list {
+  display: grid;
+  gap: 84px;
+  padding: 42px 0 0;
+}
+
+.photography-feature {
+  display: grid;
+  gap: 21px;
+  align-items: start;
+}
+
+.photography-feature__copy {
+  padding: 0 28px;
+}
+
+.photography-feature__copy-inner {
+  max-width: 360px;
+  display: grid;
+  gap: 12px;
+}
+
+.photography-feature__title,
+.photography-feature__text {
+  margin: 0;
+}
+
+.photography-feature__title {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.photography-feature__text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.photography-feature__image-column {
+  min-width: 0;
+  padding: 0 28px;
+}
+
+.photography-feature__image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.photography-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.photography-offers {
+  margin: 0 28px;
+}
+
+.photography-offers {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 64px;
+  padding: 28px 0 0;
+  border-top: 1px solid var(--line);
+  align-items: start;
+}
+
+.photography-offers__header h2,
+.photography-offers__header p,
+.photography-offers__list {
+  margin: 0;
+}
+
+.photography-offers__header {
+  max-width: 620px;
+  display: grid;
+  gap: 12px;
+}
+
+.photography-offers__header h2 {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.photography-offers__header p,
+.photography-offers__list li {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.photography-offers__list {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  max-width: 760px;
+  padding: 0;
+}
+
+.photography-offers__list li {
+  position: relative;
+  padding-left: 16px;
+}
+
+.photography-offers__list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+}
+
+.photography-offers__cta {
+  grid-column: 1 / -1;
+  margin-top: 10px;
+}
+
 @media (max-width: 640px) {
   .website-focus-list {
     grid-template-columns: 1fr;
@@ -676,6 +820,47 @@ a {
     margin-top: 10px;
     font-size: 20px;
     padding: 16px 18px;
+  }
+
+  .photography-service-list {
+    gap: 70px;
+    padding-top: 42px;
+  }
+
+  .photography-feature {
+    gap: 18px;
+  }
+
+  .photography-feature__copy {
+    padding: 0 21px;
+  }
+
+  .photography-feature__copy-inner {
+    gap: 12px;
+    max-width: none;
+  }
+
+  .photography-feature__title {
+    font-size: 22px;
+  }
+
+  .photography-feature__image-column {
+    padding: 0 21px;
+  }
+
+  .photography-offers {
+    margin-left: 21px;
+    margin-right: 21px;
+  }
+
+  .photography-offers {
+    gap: 21px;
+    margin-top: 56px;
+    grid-template-columns: 1fr;
+  }
+
+  .photography-offers__header h2 {
+    font-size: 22px;
   }
 }
 

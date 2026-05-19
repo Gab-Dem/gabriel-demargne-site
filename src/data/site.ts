@@ -15,6 +15,13 @@ export const services = [
     title: "Website Design",
     copy: "Websites designed, built, refined, and maintained.",
     detailTitle: "Website Design",
+    detailServices: [
+      "Full Redesigns",
+      "New Websites",
+      "Content Structure",
+      "UX Refinement",
+      "Frontend Build",
+    ],
     intro:
       "Supporting artists, creative practitioners, and service-led businesses with websites that make their work easier to understand, evaluate, and act on.",
     focusIntro:
@@ -77,6 +84,13 @@ export const services = [
     title: "UX / UI Consulting",
     copy: "Creating clear, intuitive digital experiences.",
     detailTitle: "UX / UI Consulting",
+    detailServices: [
+      "User Flows",
+      "Interface Direction",
+      "Page Structure",
+      "Frontend Collaboration",
+      "Working Prototypes",
+    ],
     intro:
       "This work sits between structure, interface, and implementation. It focuses on making digital products and websites easier to understand and easier to use.",
     includes: [
@@ -96,6 +110,13 @@ export const services = [
     title: "UX Research",
     copy: "Helping you make informed decisions for your business.",
     detailTitle: "UX Research",
+    detailServices: [
+      "User Testing",
+      "Interviews",
+      "Surveys",
+      "Benchmarking",
+      "Competitor Analysis",
+    ],
     intro:
       "Research work has focused on understanding what users need, testing assumptions, and supporting clearer decisions before more time is spent building.",
     includes: [
@@ -115,8 +136,15 @@ export const services = [
     title: "Photography",
     copy: "Commissioned natural-light photography.",
     detailTitle: "Photography",
+    detailServices: [
+      "Commissioned Shoots",
+      "Natural Light",
+      "Project Documentation",
+      "Portraiture",
+      "Image Direction",
+    ],
     intro:
-      "Photography is offered as a service, while the broader image archive remains a separate body of work.",
+      "Photography for places, projects, people, and events, with an editorial focus on atmosphere, movement, natural light, and composed real moments.",
     includes: [
       "Commissioned natural-light photography",
       "Photography used where it supports a project directly",
@@ -132,6 +160,13 @@ export const services = [
     title: "Small-business consulting",
     copy: "Position and strategy consulting for creative businesses.",
     detailTitle: "Small-business consulting",
+    detailServices: [
+      "Offer Clarity",
+      "Positioning",
+      "Messaging Direction",
+      "Website Strategy",
+      "Practical Advice",
+    ],
     intro:
       "Some projects begin as website briefs, but the more useful work is often clarifying the offer, the structure, and the proposition first.",
     includes: [

@@ -1,8 +1,10 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { ServiceDetailHeader } from "@/components/service-detail-header";
 
 type UXResearchService = {
   detailTitle: string;
+  detailServices: readonly string[];
 };
 
 type Objective = {
@@ -83,87 +85,63 @@ export function UXResearchPage({
   service: UXResearchService;
 }) {
   return (
-    <div className="right-content">
+    <div className="right-content right-content--detail-topless">
       <div className="ux-research-page">
-        <div className="website-detail-top">
-          <Link href="/services" className="website-detail-back">
-            <span className="website-detail-back__arrow" aria-hidden="true" />
-            <span>Back</span>
-          </Link>
+        <ServiceDetailHeader
+          title={service.detailTitle}
+          services={service.detailServices}
+          intro="UX research helps clarify how people experience your service, what they need, where they struggle, and how your offer compares within the wider market. Good research allows you to make informed product and service decisions."
+          ariaLabel="UX research services"
+        />
 
-          <div className="website-detail-content">
-            <div className="website-detail-heading">
-              <div className="website-detail-heading__column">
-                <h1 className="website-detail-title">{service.detailTitle}</h1>
-              </div>
-              <div className="website-detail-heading__column" aria-hidden="true" />
+        <div className="website-detail-content website-detail-content--body">
+          <section className="ux-research-section">
+            <h2 className="ux-research-section__title">Research Objectives</h2>
+            <div className="ux-research-objectives">
+              {objectives.map((objective) => (
+                <article key={objective.title} className="ux-research-card">
+                  <div className="ux-research-card__icon" aria-hidden="true">
+                    {objective.icon}
+                  </div>
+                  <div className="ux-research-card__body">
+                    <h3 className="ux-research-card__title">{objective.title}</h3>
+                    <p className="ux-research-card__copy">{objective.copy}</p>
+                  </div>
+                </article>
+              ))}
             </div>
+          </section>
 
-            <section className="website-detail-services" aria-label="UX research services">
-              <div className="website-detail-services__row">
-                <span>User Testing</span>
-                <span>Interviews</span>
-                <span>Surveys</span>
-                <span>Benchmarking</span>
-                <span>Competitor Analysis</span>
-              </div>
-              <hr className="website-detail-services__rule" />
-              <p className="website-detail-subtitle ux-research-intro">
-                UX research helps clarify how people experience your service,
-                what they need, where they struggle, and how your offer compares
-                within the wider market. Good research allows you to make
-                informed product and service decisions.
-              </p>
-            </section>
-
-            <section className="ux-research-section">
-              <h2 className="ux-research-section__title">Research Objectives</h2>
-              <div className="ux-research-objectives">
-                {objectives.map((objective) => (
-                  <article key={objective.title} className="ux-research-card">
-                    <div className="ux-research-card__icon" aria-hidden="true">
-                      {objective.icon}
+          <section className="ux-research-section ux-research-section--methods">
+            <h2 className="ux-research-section__title">Research Methods</h2>
+            <div className="ux-research-methods" role="list">
+              {methods.map((method) => (
+                <article
+                  key={method.title}
+                  className="ux-research-method"
+                  role="listitem"
+                >
+                  <div className="ux-research-method__summary">
+                    <div className="ux-research-method__icon" aria-hidden="true">
+                      {method.icon}
                     </div>
-                    <div className="ux-research-card__body">
-                      <h3 className="ux-research-card__title">{objective.title}</h3>
-                      <p className="ux-research-card__copy">{objective.copy}</p>
+                    <div className="ux-research-method__body">
+                      <h3 className="ux-research-method__title">{method.title}</h3>
+                      <p className="ux-research-method__copy">{method.copy}</p>
                     </div>
-                  </article>
-                ))}
-              </div>
-            </section>
-
-            <section className="ux-research-section ux-research-section--methods">
-              <h2 className="ux-research-section__title">Research Methods</h2>
-              <div className="ux-research-methods" role="list">
-                {methods.map((method) => (
-                  <article
-                    key={method.title}
-                    className="ux-research-method"
-                    role="listitem"
-                  >
-                    <div className="ux-research-method__summary">
-                      <div className="ux-research-method__icon" aria-hidden="true">
-                        {method.icon}
-                      </div>
-                      <div className="ux-research-method__body">
-                        <h3 className="ux-research-method__title">{method.title}</h3>
-                        <p className="ux-research-method__copy">{method.copy}</p>
-                      </div>
-                    </div>
-                  </article>
-                ))}
-              </div>
-              <Link href="/contact" className="ux-research-cta">
-                <span className="ux-research-cta__content">
-                  <span className="ux-research-cta__label">Start an enquiry</span>
-                  <span className="ux-research-cta__arrow" aria-hidden="true">
-                    →
-                  </span>
+                  </div>
+                </article>
+              ))}
+            </div>
+            <Link href="/contact" className="ux-research-cta">
+              <span className="ux-research-cta__content">
+                <span className="ux-research-cta__label">Start an enquiry</span>
+                <span className="ux-research-cta__arrow" aria-hidden="true">
+                  →
                 </span>
-              </Link>
-            </section>
-          </div>
+              </span>
+            </Link>
+          </section>
         </div>
       </div>
     </div>

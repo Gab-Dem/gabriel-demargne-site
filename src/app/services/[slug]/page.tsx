@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
+import { PhotographyServicePage } from "@/components/photography-service-page";
+import { ServiceDetailHeader } from "@/components/service-detail-header";
 import { SplitShell } from "@/components/split-shell";
 import { UXResearchPage } from "@/components/ux-research-page";
 import { WebsiteDesignPage } from "@/components/website-design-page";
@@ -55,22 +56,47 @@ export default async function ServiceDetailPage({ params }: Props) {
     );
   }
 
+  if (service.slug === "photography") {
+    return (
+      <SplitShell activePath="/services" rightPanelClassName="split-page__right--detail">
+        <PhotographyServicePage service={service} />
+      </SplitShell>
+    );
+  }
+
   return (
     <SplitShell activePath="/services" rightPanelClassName="split-page__right--detail">
-      <div className="service-detail-page">
-        <div className="website-detail-top">
-          <Link href="/services" className="website-detail-back">
-            <span className="website-detail-back__arrow" aria-hidden="true" />
-            <span>Back</span>
-          </Link>
+      <div className="right-content right-content--detail-topless">
+        <div className="service-detail-page">
+          <ServiceDetailHeader
+            title={service.detailTitle}
+            services={service.detailServices}
+            intro={service.intro}
+            ariaLabel={`${service.detailTitle} services`}
+          />
 
-          <div className="website-detail-content">
-            <div className="website-detail-heading">
-              <div className="website-detail-heading__column">
-                <h1 className="website-detail-title">{service.detailTitle}</h1>
+          <div className="service-detail">
+            <section className="service-detail__section service-detail__section--benefits">
+              <div className="service-detail__section-header">
+                <h2 className="service-detail__label">What this includes</h2>
               </div>
-              <div className="website-detail-heading__column" aria-hidden="true" />
-            </div>
+              <ul>
+                {service.includes.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+
+            <section className="service-detail__section service-detail__section--benefits">
+              <div className="service-detail__section-header">
+                <h2 className="service-detail__label">Relevant experience</h2>
+              </div>
+              <ul>
+                {service.evidence.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
           </div>
         </div>
       </div>
