@@ -135,10 +135,7 @@ export function UXResearchPage({
             </div>
             <Link href="/contact" className="ux-research-cta">
               <span className="ux-research-cta__content">
-                <span className="ux-research-cta__label">Start an enquiry</span>
-                <span className="ux-research-cta__arrow" aria-hidden="true">
-                  →
-                </span>
+                <span className="ux-research-cta__label">Get in touch</span>
               </span>
             </Link>
           </section>

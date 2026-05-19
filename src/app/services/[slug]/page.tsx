@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PhotographyServicePage } from "@/components/photography-service-page";
-import { ServiceDetailHeader } from "@/components/service-detail-header";
+import { SmallBusinessConsultingPage } from "@/components/small-business-consulting-page";
 import { SplitShell } from "@/components/split-shell";
+import { UXUIConsultingPage } from "@/components/ux-ui-consulting-page";
 import { UXResearchPage } from "@/components/ux-research-page";
 import { WebsiteDesignPage } from "@/components/website-design-page";
 import { getServiceBySlug, services } from "@/data/site";
@@ -56,6 +57,14 @@ export default async function ServiceDetailPage({ params }: Props) {
     );
   }
 
+  if (service.slug === "ux-ui-consulting") {
+    return (
+      <SplitShell activePath="/services" rightPanelClassName="split-page__right--detail">
+        <UXUIConsultingPage service={service} />
+      </SplitShell>
+    );
+  }
+
   if (service.slug === "photography") {
     return (
       <SplitShell activePath="/services" rightPanelClassName="split-page__right--detail">
@@ -64,42 +73,13 @@ export default async function ServiceDetailPage({ params }: Props) {
     );
   }
 
-  return (
-    <SplitShell activePath="/services" rightPanelClassName="split-page__right--detail">
-      <div className="right-content right-content--detail-topless">
-        <div className="service-detail-page">
-          <ServiceDetailHeader
-            title={service.detailTitle}
-            services={service.detailServices}
-            intro={service.intro}
-            ariaLabel={`${service.detailTitle} services`}
-          />
+  if (service.slug === "small-business-consulting") {
+    return (
+      <SplitShell activePath="/services" rightPanelClassName="split-page__right--detail">
+        <SmallBusinessConsultingPage service={service} />
+      </SplitShell>
+    );
+  }
 
-          <div className="service-detail">
-            <section className="service-detail__section service-detail__section--benefits">
-              <div className="service-detail__section-header">
-                <h2 className="service-detail__label">What this includes</h2>
-              </div>
-              <ul>
-                {service.includes.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </section>
-
-            <section className="service-detail__section service-detail__section--benefits">
-              <div className="service-detail__section-header">
-                <h2 className="service-detail__label">Relevant experience</h2>
-              </div>
-              <ul>
-                {service.evidence.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </section>
-          </div>
-        </div>
-      </div>
-    </SplitShell>
-  );
+  notFound();
 }

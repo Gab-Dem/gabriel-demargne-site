@@ -130,7 +130,15 @@ a {
   padding-left: 0;
 }
 
-.website-detail-back {
+.website-detail-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 21px;
+}
+
+.website-detail-back,
+.website-detail-contact {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -188,7 +196,7 @@ a {
   flex: 1;
   display: grid;
   align-content: start;
-  gap: 42px;
+  gap: var(--service-block-gap, 56px);
   padding: 0 0 28px;
 }
 
@@ -197,11 +205,13 @@ a {
 }
 
 .right-content--detail-topless {
+  --service-block-gap: 56px;
   padding-top: 0;
 }
 
 .right-content--website {
   --website-overlay-trigger-height: 64px;
+  --service-block-gap: 56px;
   overflow: hidden;
   padding-top: 0;
   position: relative;
@@ -328,11 +338,12 @@ a {
   width: 100%;
   height: 100%;
   padding-bottom: var(--website-overlay-trigger-height);
+  overflow-y: auto;
 }
 
 .website-detail-top {
   display: grid;
-  gap: 42px;
+  gap: var(--service-block-gap, 56px);
   padding: 21px 28px 0;
 }
 
@@ -374,21 +385,25 @@ a {
 
 .website-detail-services__row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px 21px;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: clamp(5px, 0.9vw, 18px);
+  padding-right: 28px;
+  white-space: nowrap;
 }
 
 .website-detail-services__row span {
   position: relative;
   margin: 0;
-  font-size: 14px;
+  min-width: 0;
+  font-size: clamp(10px, 0.9vw, 14px);
   font-weight: 400;
   line-height: 1.2;
 }
 
 .website-detail-services__row span:not(:last-child)::after {
   content: "◍";
-  margin-left: 21px;
+  margin-left: clamp(5px, 0.9vw, 18px);
   font-size: 12px;
   line-height: 1;
 }
@@ -412,6 +427,19 @@ a {
 
   .website-detail-services {
     gap: 14px;
+  }
+
+  .website-detail-services__row {
+    gap: 5px;
+  }
+
+  .website-detail-services__row span {
+    font-size: clamp(9px, 2.7vw, 12px);
+  }
+
+  .website-detail-services__row span:not(:last-child)::after {
+    margin-left: 5px;
+    font-size: 9px;
   }
 
   .website-detail-content--body {
@@ -478,6 +506,18 @@ a {
   line-height: 1.45;
 }
 
+.website-objectives-section {
+  padding-bottom: var(--service-block-gap);
+}
+
+.website-objectives {
+  padding-top: 0;
+}
+
+.website-design-cta {
+  margin-top: calc(var(--service-block-gap) - 24px);
+}
+
 .website-detail-cta {
   display: inline-flex;
   align-items: center;
@@ -510,11 +550,11 @@ a {
 .ux-research-section {
   display: grid;
   gap: 24px;
-  padding-top: 30px;
+  padding-top: var(--service-block-gap, 56px);
 }
 
 .ux-research-section--methods {
-  padding-top: 42px;
+  padding-top: var(--service-block-gap, 56px);
 }
 
 .ux-research-section__title {
@@ -613,10 +653,10 @@ a {
   align-items: center;
   width: 100%;
   justify-self: stretch;
-  margin-top: 20px;
+  margin-top: var(--service-block-gap, 56px);
   padding: 18px 22px;
-  background: #000000;
-  color: #ffffff;
+  background: #ffffff;
+  color: #000000;
   border: 1px solid #000000;
   border-radius: 0;
   font-size: 22px;
@@ -624,6 +664,14 @@ a {
   line-height: 1.1;
   letter-spacing: -0.02em;
   text-decoration: none;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.ux-research-cta:hover {
+  background: #000000;
+  color: #ffffff;
 }
 
 .ux-research-cta__content {
@@ -636,14 +684,10 @@ a {
   text-align: left;
 }
 
-.ux-research-cta__arrow {
-  display: inline-block;
-  transition: transform 180ms ease;
-  transform-origin: center;
-}
-
-.ux-research-cta:hover .ux-research-cta__arrow {
-  transform: translateX(4px) scale(1.08);
+.website-design-cta {
+  background: #ffffff;
+  color: #000000;
+  border-color: #000000;
 }
 
 .photography-service-page {
@@ -656,7 +700,7 @@ a {
 .photography-service-list {
   display: grid;
   gap: 84px;
-  padding: 42px 0 0;
+  padding: var(--service-block-gap, 56px) 0 0;
 }
 
 .photography-feature {
@@ -722,7 +766,7 @@ a {
   display: grid;
   grid-template-columns: minmax(220px, 1fr) minmax(0, 1fr);
   gap: 24px;
-  margin-top: 64px;
+  margin-top: var(--service-block-gap, 56px);
   padding: 28px 0 0;
   border-top: 1px solid var(--line);
   align-items: start;
@@ -774,10 +818,15 @@ a {
 
 .photography-offers__cta {
   grid-column: 1 / -1;
-  margin-top: 10px;
+  margin-top: var(--service-block-gap, 56px);
 }
 
 @media (max-width: 640px) {
+  .right-content--website,
+  .right-content--detail-topless {
+    --service-block-gap: 44px;
+  }
+
   .website-focus-list {
     grid-template-columns: 1fr;
     gap: 14px;
@@ -817,14 +866,12 @@ a {
   }
 
   .ux-research-cta {
-    margin-top: 10px;
     font-size: 20px;
     padding: 16px 18px;
   }
 
   .photography-service-list {
     gap: 70px;
-    padding-top: 42px;
   }
 
   .photography-feature {
@@ -855,7 +902,6 @@ a {
 
   .photography-offers {
     gap: 21px;
-    margin-top: 56px;
     grid-template-columns: 1fr;
   }
 

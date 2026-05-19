@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AdaptiveIntroParagraph } from "@/components/adaptive-intro-paragraph";
 
 export function ServiceDetailHeader({
   title,
@@ -13,10 +14,16 @@ export function ServiceDetailHeader({
 }) {
   return (
     <div className="website-detail-top">
-      <Link href="/services" className="website-detail-back">
-        <span className="website-detail-back__arrow" aria-hidden="true" />
-        <span>Back</span>
-      </Link>
+      <div className="website-detail-nav">
+        <Link href="/services" className="website-detail-back">
+          <span className="website-detail-back__arrow" aria-hidden="true" />
+          <span>Back</span>
+        </Link>
+
+        <Link href="/contact" className="website-detail-contact">
+          <span>Get in touch</span>
+        </Link>
+      </div>
 
       <div className="website-detail-content">
         <div className="website-detail-heading">
@@ -33,7 +40,9 @@ export function ServiceDetailHeader({
             ))}
           </div>
           <hr className="website-detail-services__rule" />
-          <p className="website-detail-subtitle">{intro}</p>
+          <AdaptiveIntroParagraph className="website-detail-subtitle">
+            {intro}
+          </AdaptiveIntroParagraph>
         </section>
       </div>
     </div>
