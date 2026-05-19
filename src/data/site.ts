@@ -5,7 +5,6 @@ export const site = {
 
 export const navigation = [
   { href: "/services", label: "Services" },
-  { href: "/selected-work", label: "Selected Work" },
   { href: "/photography", label: "Photography" },
   { href: "/contact", label: "Contact" },
 ] as const;
@@ -17,35 +16,29 @@ export const services = [
     copy: "Websites designed, built, refined, and maintained.",
     detailTitle: "Website Design",
     intro:
-      "A website can help make a business easier to understand, easier to trust, and easier to contact.",
+      "Supporting artists, creative practitioners, and service-led businesses with websites that make their work easier to understand, evaluate, and act on.",
+    focusIntro:
+      "A website needs to do more than look resolved. It needs to explain the offer, create confidence, and guide people through the right next step.",
     functions: [
       {
-        title: "Clarity",
+        title: "Structure",
         copy:
-          "A website can help people understand what you offer and whether it is relevant to them.",
-        service:
-          "This can include page structure, hierarchy, navigation, and content direction.",
+          "Clarifying what needs to be said, what matters most, and how the page should unfold.",
       },
       {
-        title: "Trust",
+        title: "Content",
         copy:
-          "A website can help a business feel credible, considered, and easier to believe.",
-        service:
-          "This can include design direction, visual restraint, image use, and how proof is placed.",
+          "Shaping language, navigation, and page sections so the site feels direct and easy to use.",
       },
       {
-        title: "Use",
+        title: "Visual judgement",
         copy:
-          "A website can make information easier to find and actions easier to take.",
-        service:
-          "This can include mobile behaviour, page flow, and practical UX decisions.",
+          "Using layout, type, spacing, imagery, and restraint to create a credible online presence.",
       },
       {
-        title: "Build and refine",
+        title: "Build",
         copy:
-          "A website also has to exist as a real working tool, not only as a concept.",
-        service:
-          "This can include implementation, iteration, updates, and ongoing refinement.",
+          "Turning the design into a working site that is practical, maintainable, and suited to real use.",
       },
     ],
     examples: [

@@ -13,20 +13,15 @@ export default function ServicesPage() {
       <div className="right-content right-content--bottom">
         <div className="service-stack">
           {services.map((service) => (
-            <a
-              key={service.title}
-              href={`/services/${service.slug}`}
-              className="service-card service-card--hover-full"
-            >
-              <h2 className="service-card__title">{service.title}</h2>
-              <p className="service-card__copy">{service.copy}</p>
-              <span className="service-card__link">
+            <article key={service.title} className="service-card service-card--hover-full">
+              <div className="service-card__body">
+                <h2 className="service-card__title">{service.title}</h2>
+                <p className="service-card__copy">{service.copy}</p>
+              </div>
+              <a href={`/services/${service.slug}`} className="service-card__link">
                 Learn More
-                <span className="service-card__link-arrow" aria-hidden="true">
-                  →
-                </span>
-              </span>
-            </a>
+              </a>
+            </article>
           ))}
         </div>
       </div>

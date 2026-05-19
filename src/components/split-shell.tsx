@@ -9,7 +9,7 @@ export function SplitShell({
   children,
 }: {
   activePath: string;
-  rightTitle: string;
+  rightTitle?: string;
   rightPanelClassName?: string;
   children: React.ReactNode;
 }) {
@@ -55,7 +55,7 @@ export function SplitShell({
       <section
         className={rightPanelClassName ? `split-page__right ${rightPanelClassName}` : "split-page__right"}
       >
-        <h1 className="right-title">{rightTitle}</h1>
+        {rightTitle ? <h1 className="right-title">{rightTitle}</h1> : null}
         {children}
       </section>
     </main>
