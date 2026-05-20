@@ -157,9 +157,9 @@ export const services = [
   },
   {
     slug: "small-business-consulting",
-    title: "Small-business consulting",
+    title: "Small-Business Consulting",
     copy: "Position and strategy consulting for creative businesses.",
-    detailTitle: "Small-business consulting",
+    detailTitle: "Small-Business Consulting",
     detailServices: [
       "Offer Clarity",
       "Positioning",

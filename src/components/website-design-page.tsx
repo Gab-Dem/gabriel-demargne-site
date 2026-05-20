@@ -52,6 +52,34 @@ const objectives: readonly WebsiteObjective[] = [
   },
 ];
 
+const offers = [
+  {
+    title: "New Builds",
+    copy:
+      "Designing and building new websites from the ground up, with attention to structure, content, visual direction, and practical implementation.",
+  },
+  {
+    title: "Redesigns",
+    copy:
+      "Reworking an existing site when the offer, content, structure, or overall presentation no longer reflects the business clearly enough.",
+  },
+  {
+    title: "Maintenance",
+    copy:
+      "Ongoing support for sites that need updates, refinements, additions, or a reliable person to keep things moving properly.",
+  },
+  {
+    title: "System Improvements",
+    copy:
+      "Improving navigation, page structure, content hierarchy, or frontend behavior where the current site works, but not well enough.",
+  },
+  {
+    title: "Analysis",
+    copy:
+      "Reviewing an existing website to identify what is unclear, where friction appears, and what should be changed before more time is spent building.",
+  },
+] as const;
+
 export function WebsiteDesignPage({
   service,
 }: {
@@ -86,6 +114,31 @@ export function WebsiteDesignPage({
               ))}
             </div>
           </section>
+
+          {offers.length ? (
+            <section className="ux-research-section ux-research-section--methods">
+              <h2 className="ux-research-section__title">Types of Work</h2>
+              <div className="ux-research-methods" role="list">
+                {offers.map((item) => (
+                  <article
+                    key={item.title}
+                    className="ux-research-method"
+                    role="listitem"
+                  >
+                    <div className="ux-research-method__summary">
+                      <div className="ux-research-method__icon" aria-hidden="true">
+                        <MethodIcon />
+                      </div>
+                      <div className="ux-research-method__body">
+                        <h3 className="ux-research-method__title">{item.title}</h3>
+                        <p className="ux-research-method__copy">{item.copy}</p>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+          ) : null}
         </div>
       </div>
 
@@ -239,20 +292,43 @@ function UsabilityIcon() {
 function DeliveryIcon() {
   return (
     <IconFrame>
+      <rect
+        x="14"
+        y="14"
+        width="36"
+        height="36"
+        rx="1"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
       <path
-        d="M13 38 32 12l19 26"
+        d="m23 32 6 6 12-14"
         stroke="currentColor"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path
-        d="M21 38h22v13H21V38Z"
+    </IconFrame>
+  );
+}
+
+function MethodIcon() {
+  return (
+    <IconFrame>
+      <rect
+        x="13"
+        y="14"
+        width="38"
+        height="36"
+        rx="1"
         stroke="currentColor"
         strokeWidth="1.8"
-        strokeLinejoin="round"
       />
-      <path d="M27 44h10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M13 24h38" stroke="currentColor" strokeWidth="1.8" />
+      <path d="M22 33h20" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M22 41h15" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <circle cx="20" cy="19" r="1.8" fill="currentColor" />
+      <circle cx="27" cy="19" r="1.8" fill="currentColor" />
     </IconFrame>
   );
 }

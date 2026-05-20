@@ -21,8 +21,8 @@ export default function ServicesPage() {
               <div className="website-detail-heading__column">
                 <h1 className="website-detail-title">Creative Consulting</h1>
                 <p className="services-home__intro">
-                  Websites, UX, research, strategy, and photography brought together
-                  as a focused creative consulting offer.
+                  Website Design, UX / UI, Research, Strategy, and Photography,
+                  offered through one independent practice.
                 </p>
               </div>
             </div>
