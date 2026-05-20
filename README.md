@@ -1,59 +1,78 @@
 # Gabriel Demargne
 
-Standalone rebuild of `gabrieldemargne.com` outside Cargo, using Next.js and intended for deployment on Vercel.
+Professional services website for Gabriel Demargne, built with Next.js and intended for deployment on Vercel.
+
+## Overview
+
+This repository is the standalone rebuild of `gabrieldemargne.com`, replacing the current Cargo-driven site with a maintainable Next.js application.
+
+The site is structured around a service-led presentation of:
+
+- website design
+- UX / UI consulting
+- UX research
+- photography
+- small-business consulting
 
 ## Stack
 
 - Next.js `app/` router
 - TypeScript
+- React
 - ESLint
-- Vercel for hosting
+- Vercel
 
-## Current status
+## Local development
 
-The repo is in active design and implementation iteration around a split-layout services site.
-
-- Local Next.js build is working
-- Visual direction is being refined in-browser
-- Project notes live in Obsidian under `Build/Projects/MyWebsite`
-- Copy is managed in Obsidian rather than directly in implementation notes
-
-## Development
-
-Install dependencies if needed, then start the dev server:
+Install dependencies and start the dev server:
 
 ```bash
+npm install
 npm run dev
 ```
 
 Open `http://localhost:3000`.
 
-## Copy workflow
+## Available scripts
 
-The website copy source of truth is:
+```bash
+npm run dev
+npm run build
+npm run start
+npm run lint
+```
 
-- `Build/Projects/MyWebsite/Copy` in the Obsidian vault
+## Project structure
 
-Use:
+```text
+src/app                App routes
+src/components         Shared and route-specific UI components
+src/data/site.ts       Site navigation and service content
+public/                Static assets and photography selections
+```
 
-- `Copy.md` for approved live copy
-- `Copy Ideas.md` for experiments and alternates
+## Content workflow
 
-Rule:
+The implementation lives in this repository, but the working copy source of truth is maintained in the Obsidian project notes.
 
-- When a route is added, removed, renamed, or materially edited, update `Copy.md` so the project notes remain aligned with the website.
+- Approved copy: `Build/Projects/MyWebsite/Copy/Copy.md`
+- Exploratory copy: `Build/Projects/MyWebsite/Copy/Copy Ideas.md`
 
-## Vercel
+When a route is added, removed, renamed, or materially edited, update the approved copy notes so the implementation and planning stay aligned.
 
-Once the repo is on GitHub:
+## Deployment
 
-1. Create a new Vercel project from the repo.
-2. Framework preset: `Next.js`.
-3. Build command: `npm run build`.
-4. Output setting: default Next.js output.
-5. Add the production domain after the first deploy.
+This project is intended for Vercel deployment.
 
-## Notes
+Expected defaults:
+
+- Framework preset: `Next.js`
+- Install command: `npm install`
+- Build command: `npm run build`
+- Start command: `npm run start`
+
+## Status
 
 - The current live site is still Cargo-driven.
-- This repo is the migration target, not a Cargo export.
+- This repository is the migration target.
+- A clean local snapshot of the first Git milestone exists as tag `V1`.

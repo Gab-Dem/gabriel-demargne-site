@@ -2,7 +2,6 @@
 
 import type { ReactNode } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 import { ServiceDetailHeader } from "@/components/service-detail-header";
 
@@ -86,11 +85,6 @@ export function WebsiteDesignPage({
                 </article>
               ))}
             </div>
-            <Link href="/contact" className="ux-research-cta website-design-cta">
-              <span className="ux-research-cta__content">
-                <span className="ux-research-cta__label">Get in touch</span>
-              </span>
-            </Link>
           </section>
         </div>
       </div>

@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import Link from "next/link";
 import { ServiceDetailHeader } from "@/components/service-detail-header";
 
 type UXResearchService = {
@@ -133,11 +132,6 @@ export function UXResearchPage({
                 </article>
               ))}
             </div>
-            <Link href="/contact" className="ux-research-cta">
-              <span className="ux-research-cta__content">
-                <span className="ux-research-cta__label">Get in touch</span>
-              </span>
-            </Link>
           </section>
         </div>
       </div>

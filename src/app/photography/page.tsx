@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function PhotographyPage() {
   return (
-    <SplitShell activePath="/photography" rightTitle="Photography">
+    <SplitShell rightTitle="Photography">
       <div className="right-content">
         <div className="placeholder-copy">
           <p>Photography content to be developed.</p>

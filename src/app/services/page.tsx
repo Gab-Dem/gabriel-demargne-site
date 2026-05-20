@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import { ServiceGlobalNav } from "@/components/service-global-nav";
 import { SplitShell } from "@/components/split-shell";
-import { services } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -9,21 +10,36 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <SplitShell activePath="/services" rightTitle="Services">
-      <div className="right-content right-content--bottom">
-        <div className="service-stack">
-          {services.map((service) => (
-            <article key={service.title} className="service-card service-card--hover-full">
-              <div className="service-card__body">
-                <h2 className="service-card__title">{service.title}</h2>
-                <p className="service-card__copy">{service.copy}</p>
+    <SplitShell
+      leftLowerContent={<ServiceGlobalNav />}
+      rightPanelClassName="split-page__right--detail"
+    >
+      <div className="right-content right-content--detail-topless services-home-layout">
+        <div className="website-detail-top">
+          <div className="website-detail-content">
+            <div className="website-detail-heading">
+              <div className="website-detail-heading__column">
+                <h1 className="website-detail-title">Creative Consulting</h1>
+                <p className="services-home__intro">
+                  Websites, UX, research, strategy, and photography brought together
+                  as a focused creative consulting offer.
+                </p>
               </div>
-              <a href={`/services/${service.slug}`} className="service-card__link">
-                Learn More
-              </a>
-            </article>
-          ))}
+            </div>
+          </div>
         </div>
+        <section className="services-home" aria-label="Creative consulting portrait">
+          <div className="services-home__portrait">
+            <Image
+              src="/me-v3.jpeg"
+              alt="Gabriel Demargne portrait"
+              fill
+              className="services-home__portrait-image"
+              sizes="(max-width: 960px) 70vw, 28vw"
+              priority
+            />
+          </div>
+        </section>
       </div>
     </SplitShell>
   );

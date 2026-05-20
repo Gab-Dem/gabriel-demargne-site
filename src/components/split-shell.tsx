@@ -1,16 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import { navigation, site } from "@/data/site";
+import { site } from "@/data/site";
 
 export function SplitShell({
-  activePath,
   rightTitle,
   rightPanelClassName,
+  leftLowerContent,
   children,
 }: {
-  activePath: string;
   rightTitle?: string;
   rightPanelClassName?: string;
+  leftLowerContent?: React.ReactNode;
   children: React.ReactNode;
 }) {
   return (
@@ -25,31 +25,12 @@ export function SplitShell({
             className="left-image"
             priority
           />
-          <p className="image-caption">{site.name}</p>
+          <Link href="/services" className="left-title left-title--overlay">
+            {site.name}
+          </Link>
         </div>
 
-        <div className="left-lower">
-          <h1 className="left-title">{site.sectionTitle}</h1>
-          <nav className="left-nav" aria-label="Primary">
-            {navigation.map((item) => {
-              const isActive = item.href === activePath;
-
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="left-nav__item"
-                  aria-current={isActive ? "page" : undefined}
-                >
-                  <span className="left-nav__arrow" aria-hidden="true">
-                    {isActive ? "◍" : ""}
-                  </span>
-                  <span>{item.label}</span>
-                </Link>
-              );
-            })}
-          </nav>
-        </div>
+        {leftLowerContent ? <div className="left-lower">{leftLowerContent}</div> : null}
       </section>
 
       <section

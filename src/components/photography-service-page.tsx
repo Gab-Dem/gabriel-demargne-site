@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { ServiceDetailHeader } from "@/components/service-detail-header";
 
 type PhotographyService = {
@@ -105,11 +104,6 @@ export function PhotographyServicePage({
               <li key={service}>{service}</li>
             ))}
           </ul>
-          <Link href="/contact" className="ux-research-cta photography-offers__cta">
-            <span className="ux-research-cta__content">
-              <span className="ux-research-cta__label">Get in touch</span>
-            </span>
-          </Link>
         </section>
       </div>
     </div>

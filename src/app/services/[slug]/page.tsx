@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PhotographyServicePage } from "@/components/photography-service-page";
+import { ServiceGlobalNav } from "@/components/service-global-nav";
 import { SmallBusinessConsultingPage } from "@/components/small-business-consulting-page";
 import { SplitShell } from "@/components/split-shell";
 import { UXUIConsultingPage } from "@/components/ux-ui-consulting-page";
@@ -41,7 +42,7 @@ export default async function ServiceDetailPage({ params }: Props) {
   if (service.slug === "website-design") {
     return (
       <SplitShell
-        activePath="/services"
+        leftLowerContent={<ServiceGlobalNav selectedSlug={service.slug} />}
         rightPanelClassName="split-page__right--website"
       >
         <WebsiteDesignPage service={service} />
@@ -51,7 +52,10 @@ export default async function ServiceDetailPage({ params }: Props) {
 
   if (service.slug === "ux-research") {
     return (
-      <SplitShell activePath="/services" rightPanelClassName="split-page__right--detail">
+      <SplitShell
+        leftLowerContent={<ServiceGlobalNav selectedSlug={service.slug} />}
+        rightPanelClassName="split-page__right--detail"
+      >
         <UXResearchPage service={service} />
       </SplitShell>
     );
@@ -59,7 +63,10 @@ export default async function ServiceDetailPage({ params }: Props) {
 
   if (service.slug === "ux-ui-consulting") {
     return (
-      <SplitShell activePath="/services" rightPanelClassName="split-page__right--detail">
+      <SplitShell
+        leftLowerContent={<ServiceGlobalNav selectedSlug={service.slug} />}
+        rightPanelClassName="split-page__right--detail"
+      >
         <UXUIConsultingPage service={service} />
       </SplitShell>
     );
@@ -67,7 +74,10 @@ export default async function ServiceDetailPage({ params }: Props) {
 
   if (service.slug === "photography") {
     return (
-      <SplitShell activePath="/services" rightPanelClassName="split-page__right--detail">
+      <SplitShell
+        leftLowerContent={<ServiceGlobalNav selectedSlug={service.slug} />}
+        rightPanelClassName="split-page__right--detail"
+      >
         <PhotographyServicePage service={service} />
       </SplitShell>
     );
@@ -75,7 +85,10 @@ export default async function ServiceDetailPage({ params }: Props) {
 
   if (service.slug === "small-business-consulting") {
     return (
-      <SplitShell activePath="/services" rightPanelClassName="split-page__right--detail">
+      <SplitShell
+        leftLowerContent={<ServiceGlobalNav selectedSlug={service.slug} />}
+        rightPanelClassName="split-page__right--detail"
+      >
         <SmallBusinessConsultingPage service={service} />
       </SplitShell>
     );

@@ -2,6 +2,7 @@
   "name": "gabriel-demargne-site",
   "version": "0.1.0",
   "private": true,
+  "description": "Professional services website for Gabriel Demargne, built with Next.js.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
