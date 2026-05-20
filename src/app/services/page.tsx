@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { MobileHomeNav } from "@/components/mobile-home-nav";
 import { ServiceGlobalNav } from "@/components/service-global-nav";
 import { SplitShell } from "@/components/split-shell";
 
@@ -11,7 +12,17 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <SplitShell
-      leftLowerContent={<ServiceGlobalNav />}
+      leftLowerContent={
+        <>
+          <div className="mobile-home-nav-shell">
+            <MobileHomeNav />
+          </div>
+          <div className="desktop-service-nav-shell">
+            <ServiceGlobalNav />
+          </div>
+        </>
+      }
+      mobileMode="home"
       rightPanelClassName="split-page__right--detail"
     >
       <div className="right-content right-content--detail-topless services-home-layout">

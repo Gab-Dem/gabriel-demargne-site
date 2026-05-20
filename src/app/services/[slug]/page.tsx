@@ -43,6 +43,7 @@ export default async function ServiceDetailPage({ params }: Props) {
     return (
       <SplitShell
         leftLowerContent={<ServiceGlobalNav selectedSlug={service.slug} />}
+        mobileMode="detail"
         rightPanelClassName="split-page__right--website"
       >
         <WebsiteDesignPage service={service} />
@@ -54,6 +55,7 @@ export default async function ServiceDetailPage({ params }: Props) {
     return (
       <SplitShell
         leftLowerContent={<ServiceGlobalNav selectedSlug={service.slug} />}
+        mobileMode="detail"
         rightPanelClassName="split-page__right--detail"
       >
         <UXResearchPage service={service} />
@@ -65,6 +67,7 @@ export default async function ServiceDetailPage({ params }: Props) {
     return (
       <SplitShell
         leftLowerContent={<ServiceGlobalNav selectedSlug={service.slug} />}
+        mobileMode="detail"
         rightPanelClassName="split-page__right--detail"
       >
         <UXUIConsultingPage service={service} />
@@ -76,6 +79,7 @@ export default async function ServiceDetailPage({ params }: Props) {
     return (
       <SplitShell
         leftLowerContent={<ServiceGlobalNav selectedSlug={service.slug} />}
+        mobileMode="detail"
         rightPanelClassName="split-page__right--detail"
       >
         <PhotographyServicePage service={service} />
@@ -87,6 +91,7 @@ export default async function ServiceDetailPage({ params }: Props) {
     return (
       <SplitShell
         leftLowerContent={<ServiceGlobalNav selectedSlug={service.slug} />}
+        mobileMode="detail"
         rightPanelClassName="split-page__right--detail"
       >
         <SmallBusinessConsultingPage service={service} />

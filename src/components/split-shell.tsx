@@ -6,15 +6,24 @@ export function SplitShell({
   rightTitle,
   rightPanelClassName,
   leftLowerContent,
+  mobileMode,
   children,
 }: {
   rightTitle?: string;
   rightPanelClassName?: string;
   leftLowerContent?: React.ReactNode;
+  mobileMode?: "default" | "home" | "detail";
   children: React.ReactNode;
 }) {
+  const shellClassName = [
+    "split-page",
+    mobileMode ? `split-page--mobile-${mobileMode}` : null,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <main className="split-page">
+    <main className={shellClassName}>
       <section className="split-page__left">
         <div className="left-image-wrap">
           <Image
@@ -36,6 +45,14 @@ export function SplitShell({
       <section
         className={rightPanelClassName ? `split-page__right ${rightPanelClassName}` : "split-page__right"}
       >
+        {mobileMode === "detail" ? (
+          <div className="mobile-back-strip">
+            <Link href="/services" className="mobile-back-strip__link">
+              <span aria-hidden="true">←</span>
+              <span>Back</span>
+            </Link>
+          </div>
+        ) : null}
         {rightTitle ? <h1 className="right-title">{rightTitle}</h1> : null}
         {children}
       </section>

@@ -22,6 +22,7 @@ export default function ContactPage() {
   return (
     <SplitShell
       leftLowerContent={<ServiceGlobalNav selectedPath="/contact" />}
+      mobileMode="detail"
       rightPanelClassName="split-page__right--detail"
     >
       <div className="right-content right-content--detail-topless">

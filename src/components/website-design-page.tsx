@@ -195,17 +195,17 @@ export function WebsiteDesignPage({
                   <div className="service-example-card__body">
                     <div className="service-example-card__content">
                       <h3>{example.title}</h3>
+                      <a
+                        href={example.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="service-example-card__text-link"
+                      >
+                        View Site
+                      </a>
                     </div>
                     <p className="service-example-card__copy">{example.copy}</p>
                   </div>
-                  <a
-                    href={example.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="service-example-card__link"
-                  >
-                    Visit
-                  </a>
                 </article>
               ))}
             </div>
