@@ -2,7 +2,7 @@ import Link from "next/link";
 import { site, services } from "@/data/site";
 
 const secondaryLinks = [
-  { href: "/photography", label: "Photography Gallery" },
+  { href: "https://gabrieldemargne.com", label: "Photography Gallery" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
@@ -27,7 +27,13 @@ export function MobileHomeNav() {
 
       <nav className="mobile-home-nav__section" aria-label="Secondary links">
         {secondaryLinks.map((item) => (
-          <Link key={item.href} href={item.href} className="mobile-home-nav__link">
+          <Link
+            key={item.href}
+            href={item.href}
+            className="mobile-home-nav__link"
+            target={item.href.startsWith("http") ? "_blank" : undefined}
+            rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+          >
             {item.label}
           </Link>
         ))}
