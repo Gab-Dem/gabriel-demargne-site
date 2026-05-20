@@ -206,6 +206,14 @@ export function WebsiteDesignPage({
                     </div>
                     <p className="service-example-card__copy">{example.copy}</p>
                   </div>
+                  <a
+                    href={example.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="service-example-card__link"
+                  >
+                    Visit
+                  </a>
                 </article>
               ))}
             </div>

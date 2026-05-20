@@ -1308,7 +1308,7 @@ a {
 }
 
 .service-example-card__text-link {
-  display: inline-flex;
+  display: none;
   align-items: center;
   gap: 6px;
   width: fit-content;
@@ -1320,6 +1320,26 @@ a {
 
 .service-example-card__text-link::after {
   content: "→";
+}
+
+.service-example-card__link {
+  flex: 0 0 auto;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  width: auto;
+  min-width: 0;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+  padding: 0 10px;
+  border-left: 1px solid currentColor;
+  text-align: center;
+  text-decoration: none;
 }
 
 .website-overlay-trigger {
@@ -2346,8 +2366,16 @@ body:has(.focus-reference-page) {
     margin-bottom: 0;
   }
 
+  .service-example-card__text-link {
+    display: inline-flex;
+  }
+
   .website-overlay .service-example-card__copy,
   .service-example-card__copy {
+    display: none;
+  }
+
+  .service-example-card__link {
     display: none;
   }
 
