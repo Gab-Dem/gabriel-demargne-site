@@ -9,7 +9,7 @@ const secondaryLinks = [
 export function MobileHomeNav() {
   return (
     <div className="mobile-home-nav" aria-label="Mobile homepage navigation">
-      <Link href="/services" className="mobile-home-nav__name">
+      <Link href="/" className="mobile-home-nav__name">
         {site.name}
       </Link>
 

@@ -4,7 +4,7 @@ export const site = {
 } as const;
 
 export const navigation = [
-  { href: "/services", label: "Services" },
+  { href: "/", label: "Services" },
   { href: "/photography", label: "Photography" },
   { href: "/contact", label: "Contact" },
 ] as const;

@@ -34,7 +34,7 @@ export function SplitShell({
             className="left-image"
             priority
           />
-          <Link href="/services" className="left-title left-title--overlay">
+          <Link href="/" className="left-title left-title--overlay">
             {site.name}
           </Link>
         </div>
@@ -47,9 +47,12 @@ export function SplitShell({
       >
         {mobileMode === "detail" ? (
           <div className="mobile-back-strip">
-            <Link href="/services" className="mobile-back-strip__link">
+            <Link href="/" className="mobile-back-strip__link">
               <span aria-hidden="true">←</span>
               <span>Back</span>
+            </Link>
+            <Link href="/contact" className="mobile-back-strip__link mobile-back-strip__link--contact">
+              <span>Get in touch</span>
             </Link>
           </div>
         ) : null}
