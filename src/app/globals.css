@@ -2307,12 +2307,16 @@ body:has(.focus-reference-page) {
   }
 
   .split-page--mobile-home {
-    height: auto;
+    height: 100vh;
     min-height: 100vh;
+    overflow: hidden;
   }
 
   .split-page--mobile-home .split-page__left {
+    display: flex;
+    flex-direction: column;
     border-bottom: 0;
+    min-height: 100vh;
   }
 
   .split-page--mobile-home .split-page__right {
@@ -2320,7 +2324,9 @@ body:has(.focus-reference-page) {
   }
 
   .split-page--mobile-home .left-image-wrap {
-    aspect-ratio: 786 / 500;
+    flex: 1 1 auto;
+    min-height: 0;
+    aspect-ratio: auto;
     overflow: hidden;
   }
 
@@ -2336,7 +2342,8 @@ body:has(.focus-reference-page) {
   }
 
   .split-page--mobile-home .left-lower {
-    padding: 36px 32px calc(88px + env(safe-area-inset-bottom, 0px));
+    flex: 0 0 auto;
+    padding: 36px 32px 144px;
   }
 
   .split-page--mobile-home .mobile-home-nav-shell {
