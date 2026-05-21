@@ -2336,7 +2336,7 @@ body:has(.focus-reference-page) {
   }
 
   .split-page--mobile-home .left-lower {
-    padding: 36px 32px 56px;
+    padding: 36px 32px calc(88px + env(safe-area-inset-bottom, 0px));
   }
 
   .split-page--mobile-home .mobile-home-nav-shell {
