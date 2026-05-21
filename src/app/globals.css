@@ -2343,7 +2343,7 @@ body:has(.focus-reference-page) {
 
   .split-page--mobile-home .left-lower {
     flex: 0 0 auto;
-    padding: 36px 32px 104px;
+    padding: 36px 32px 64px;
   }
 
   .split-page--mobile-home .mobile-home-nav-shell {
