@@ -75,8 +75,10 @@ const methods: readonly ConsultingMethod[] = [
 
 export function UXUIConsultingPage({
   service,
+  contactHref,
 }: {
   service: UXUIConsultingService;
+  contactHref: string;
 }) {
   return (
     <div className="right-content right-content--detail-topless">
@@ -86,6 +88,7 @@ export function UXUIConsultingPage({
           services={service.detailServices}
           intro={service.intro}
           ariaLabel="UX/UI consulting services"
+          contactHref={contactHref}
         />
 
         <div className="website-detail-content website-detail-content--body">

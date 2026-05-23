@@ -8,8 +8,10 @@ export const metadata: Metadata = {
 };
 
 export default function PhotographyPage() {
+  const contactHref = "/contact?returnTo=%2Fphotography";
+
   return (
-    <SplitShell mobileMode="detail">
+    <SplitShell mobileMode="detail" contactHref={contactHref}>
       <div className="right-content">
         <div className="website-detail-top">
           <div className="website-detail-content">
@@ -18,7 +20,7 @@ export default function PhotographyPage() {
                 <h1 className="website-detail-title">Photography</h1>
               </div>
               <div className="website-detail-heading__column website-detail-heading__column--contact">
-                <Link href="/contact" className="desktop-detail-contact-link">
+                <Link href={contactHref} className="desktop-detail-contact-link">
                   Get in touch
                   <span className="desktop-detail-contact-link__arrow" aria-hidden="true">
                     →

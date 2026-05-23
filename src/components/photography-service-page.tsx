@@ -76,8 +76,10 @@ const offeredServices = [
 
 export function PhotographyServicePage({
   service,
+  contactHref,
 }: {
   service: PhotographyService;
+  contactHref: string;
 }) {
   return (
     <div className="right-content right-content--detail-topless">
@@ -87,6 +89,7 @@ export function PhotographyServicePage({
           services={service.detailServices}
           intro={service.intro}
           ariaLabel="Photography services"
+          contactHref={contactHref}
         />
 
         <div className="photography-service-list">

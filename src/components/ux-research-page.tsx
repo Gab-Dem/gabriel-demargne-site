@@ -80,8 +80,10 @@ const methods: readonly Method[] = [
 
 export function UXResearchPage({
   service,
+  contactHref,
 }: {
   service: UXResearchService;
+  contactHref: string;
 }) {
   return (
     <div className="right-content right-content--detail-topless">
@@ -91,6 +93,7 @@ export function UXResearchPage({
           services={service.detailServices}
           intro="UX research helps clarify how people experience your service, what they need, where they struggle, and how your offer compares within the wider market. Good research allows you to make informed product and service decisions."
           ariaLabel="UX research services"
+          contactHref={contactHref}
         />
 
         <div className="website-detail-content website-detail-content--body">

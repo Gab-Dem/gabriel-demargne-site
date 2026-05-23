@@ -82,8 +82,10 @@ const offers = [
 
 export function WebsiteDesignPage({
   service,
+  contactHref,
 }: {
   service: WebsiteDesignService;
+  contactHref: string;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [dragOffset, setDragOffset] = useState(0);
@@ -150,6 +152,7 @@ export function WebsiteDesignPage({
           services={service.detailServices}
           intro={service.intro}
           ariaLabel="Website design services"
+          contactHref={contactHref}
         />
 
         <div className="website-detail-content website-detail-content--body">

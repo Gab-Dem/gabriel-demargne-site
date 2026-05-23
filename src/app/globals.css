@@ -702,7 +702,7 @@ a {
 .website-focus-item {
   display: grid;
   align-content: start;
-  gap: 14px;
+  gap: 12px;
   min-height: 152px;
   padding: 14px 14px 18px;
   background: #ffffff;
@@ -801,7 +801,7 @@ a {
 
 .ux-research-card__body {
   display: grid;
-  gap: 8px;
+  gap: 6px;
 }
 
 .ux-research-card__icon,
@@ -859,7 +859,7 @@ a {
 
 .ux-research-method__body {
   display: grid;
-  gap: 8px;
+  gap: 6px;
 }
 
 .ux-research-method__icon {
@@ -927,7 +927,7 @@ a {
 .photography-feature__copy-inner {
   max-width: 360px;
   display: grid;
-  gap: 12px;
+  gap: 10px;
 }
 
 .photography-feature__title,
@@ -992,7 +992,7 @@ a {
 .photography-offers__header {
   max-width: 620px;
   display: grid;
-  gap: 12px;
+  gap: 10px;
 }
 
 .photography-offers__header h2 {
@@ -1086,7 +1086,7 @@ a {
   }
 
   .photography-feature__copy-inner {
-    gap: 12px;
+    gap: 10px;
     max-width: none;
   }
 
@@ -1168,7 +1168,7 @@ a {
 
 .service-detail__section-header {
   display: grid;
-  gap: 12px;
+  gap: 10px;
   align-content: start;
   grid-column: 1 / -1;
   max-width: 720px;
@@ -1217,7 +1217,7 @@ a {
 
 .service-function {
   display: grid;
-  gap: 12px;
+  gap: 10px;
   align-content: start;
   padding-top: 24px;
   border-top: 1px solid var(--line);
@@ -2481,6 +2481,22 @@ body:has(.focus-reference-page) {
 
   .service-example-card__link {
     display: none;
+  }
+
+  .website-overlay__inner {
+    overflow-y: auto;
+    grid-template-rows: auto 1fr;
+    align-content: start;
+  }
+
+  .website-overlay__title {
+    align-self: start;
+    margin-bottom: 0;
+  }
+
+  .website-overlay__examples {
+    align-content: start;
+    padding-top: 14px;
   }
 
   .website-overlay {

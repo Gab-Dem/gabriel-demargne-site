@@ -7,12 +7,16 @@ export function SplitShell({
   rightPanelClassName,
   leftLowerContent,
   mobileMode,
+  backHref = "/",
+  contactHref = "/contact",
   children,
 }: {
   rightTitle?: string;
   rightPanelClassName?: string;
   leftLowerContent?: React.ReactNode;
   mobileMode?: "default" | "home" | "detail";
+  backHref?: string;
+  contactHref?: string;
   children: React.ReactNode;
 }) {
   const shellClassName = [
@@ -47,11 +51,11 @@ export function SplitShell({
       >
         {mobileMode === "detail" ? (
           <div className="mobile-back-strip">
-            <Link href="/" className="mobile-back-strip__link">
+            <Link href={backHref} className="mobile-back-strip__link">
               <span aria-hidden="true">←</span>
               <span>Back</span>
             </Link>
-            <Link href="/contact" className="mobile-back-strip__link mobile-back-strip__link--contact">
+            <Link href={contactHref} className="mobile-back-strip__link mobile-back-strip__link--contact">
               <span>Get in touch</span>
             </Link>
           </div>

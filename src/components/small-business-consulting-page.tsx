@@ -81,8 +81,10 @@ const steps: readonly ConsultingStep[] = [
 
 export function SmallBusinessConsultingPage({
   service,
+  contactHref,
 }: {
   service: SmallBusinessConsultingService;
+  contactHref: string;
 }) {
   return (
     <div className="right-content right-content--detail-topless">
@@ -92,6 +94,7 @@ export function SmallBusinessConsultingPage({
           services={service.detailServices}
           intro={service.intro}
           ariaLabel="Small-business consulting services"
+          contactHref={contactHref}
         />
 
         <div className="website-detail-content website-detail-content--body">

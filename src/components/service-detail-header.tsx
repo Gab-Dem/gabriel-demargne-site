@@ -6,11 +6,13 @@ export function ServiceDetailHeader({
   services,
   intro,
   ariaLabel,
+  contactHref = "/contact",
 }: {
   title: string;
   services: readonly string[];
   intro: string;
   ariaLabel: string;
+  contactHref?: string;
 }) {
   return (
     <div className="website-detail-top">
@@ -20,7 +22,7 @@ export function ServiceDetailHeader({
             <h1 className="website-detail-title">{title}</h1>
           </div>
           <div className="website-detail-heading__column website-detail-heading__column--contact">
-            <Link href="/contact" className="desktop-detail-contact-link">
+            <Link href={contactHref} className="desktop-detail-contact-link">
               Get in touch
               <span className="desktop-detail-contact-link__arrow" aria-hidden="true">
                 →

@@ -18,12 +18,20 @@ export const metadata: Metadata = {
   description: "Contact Gabriel Demargne.",
 };
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ returnTo?: string }>;
+}) {
+  const { returnTo } = await searchParams;
+  const backHref = returnTo?.startsWith("/") ? returnTo : "/";
+
   return (
     <SplitShell
       leftLowerContent={<ServiceGlobalNav selectedPath="/contact" />}
       mobileMode="detail"
       rightPanelClassName="split-page__right--detail"
+      backHref={backHref}
     >
       <div className="right-content right-content--detail-topless">
         <div className="ux-research-page">
