@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ServiceDetailHeader } from "@/components/service-detail-header";
 
 type WebsiteDesignService = {
@@ -86,6 +86,61 @@ export function WebsiteDesignPage({
   service: WebsiteDesignService;
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [dragOffset, setDragOffset] = useState(0);
+  const dragStartYRef = useRef<number | null>(null);
+  const dragMovedRef = useRef(false);
+
+  function handleTriggerPointerDown(event: React.PointerEvent<HTMLButtonElement>) {
+    if (event.pointerType === "mouse") {
+      return;
+    }
+
+    dragStartYRef.current = event.clientY;
+    dragMovedRef.current = false;
+    event.currentTarget.setPointerCapture(event.pointerId);
+  }
+
+  function handleTriggerPointerMove(event: React.PointerEvent<HTMLButtonElement>) {
+    if (dragStartYRef.current === null) {
+      return;
+    }
+
+    const deltaY = event.clientY - dragStartYRef.current;
+    const nextOffset = isOpen ? Math.max(0, deltaY) : Math.min(0, deltaY);
+
+    if (Math.abs(nextOffset) > 6) {
+      dragMovedRef.current = true;
+    }
+
+    setDragOffset(nextOffset);
+  }
+
+  function handleTriggerPointerEnd() {
+    if (dragStartYRef.current === null) {
+      return;
+    }
+
+    if (!isOpen && dragOffset < -40) {
+      setIsOpen(true);
+    } else if (isOpen && dragOffset > 40) {
+      setIsOpen(false);
+    }
+
+    dragStartYRef.current = null;
+    setDragOffset(0);
+
+    window.setTimeout(() => {
+      dragMovedRef.current = false;
+    }, 0);
+  }
+
+  function handleTriggerClick() {
+    if (dragMovedRef.current) {
+      return;
+    }
+
+    setIsOpen((open) => !open);
+  }
 
   return (
     <div className="right-content right-content--website">
@@ -145,11 +200,20 @@ export function WebsiteDesignPage({
       <div
         id="example-websites-overlay"
         className={`website-overlay ${isOpen ? "is-open" : ""}`}
+        style={
+          {
+            "--website-overlay-drag-offset": `${dragOffset}px`,
+          } as React.CSSProperties
+        }
       >
         <button
           type="button"
           className="website-overlay-trigger"
-          onClick={() => setIsOpen((open) => !open)}
+          onClick={handleTriggerClick}
+          onPointerDown={handleTriggerPointerDown}
+          onPointerMove={handleTriggerPointerMove}
+          onPointerUp={handleTriggerPointerEnd}
+          onPointerCancel={handleTriggerPointerEnd}
           aria-expanded={isOpen}
           aria-controls="example-websites-overlay"
           aria-label={isOpen ? "Close examples overlay" : "Open examples overlay"}

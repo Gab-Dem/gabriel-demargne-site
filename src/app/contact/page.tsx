@@ -9,7 +9,7 @@ const contactLinks = [
   },
   {
     title: "View Gallery",
-    href: "https://gabrieldemargne.com",
+    href: "https://photography.gabrieldemargne.com",
   },
 ] as const;
 
