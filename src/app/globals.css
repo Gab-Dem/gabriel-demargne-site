@@ -1464,7 +1464,7 @@ a {
   right: 0;
   bottom: 0;
   top: 0;
-  background: #000000;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   padding-bottom: var(--website-overlay-bottom-offset, 0px);
@@ -1480,8 +1480,11 @@ a {
 }
 
 .website-overlay.is-open {
-  background: #ffffff;
   transform: translateY(var(--website-overlay-drag-offset, 0px));
+}
+
+.website-overlay:not(.is-open) .website-overlay__inner {
+  visibility: hidden;
 }
 
 .website-overlay__inner {
@@ -1510,7 +1513,7 @@ a {
   line-height: 1.02;
   transform: none;
   align-self: end;
-  justify-self: start;
+  justify-self: center;
   margin-bottom: 35px;
 }
 
@@ -2414,7 +2417,7 @@ body:has(.focus-reference-page) {
   }
 
   .split-page--mobile-detail .right-content--website {
-    --website-overlay-bottom-offset: 72px;
+    --website-overlay-bottom-offset: 56px;
   }
 
   .service-card {
