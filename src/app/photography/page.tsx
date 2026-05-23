@@ -11,8 +11,12 @@ export default function PhotographyPage() {
   const contactHref = "/contact?returnTo=%2Fphotography";
 
   return (
-    <SplitShell mobileMode="detail" contactHref={contactHref}>
-      <div className="right-content">
+    <SplitShell
+      mobileMode="detail"
+      rightPanelClassName="split-page__right--detail"
+      contactHref={contactHref}
+    >
+      <div className="right-content right-content--detail-topless">
         <div className="website-detail-top">
           <div className="website-detail-content">
             <div className="website-detail-heading">

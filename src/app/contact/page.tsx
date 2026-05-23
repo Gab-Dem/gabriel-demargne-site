@@ -49,12 +49,12 @@ export default async function ContactPage({
             <section className="contact-page__links" aria-label="Contact links">
               {contactLinks.map((link) => (
                 <a
-                key={link.title}
-                href={link.href}
-                target={link.href.startsWith("http") ? "_blank" : undefined}
-                rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-                className="contact-page__link-block"
-              >
+                  key={link.title}
+                  href={link.href}
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+                  className="contact-page__link-block"
+                >
                   <h2 className="contact-page__link-title">{link.title}</h2>
                 </a>
               ))}
