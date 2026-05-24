@@ -1626,7 +1626,7 @@ img {
   background: #000000;
   color: #ffffff;
   min-height: 64px;
-  padding: 14px 24px 16px;
+  padding: 14px 24px calc(16px + var(--website-overlay-trigger-safe-area, 0px));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1643,7 +1643,7 @@ img {
 
 .website-overlay.is-open .website-overlay-trigger {
   border-top: 0;
-  padding-bottom: 2px;
+  padding-bottom: calc(2px + var(--website-overlay-trigger-safe-area, 0px));
 }
 
 .website-overlay-trigger span:first-child,
@@ -2633,7 +2633,11 @@ body:has(.focus-reference-page) {
   }
 
   .split-page--mobile-detail .right-content--website {
-    --website-overlay-bottom-offset: 56px;
+    --website-overlay-bottom-offset: max(
+      84px,
+      calc(56px + env(safe-area-inset-bottom, 0px))
+    );
+    --website-overlay-trigger-safe-area: env(safe-area-inset-bottom, 0px);
   }
 
   .service-card {
