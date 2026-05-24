@@ -2645,6 +2645,15 @@ body:has(.focus-reference-page) {
     --website-overlay-content-bottom-offset: env(safe-area-inset-bottom, 0px);
   }
 
+  .split-page--mobile-detail .website-overlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 120px;
+    bottom: 0;
+    z-index: 9;
+  }
+
   .service-card {
     grid-template-columns: 1fr;
   }
