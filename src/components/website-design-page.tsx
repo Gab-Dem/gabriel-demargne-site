@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ServiceDetailHeader } from "@/components/service-detail-header";
 
 type WebsiteDesignService = {
@@ -89,8 +89,45 @@ export function WebsiteDesignPage({
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [dragOffset, setDragOffset] = useState(0);
+  const [overlayBottomInset, setOverlayBottomInset] = useState(0);
   const dragStartYRef = useRef<number | null>(null);
   const dragMovedRef = useRef(false);
+
+  useEffect(() => {
+    function updateOverlayInset() {
+      const viewport = window.visualViewport;
+
+      if (!viewport) {
+        setOverlayBottomInset(0);
+        return;
+      }
+
+      const chromeInset = Math.max(
+        0,
+        Math.round(window.innerHeight - (viewport.height + viewport.offsetTop)),
+      );
+
+      setOverlayBottomInset(chromeInset);
+    }
+
+    updateOverlayInset();
+
+    const viewport = window.visualViewport;
+
+    if (!viewport) {
+      return;
+    }
+
+    viewport.addEventListener("resize", updateOverlayInset);
+    viewport.addEventListener("scroll", updateOverlayInset);
+    window.addEventListener("resize", updateOverlayInset);
+
+    return () => {
+      viewport.removeEventListener("resize", updateOverlayInset);
+      viewport.removeEventListener("scroll", updateOverlayInset);
+      window.removeEventListener("resize", updateOverlayInset);
+    };
+  }, []);
 
   function handleTriggerPointerDown(event: React.PointerEvent<HTMLButtonElement>) {
     if (event.pointerType === "mouse") {
@@ -206,6 +243,8 @@ export function WebsiteDesignPage({
         style={
           {
             "--website-overlay-drag-offset": `${dragOffset}px`,
+            "--website-overlay-bottom-offset": `calc(56px + ${overlayBottomInset}px)`,
+            "--website-overlay-trigger-safe-area": `${overlayBottomInset}px`,
           } as React.CSSProperties
         }
       >

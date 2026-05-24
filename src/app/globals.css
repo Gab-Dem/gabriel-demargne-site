@@ -2633,10 +2633,7 @@ body:has(.focus-reference-page) {
   }
 
   .split-page--mobile-detail .right-content--website {
-    --website-overlay-bottom-offset: max(
-      84px,
-      calc(56px + env(safe-area-inset-bottom, 0px))
-    );
+    --website-overlay-bottom-offset: calc(56px + env(safe-area-inset-bottom, 0px));
     --website-overlay-trigger-safe-area: env(safe-area-inset-bottom, 0px);
   }
 
