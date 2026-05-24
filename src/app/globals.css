@@ -2528,16 +2528,19 @@ body:has(.focus-reference-page) {
   }
 
   .split-page--mobile-home {
-    height: 100vh;
-    min-height: 100vh;
-    overflow: hidden;
+    height: 100svh;
+    height: 100dvh;
+    min-height: 100svh;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   .split-page--mobile-home .split-page__left {
     display: flex;
     flex-direction: column;
     border-bottom: 0;
-    min-height: 100vh;
+    min-height: 100%;
   }
 
   .split-page--mobile-home .split-page__right {
