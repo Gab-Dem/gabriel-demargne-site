@@ -243,8 +243,8 @@ export function WebsiteDesignPage({
         style={
           {
             "--website-overlay-drag-offset": `${dragOffset}px`,
-            "--website-overlay-bottom-offset": `calc(56px + ${overlayBottomInset}px)`,
             "--website-overlay-trigger-safe-area": `${overlayBottomInset}px`,
+            "--website-overlay-content-bottom-offset": `${overlayBottomInset}px`,
           } as React.CSSProperties
         }
       >
