@@ -332,6 +332,7 @@ img {
   display: flex;
   width: 100%;
   min-width: 0;
+  background: var(--background);
   padding-top: 28px;
 }
 
@@ -2620,6 +2621,7 @@ body:has(.focus-reference-page) {
   .split-page--mobile-detail .split-page__right {
     --detail-page-gutter: 21px;
     --detail-page-top-space: 21px;
+    background: #000000;
     min-height: 0;
     padding-left: 0;
     padding-right: 0;
