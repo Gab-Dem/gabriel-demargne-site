@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { services } from "@/data/site";
+import { contactEmailHref, services } from "@/data/site";
 
 export function ServiceGlobalNav({
   selectedSlug,
@@ -32,13 +32,13 @@ export function ServiceGlobalNav({
           })}
         </div>
       </div>
-      <Link
-        href="/contact"
+      <a
+        href={contactEmailHref}
         className={`left-service-nav__contact${isContactActive ? " is-active" : ""}`}
         aria-current={isContactActive ? "page" : undefined}
       >
         Get in touch
-      </Link>
+      </a>
     </nav>
   );
 }

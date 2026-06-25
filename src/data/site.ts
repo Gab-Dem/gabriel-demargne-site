@@ -3,6 +3,8 @@ export const site = {
   sectionTitle: "Creative Consulting",
 } as const;
 
+export const contactEmailHref = "mailto:gabriel@demargne.com";
+
 export const navigation = [
   { href: "/", label: "Services" },
   { href: "/photography", label: "Photography" },

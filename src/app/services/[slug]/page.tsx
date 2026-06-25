@@ -7,7 +7,7 @@ import { SplitShell } from "@/components/split-shell";
 import { UXUIConsultingPage } from "@/components/ux-ui-consulting-page";
 import { UXResearchPage } from "@/components/ux-research-page";
 import { WebsiteDesignPage } from "@/components/website-design-page";
-import { getServiceBySlug, services } from "@/data/site";
+import { contactEmailHref, getServiceBySlug, services } from "@/data/site";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -34,8 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ServiceDetailPage({ params }: Props) {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
-  const detailPath = `/services/${slug}`;
-  const contactHref = `/contact?returnTo=${encodeURIComponent(detailPath)}`;
+  const contactHref = contactEmailHref;
 
   if (!service) {
     notFound();

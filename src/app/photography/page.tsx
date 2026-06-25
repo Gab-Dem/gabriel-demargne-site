@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { SplitShell } from "@/components/split-shell";
+import { contactEmailHref } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Photography",
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default function PhotographyPage() {
-  const contactHref = "/contact?returnTo=%2Fphotography";
+  const contactHref = contactEmailHref;
 
   return (
     <SplitShell
@@ -24,12 +25,12 @@ export default function PhotographyPage() {
                 <h1 className="website-detail-title">Photography</h1>
               </div>
               <div className="website-detail-heading__column website-detail-heading__column--contact">
-                <Link href={contactHref} className="desktop-detail-contact-link">
+                <a href={contactHref} className="desktop-detail-contact-link">
                   Get in touch
                   <span className="desktop-detail-contact-link__arrow" aria-hidden="true">
                     →
                   </span>
-                </Link>
+                </a>
               </div>
             </div>
           </div>

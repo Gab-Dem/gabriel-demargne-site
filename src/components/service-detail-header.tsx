@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { AdaptiveIntroParagraph } from "@/components/adaptive-intro-paragraph";
+import { contactEmailHref } from "@/data/site";
 
 export function ServiceDetailHeader({
   title,
   services,
   intro,
   ariaLabel,
-  contactHref = "/contact",
+  contactHref = contactEmailHref,
 }: {
   title: string;
   services: readonly string[];
@@ -22,12 +23,21 @@ export function ServiceDetailHeader({
             <h1 className="website-detail-title">{title}</h1>
           </div>
           <div className="website-detail-heading__column website-detail-heading__column--contact">
-            <Link href={contactHref} className="desktop-detail-contact-link">
-              Get in touch
-              <span className="desktop-detail-contact-link__arrow" aria-hidden="true">
-                →
-              </span>
-            </Link>
+            {contactHref.startsWith("mailto:") ? (
+              <a href={contactHref} className="desktop-detail-contact-link">
+                Get in touch
+                <span className="desktop-detail-contact-link__arrow" aria-hidden="true">
+                  →
+                </span>
+              </a>
+            ) : (
+              <Link href={contactHref} className="desktop-detail-contact-link">
+                Get in touch
+                <span className="desktop-detail-contact-link__arrow" aria-hidden="true">
+                  →
+                </span>
+              </Link>
+            )}
           </div>
         </div>
 

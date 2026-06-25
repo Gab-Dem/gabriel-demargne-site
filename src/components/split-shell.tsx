@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { site } from "@/data/site";
+import { contactEmailHref, site } from "@/data/site";
 
 export function SplitShell({
   rightTitle,
@@ -8,7 +8,7 @@ export function SplitShell({
   leftLowerContent,
   mobileMode,
   backHref = "/",
-  contactHref = "/contact",
+  contactHref = contactEmailHref,
   children,
 }: {
   rightTitle?: string;
@@ -55,9 +55,15 @@ export function SplitShell({
               <span aria-hidden="true">←</span>
               <span>Back</span>
             </Link>
-            <Link href={contactHref} className="mobile-back-strip__link mobile-back-strip__link--contact">
-              <span>Get in touch</span>
-            </Link>
+            {contactHref.startsWith("mailto:") ? (
+              <a href={contactHref} className="mobile-back-strip__link mobile-back-strip__link--contact">
+                <span>Get in touch</span>
+              </a>
+            ) : (
+              <Link href={contactHref} className="mobile-back-strip__link mobile-back-strip__link--contact">
+                <span>Get in touch</span>
+              </Link>
+            )}
           </div>
         ) : null}
         {rightTitle ? <h1 className="right-title">{rightTitle}</h1> : null}
