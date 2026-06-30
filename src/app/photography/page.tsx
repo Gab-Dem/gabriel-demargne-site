@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { SplitShell } from "@/components/split-shell";
 import { contactEmailHref } from "@/data/site";

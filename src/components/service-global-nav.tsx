@@ -37,7 +37,12 @@ export function ServiceGlobalNav({
         className={`left-service-nav__contact${isContactActive ? " is-active" : ""}`}
         aria-current={isContactActive ? "page" : undefined}
       >
-        Get in touch
+        <span className="left-service-nav__contact-title">
+          <span>Get in touch</span>
+          <span className="left-service-nav__contact-arrow" aria-hidden="true">
+            →
+          </span>
+        </span>
       </a>
     </nav>
   );

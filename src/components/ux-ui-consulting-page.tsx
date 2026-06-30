@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 import { ServiceDetailHeader } from "@/components/service-detail-header";
 
 type UXUIConsultingService = {
@@ -23,25 +24,25 @@ const focusAreas: readonly ConsultingFocus[] = [
   {
     title: "Clarify the journey",
     copy:
-      "Map how people move through the product or website, where decisions happen, and what each step needs to make clear.",
+      "Map how people move through a product or website, where decisions happen, and what each stage needs to communicate clearly.",
     icon: <FlowIcon />,
   },
   {
-    title: "Improve the interface",
+    title: "Structure the interface",
     copy:
-      "Refine layout, hierarchy, controls, and interaction patterns so the experience is easier to understand and use.",
+      "Define layout, hierarchy, navigation, and interaction patterns so the experience feels coherent and easy to use.",
     icon: <InterfaceIcon />,
   },
   {
     title: "Connect design and build",
     copy:
-      "Turn design decisions into practical frontend direction that can be implemented, tested, and maintained.",
+      "Translate UX decisions into practical frontend direction that can be implemented, tested, and maintained.",
     icon: <BuildIcon />,
   },
   {
-    title: "Shape working prototypes",
+    title: "Test through prototypes",
     copy:
-      "Create or refine prototypes that make ideas tangible enough to evaluate before committing to a full build.",
+      "Create or refine prototypes that make interaction decisions tangible enough to review before committing to a full build.",
     icon: <PrototypeIcon />,
   },
 ];
@@ -54,9 +55,9 @@ const methods: readonly ConsultingMethod[] = [
     icon: <RouteIcon />,
   },
   {
-    title: "Interface Direction",
+    title: "Information Architecture",
     copy:
-      "Defining page structure, component behavior, visual hierarchy, and interaction details for important screens.",
+      "Organising content, navigation, and decision paths so important screens are easier to understand.",
     icon: <ScreenIcon />,
   },
   {
@@ -68,7 +69,7 @@ const methods: readonly ConsultingMethod[] = [
   {
     title: "Prototype Review",
     copy:
-      "Reviewing early builds or prototypes to identify friction, missing states, and opportunities to simplify the product.",
+      "Reviewing early builds or prototypes to identify friction, missing states, and opportunities to simplify the experience.",
     icon: <ReviewIcon />,
   },
 ];
@@ -76,10 +77,26 @@ const methods: readonly ConsultingMethod[] = [
 export function UXUIConsultingPage({
   service,
   contactHref,
+  showPortfolioLink = true,
+  introLink,
 }: {
   service: UXUIConsultingService;
   contactHref: string;
+  showPortfolioLink?: boolean;
+  introLink?: {
+    href: string;
+    title: string;
+  };
 }) {
+  const resolvedIntroLink = introLink ?? (
+    showPortfolioLink
+      ? {
+          href: "/ux-portfolio",
+          title: "UX Portfolio",
+        }
+      : undefined
+  );
+
   return (
     <div className="right-content right-content--detail-topless">
       <div className="ux-research-page">
@@ -87,12 +104,25 @@ export function UXUIConsultingPage({
           title={service.detailTitle}
           services={service.detailServices}
           intro={service.intro}
-          ariaLabel="UX/UI consulting services"
+          ariaLabel="UX design services"
           contactHref={contactHref}
         />
 
         <div className="website-detail-content website-detail-content--body">
-          <section className="ux-research-section">
+          {resolvedIntroLink ? (
+            <div className="contact-page__links ux-ui-consulting-page__portfolio-link">
+              <Link href={resolvedIntroLink.href} className="contact-page__link-block">
+                <h2 className="contact-page__link-title ux-ui-consulting-page__portfolio-title">
+                  <span>{resolvedIntroLink.title}</span>
+                  <span className="ux-ui-consulting-page__portfolio-arrow" aria-hidden="true">
+                    →
+                  </span>
+                </h2>
+              </Link>
+            </div>
+          ) : null}
+
+          <section className="ux-research-section" id="consulting-focus">
             <h2 className="ux-research-section__title">Consulting Focus</h2>
             <div className="ux-research-objectives">
               {focusAreas.map((area) => (
@@ -110,7 +140,7 @@ export function UXUIConsultingPage({
           </section>
 
           <section className="ux-research-section ux-research-section--methods">
-            <h2 className="ux-research-section__title">How This Works</h2>
+            <h2 className="ux-research-section__title">Design Methods</h2>
             <div className="ux-research-methods" role="list">
               {methods.map((method) => (
                 <article

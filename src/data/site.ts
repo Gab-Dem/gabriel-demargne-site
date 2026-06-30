@@ -3,6 +3,40 @@ export const site = {
   sectionTitle: "Creative Consulting",
 } as const;
 
+export const homeProfile = {
+  experience: [
+    {
+      period: "Present",
+      title: "Freelance Designer",
+      organisation: "Professional & Educational Freelance, London",
+      copy:
+        "Designed and delivered websites and digital identities for clients across arts and small business, covering structure, visual design, and implementation. Several engagements also required clarifying proposition, offer, and messaging before interface work could proceed effectively.",
+    },
+    {
+      period: "2021–2024",
+      title: "UX Designer",
+      organisation: "Carmignac Asset Management, London",
+      copy:
+        "Contributed to digital transformation initiatives in a regulated environment through user flows, wireframes, prototyping, interviews, usability testing, synthesis, competitor analysis, and workshops that aligned cross-functional teams around user-centred improvements.",
+    },
+    {
+      period: "2020–Present",
+      title: "Photographer",
+      organisation: "Independent practice",
+      copy:
+        "Ongoing commissioned and independent photography work focused on places, people, atmosphere, and project documentation, with a consistent emphasis on natural light, composition, and visual storytelling.",
+    },
+    {
+      period: "2019",
+      title: "Junior Service Designer",
+      organisation: "Hiveworks, London",
+      copy:
+        "Agency role that established a foundation in user research, journey mapping, and structured service design work.",
+    },
+  ],
+  languages: ["English", "French", "Spanish", "Catalan"],
+} as const;
+
 export const contactEmailHref = "mailto:gabriel@demargne.com";
 
 export const navigation = [
@@ -83,21 +117,21 @@ export const services = [
   },
   {
     slug: "ux-ui-consulting",
-    title: "UX / UI Consulting",
-    copy: "Creating clear, intuitive digital experiences.",
-    detailTitle: "UX / UI Consulting",
+    title: "UX Design",
+    copy: "Structuring clearer, more usable digital experiences.",
+    detailTitle: "UX Design",
     detailServices: [
       "User Flows",
-      "Interface Direction",
+      "Information Architecture",
       "Page Structure",
       "Frontend Collaboration",
-      "Working Prototypes",
+      "Prototypes",
     ],
     intro:
-      "This work sits between structure, interface, and implementation. It focuses on making digital products and websites easier to understand and easier to use.",
+      "This work focuses on structure, interaction, and clarity. The aim is to make products and websites easier to understand, easier to use, and more credible at the point where users need to make decisions.",
     includes: [
       "User flows and journey thinking",
-      "Interface direction and page structure",
+      "Information architecture and page structure",
       "Close collaboration with engineering or implementation",
       "Iterating from concept into a working frontend",
     ],

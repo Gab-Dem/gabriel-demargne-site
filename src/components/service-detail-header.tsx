@@ -26,16 +26,10 @@ export function ServiceDetailHeader({
             {contactHref.startsWith("mailto:") ? (
               <a href={contactHref} className="desktop-detail-contact-link">
                 Get in touch
-                <span className="desktop-detail-contact-link__arrow" aria-hidden="true">
-                  →
-                </span>
               </a>
             ) : (
               <Link href={contactHref} className="desktop-detail-contact-link">
                 Get in touch
-                <span className="desktop-detail-contact-link__arrow" aria-hidden="true">
-                  →
-                </span>
               </Link>
             )}
           </div>
