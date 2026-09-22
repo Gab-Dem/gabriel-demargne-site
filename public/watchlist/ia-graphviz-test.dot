@@ -1,0 +1,52 @@
+digraph ShowDetailIA {
+  graph [
+    rankdir=TB,
+    splines=ortho,
+    nodesep=0.55,
+    ranksep=0.7,
+    pad=0.35,
+    bgcolor="#FFFFFF"
+  ];
+  node [
+    shape=box,
+    style="filled",
+    fillcolor="#FFFFFF",
+    color="#17191C",
+    penwidth=1.1,
+    fontname="Arial",
+    fontsize=14,
+    margin="0.18,0.12"
+  ];
+  edge [color="#17191C", penwidth=1.1, arrowhead=none];
+
+  explore_search [label="Explore list / search", width=2.25];
+  show_detail [label="Show detail page", width=2.25];
+
+  identity [label="Identity", width=1.6];
+  where_watch [label="Where to watch", width=1.9];
+  save [label="Save", width=1.6];
+  seasons [label="Seasons & episodes", width=2.3];
+  explore [label="Explore", width=1.6];
+
+  my_shows [label="My shows", width=1.9];
+  add_list [label="Add to list", width=1.9];
+  in_progress [label="In progress", shape=plain, fillcolor="none"];
+  watch_later [label="Watch later", shape=plain, fillcolor="none"];
+  have_watched [label="Have watched", shape=plain, fillcolor="none"];
+
+  explore_search -> show_detail;
+  show_detail -> identity;
+  show_detail -> where_watch;
+  show_detail -> save;
+  show_detail -> seasons;
+  show_detail -> explore;
+
+  save -> my_shows;
+  save -> add_list;
+  my_shows -> in_progress;
+  my_shows -> watch_later;
+  my_shows -> have_watched;
+
+  {rank=same; identity; where_watch; save; seasons; explore}
+  {rank=same; in_progress; watch_later; have_watched}
+}

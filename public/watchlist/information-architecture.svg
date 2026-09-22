@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <rect width="1600" height="1000" fill="#eee9df"/><defs><filter id="shadow"><feDropShadow dx="5" dy="8" stdDeviation="7" flood-color="#000" flood-opacity=".16"/></filter></defs><style>text{font-family:Arial,sans-serif;fill:#171717}.small{font-size:22px;letter-spacing:2px}.body{font-size:28px}.muted{fill:#777}.line{stroke:#171717;stroke-width:2;fill:none}.note{filter:url(#shadow);stroke:#171717;stroke-width:1}</style>
+  <text x="80" y="80" class="small muted">Information architecture / user questions</text><text x="80" y="160" font-size="62">One task, three levels of detail</text>
+  <g transform="rotate(-2 800 315)"><rect x="590" y="250" width="420" height="130" fill="#cbdc9c" class="note"/><text x="650" y="310" class="body">What is in my collection?</text><text x="650" y="350" class="small">YEAR VIEW</text></g>
+  <path d="M800 380v80m-260 0h520m-520 0v65m260-65v65m260-65v65" class="line"/>
+  <g transform="rotate(2 420 605)"><rect x="240" y="525" width="360" height="160" fill="#f2d990" class="note"/><text x="290" y="585" class="body">When does it happen?</text><text x="290" y="630" class="small">FILTER / STATUS</text></g>
+  <g transform="rotate(-2 800 605)"><rect x="620" y="525" width="360" height="160" fill="#b8d1e2" class="note"/><text x="675" y="585" class="body">What should I know?</text><text x="675" y="630" class="small">SHOW DETAIL</text></g>
+  <g transform="rotate(3 1180 605)"><rect x="1000" y="525" width="360" height="160" fill="#f0b8a6" class="note"/><text x="1060" y="585" class="body">Where can I watch?</text><text x="1060" y="630" class="small">AVAILABILITY</text></g>
+  <text x="240" y="830" class="body muted">These are not separate destinations — they are levels of the same planning task.</text>
+</svg>

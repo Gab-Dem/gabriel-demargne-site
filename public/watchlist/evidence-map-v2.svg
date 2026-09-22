@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 160 1600 574">
+  <style>
+    text{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;fill:#18181b}.kicker{font-size:15px;font-weight:650;letter-spacing:1.2px}.title{font-size:50px;font-weight:720;letter-spacing:-1.6px}.heading{font-size:25px;font-weight:680;letter-spacing:-.4px}.body{font-size:18px}.small{font-size:14px}.tiny{font-size:12px;font-weight:600}.muted{fill:#71717a}.inverse{fill:#fff}.card{fill:#fff;stroke:#e4e4e7;stroke-width:2}.soft{fill:#f4f4f5}.dark{fill:#18181b}.line{stroke:#e4e4e7;stroke-width:2}.icon{fill:none;stroke:#18181b;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  </style>
+  <rect width="1600" height="900" fill="#fff"/>
+  <g transform="translate(72 232)">
+    <rect width="464" height="430" rx="16" class="card"/>
+    <circle cx="40" cy="42" r="20" class="soft"/>
+    <path d="M34 42h12M40 36v12" class="icon"/>
+    <rect x="346" y="25" width="92" height="34" rx="17" class="soft"/>
+    <text x="365" y="47" class="tiny muted">HYPOTHESIS</text>
+    <text x="28" y="112" class="kicker muted">QUESTION TO CHECK</text>
+    <text x="28" y="158" class="heading">Is future planning</text>
+    <text x="28" y="192" class="heading">poorly supported?</text>
+    <line x1="28" y1="232" x2="436" y2="232" class="line"/>
+    <text x="28" y="280" class="body muted">A personal observation to examine,</text>
+    <text x="28" y="310" class="body muted">not a market claim.</text>
+    <rect x="28" y="360" width="408" height="42" rx="8" class="soft"/>
+    <text x="44" y="386" class="small">One assumption entering the benchmark</text>
+  </g>
+
+  <g transform="translate(568 232)">
+    <rect width="464" height="430" rx="16" class="card"/>
+    <circle cx="40" cy="42" r="20" class="dark"/>
+    <path d="M32 43l5 5 10-12" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="330" y="25" width="108" height="34" rx="17" class="dark"/>
+    <text x="349" y="47" class="tiny inverse">DESK REVIEW</text>
+    <text x="28" y="112" class="kicker muted">PATTERNS FOUND</text>
+    <text x="28" y="158" class="heading">Calendars, alerts and</text>
+    <text x="28" y="192" class="heading">upcoming lists are common.</text>
+    <line x1="28" y1="232" x2="436" y2="232" class="line"/>
+    <text x="28" y="280" class="body muted">Trakt, JustWatch and Simkl already</text>
+    <text x="28" y="310" class="body muted">cover much of this space.</text>
+    <rect x="28" y="360" width="408" height="42" rx="8" class="soft"/>
+    <text x="44" y="386" class="small">A calendar is not an obvious feature gap</text>
+  </g>
+
+  <g transform="translate(1064 232)">
+    <rect width="464" height="430" rx="16" class="card"/>
+    <circle cx="40" cy="42" r="20" class="soft"/>
+    <path d="M31 42h18m-6-6 6 6-6 6" class="icon"/>
+    <rect x="326" y="25" width="112" height="34" rx="17" class="soft"/>
+    <text x="344" y="47" class="tiny muted">OPEN QUESTION</text>
+    <text x="28" y="112" class="kicker muted">WHAT THIS CANNOT ANSWER</text>
+    <text x="28" y="158" class="heading">When are these features</text>
+    <text x="28" y="192" class="heading">useful—or simply ignored?</text>
+    <line x1="28" y1="232" x2="436" y2="232" class="line"/>
+    <text x="28" y="278" class="body muted">Only behavioural research can show</text>
+    <text x="28" y="308" class="body muted">what people actually do today.</text>
+    <rect x="28" y="360" width="408" height="42" rx="8" class="soft"/>
+    <text x="44" y="386" class="small">The next input must come from people</text>
+  </g>
+
+</svg>

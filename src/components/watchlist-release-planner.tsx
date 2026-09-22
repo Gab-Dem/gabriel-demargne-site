@@ -35,6 +35,11 @@ type PreparedSeries = {
   visualEnd: number;
 };
 
+type StableLaneLayout = {
+  laneBySeriesId: Map<string, number>;
+  laneCount: number;
+};
+
 const calendarStart = new Date(2026, 8, 7);
 const dayInMilliseconds = 24 * 60 * 60 * 1000;
 
@@ -54,29 +59,74 @@ function releaseDate(value: string) {
   return new Date(year, month - 1, day);
 }
 
-function addWeeks(date: Date, weeks: number) {
-  return new Date(date.getTime() + weeks * 7 * dayInMilliseconds);
+function addDays(date: Date, days: number) {
+  return new Date(date.getTime() + days * dayInMilliseconds);
 }
 
 function formatWeek(date: Date) {
   return new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short" }).format(date);
 }
 
+function formatDay(date: Date, includeWeekday: boolean) {
+  return new Intl.DateTimeFormat("en-GB", includeWeekday ? { weekday: "short", day: "numeric" } : { day: "numeric" }).format(date);
+}
+
 function formatRangeDate(date: Date) {
   return new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", year: "numeric" }).format(date);
 }
 
-function getMonthGroups(startWeek: number, weeks: number) {
-  const groups: { key: string; label: string; span: number }[] = [];
-  for (let index = 0; index < weeks; index += 1) {
-    const date = addWeeks(calendarStart, startWeek + index);
+function formatMonthYear(date: Date) {
+  return new Intl.DateTimeFormat("en-GB", { month: "long", year: "numeric" }).format(date);
+}
+
+function getMonthGroups(startDay: number, days: number) {
+  const groups: { key: string; label: string; span: number; showLabel: boolean }[] = [];
+  for (let index = 0; index < days; index += 1) {
+    const date = addDays(calendarStart, startDay + index);
     const key = `${date.getFullYear()}-${date.getMonth()}`;
     const label = new Intl.DateTimeFormat("en-GB", { month: "long" }).format(date);
     const previous = groups.at(-1);
     if (previous?.key === key) previous.span += 1;
-    else groups.push({ key, label, span: 1 });
+    else groups.push({ key, label, span: 1, showLabel: true });
+  }
+
+  const dayBeforeView = addDays(calendarStart, startDay - 1);
+  const dayAfterView = addDays(calendarStart, startDay + days);
+  const dayBeforeKey = `${dayBeforeView.getFullYear()}-${dayBeforeView.getMonth()}`;
+  const dayAfterKey = `${dayAfterView.getFullYear()}-${dayAfterView.getMonth()}`;
+
+  if (groups[0]?.key === dayBeforeKey) groups[0].showLabel = false;
+  if (groups.at(-1)?.key === dayAfterKey) groups.at(-1)!.showLabel = false;
+
+  return groups;
+}
+
+function getYearGroups(startDay: number, days: number) {
+  const groups: { key: string; label: string; span: number }[] = [];
+  for (let index = 0; index < days; index += 1) {
+    const date = addDays(calendarStart, startDay + index);
+    const key = String(date.getFullYear());
+    const previous = groups.at(-1);
+    if (previous?.key === key) previous.span += 1;
+    else groups.push({ key, label: key, span: 1 });
   }
   return groups;
+}
+
+function getWeekGroups(startDay: number, days: number) {
+  return Array.from({ length: Math.ceil(days / 7) }, (_, index) => {
+    const offset = index * 7;
+    return { key: offset, label: formatWeek(addDays(calendarStart, startDay + offset)), span: Math.min(7, days - offset) };
+  });
+}
+
+function formatZoomLabel(days: number) {
+  if (days < 14) return `${days} ${days === 1 ? "day" : "days"}`;
+  if (days % 7 === 0) {
+    const weeks = days / 7;
+    return `${weeks} ${weeks === 1 ? "week" : "weeks"}`;
+  }
+  return `${days} days`;
 }
 
 function datePosition(date: Date, start: Date, end: Date) {
@@ -93,7 +143,10 @@ function estimateSeriesLabelWidth(show: Series) {
   const separatorWidth = 3;
   const internalGaps = 16;
   const horizontalPadding = 28;
-  return estimateTextWidth(show.title) + estimateTextWidth(show.season) + separatorWidth + internalGaps + horizontalPadding + 4;
+  const releaseTypeWidth = show.fullRelease
+    ? separatorWidth + internalGaps + estimateTextWidth("Full release")
+    : 0;
+  return estimateTextWidth(show.title) + estimateTextWidth(show.season) + separatorWidth + internalGaps + releaseTypeWidth + horizontalPadding + 4;
 }
 
 function packIntoLanes(entries: PreparedSeries[]) {
@@ -110,13 +163,45 @@ function packIntoLanes(entries: PreparedSeries[]) {
   return lanes;
 }
 
-export function WatchlistReleasePlanner() {
-  const [visibleWeeks, setVisibleWeeks] = useState(25);
-  const [startWeek, setStartWeek] = useState(0);
+function getStableLaneLayout(shows: Series[], chartWidth: number, referenceDays: number): StableLaneLayout {
+  const pixelsPerDay = chartWidth / referenceDays;
+  const laneGap = 16;
+  const labelSafety = 40;
+  const laneEnds: number[] = [];
+  const laneBySeriesId = new Map<string, number>();
+  const entries = shows.map((show) => {
+    const firstRelease = releaseDate(show.releases[0].date);
+    const finalRelease = releaseDate(show.releases.at(-1)!.date);
+    const firstX = ((firstRelease.getTime() - calendarStart.getTime()) / dayInMilliseconds) * pixelsPerDay;
+    const finalX = ((finalRelease.getTime() - calendarStart.getTime()) / dayInMilliseconds) * pixelsPerDay;
+    const barStart = firstX - 17;
+    const barEnd = show.fullRelease ? barStart + 92 : finalX + 17;
+    return {
+      id: show.id,
+      visualStart: barStart - estimateSeriesLabelWidth(show),
+      visualEnd: barEnd + labelSafety,
+    };
+  });
+
+  entries
+    .sort((a, b) => a.visualStart - b.visualStart || a.visualEnd - b.visualEnd)
+    .forEach((entry) => {
+      const availableLane = laneEnds.findIndex((end) => entry.visualStart >= end + laneGap);
+      const laneIndex = availableLane === -1 ? laneEnds.length : availableLane;
+      laneEnds[laneIndex] = entry.visualEnd;
+      laneBySeriesId.set(entry.id, laneIndex);
+    });
+
+  return { laneBySeriesId, laneCount: laneEnds.length };
+}
+
+export function WatchlistReleasePlanner({ version = "v1", embedded = false }: { version?: "v1" | "v2" | "v3"; embedded?: boolean } = {}) {
+  const [visibleDays, setVisibleDays] = useState(175);
+  const [startDay, setStartDay] = useState(0);
   const [chartWidth, setChartWidth] = useState(900);
   const chartRef = useRef<HTMLDivElement>(null);
   const [selectedIds, setSelectedIds] = useState<Set<string>>(
-    () => new Set(series.filter((show) => show.selected).map((show) => show.id)),
+    () => new Set((version === "v3" ? series : series.filter((show) => show.selected)).map((show) => show.id)),
   );
 
   useEffect(() => {
@@ -129,10 +214,15 @@ export function WatchlistReleasePlanner() {
     return () => observer.disconnect();
   }, []);
 
-  const viewStart = addWeeks(calendarStart, startWeek);
-  const viewEnd = addWeeks(viewStart, visibleWeeks);
-  const monthGroups = useMemo(() => getMonthGroups(startWeek, visibleWeeks), [startWeek, visibleWeeks]);
-  const showWeekLabels = visibleWeeks <= 10;
+  const viewStart = addDays(calendarStart, startDay);
+  const viewEnd = addDays(viewStart, visibleDays);
+  const viewEndDate = addDays(viewEnd, -1);
+  const monthGroups = useMemo(() => getMonthGroups(startDay, visibleDays), [startDay, visibleDays]);
+  const yearGroups = useMemo(() => getYearGroups(startDay, visibleDays), [startDay, visibleDays]);
+  const weekGroups = useMemo(() => getWeekGroups(startDay, visibleDays), [startDay, visibleDays]);
+  const showDayLabels = visibleDays <= 35;
+  const showWeekLabels = visibleDays > 35 && visibleDays <= 70;
+  const hidePartialMonthLabels = visibleDays >= 210;
   const selectedSeries = series.filter((show) => selectedIds.has(show.id));
   const visibleSeries = selectedSeries.filter((show) => {
     const firstRelease = releaseDate(show.releases[0].date);
@@ -140,10 +230,14 @@ export function WatchlistReleasePlanner() {
     return finalRelease >= viewStart && firstRelease < viewEnd;
   });
   const offRangeCount = selectedSeries.length - visibleSeries.length;
+  const stableLaneLayout = useMemo(
+    () => getStableLaneLayout(series.filter((show) => selectedIds.has(show.id)), chartWidth, 365),
+    [selectedIds, chartWidth],
+  );
   const preparedSeries: PreparedSeries[] = visibleSeries.map((show) => {
     const parsedReleases = show.releases.map((episode) => ({ ...episode, parsedDate: releaseDate(episode.date) }));
     const positions = parsedReleases.map((episode) => datePosition(episode.parsedDate, viewStart, viewEnd));
-    const pixelsPerWeek = chartWidth / visibleWeeks;
+    const pixelsPerDay = chartWidth / visibleDays;
     const releases = parsedReleases.map((episode, index) => {
       const position = positions[index];
       const previousPosition = positions[index - 1];
@@ -153,8 +247,8 @@ export function WatchlistReleasePlanner() {
         : nextPosition === undefined ? Infinity : ((nextPosition - position) / 100) * chartWidth;
       const requiredLabelSpace = estimateTextWidth(episode.label) + 18;
       const showLabel = show.fullRelease
-        ? pixelsPerWeek >= 48
-        : pixelsPerWeek >= 42 && availableLabelSpace >= requiredLabelSpace;
+        ? version !== "v1" || pixelsPerDay >= (48 / 7)
+        : pixelsPerDay >= 6 && availableLabelSpace >= requiredLabelSpace;
       return { ...episode, position, index, showLabel };
     });
     const actualStart = positions[0];
@@ -165,6 +259,7 @@ export function WatchlistReleasePlanner() {
     const barStyle = {
       "--bar-start": displayStart,
       "--bar-span": Math.max(displayEnd - displayStart, 0),
+      "--series-label-width": `${estimateSeriesLabelWidth(show)}px`,
     } as CSSProperties;
     const barLeft = (displayStart / 100) * chartWidth - 17;
     const fullReleaseLabelVisible = show.fullRelease && releases.some((episode) => episode.showLabel);
@@ -182,7 +277,12 @@ export function WatchlistReleasePlanner() {
 
     return { show, releases, visibleReleases, actualStart, actualEnd, barStyle, visualStart, visualEnd };
   });
-  const packedLanes = packIntoLanes(preparedSeries);
+  const isModernPlanner = version === "v2" || version === "v3";
+  const packedLanes = isModernPlanner
+    ? Array.from({ length: stableLaneLayout.laneCount }, (_, laneIndex) =>
+        preparedSeries.filter((entry) => stableLaneLayout.laneBySeriesId.get(entry.show.id) === laneIndex),
+      )
+    : packIntoLanes(preparedSeries);
 
   function toggleSeries(id: string) {
     setSelectedIds((current) => {
@@ -193,17 +293,25 @@ export function WatchlistReleasePlanner() {
     });
   }
 
-  function changeVisibleWeeks(nextVisibleWeeks: number) {
-    setStartWeek((current) => current + (visibleWeeks - nextVisibleWeeks) / 2);
-    setVisibleWeeks(nextVisibleWeeks);
+  function changeVisibleDays(nextVisibleDays: number) {
+    setStartDay((current) => current + (visibleDays - nextVisibleDays) / 2);
+    setVisibleDays(nextVisibleDays);
   }
 
-  const gridStyle = { "--column-count": visibleWeeks } as CSSProperties;
-  const navigationStep = visibleWeeks / 2;
+  function changeTimelineCenter(nextCenterDay: number) {
+    setStartDay(nextCenterDay - visibleDays / 2);
+  }
+
+  const gridStyle = { "--column-count": visibleDays } as CSSProperties;
+  const navigationStep = visibleDays / 2;
+  const timelineCenterDay = startDay + visibleDays / 2;
+  const timelineCenterDate = addDays(calendarStart, timelineCenterDay);
+  const visualVersion = version === "v3" ? "v2" : version;
+  const Root = embedded ? "section" : "main";
 
   return (
-    <main className="watchlist-gantt">
-      <header className="watchlist-gantt__nav">
+    <Root className={`watchlist-gantt watchlist-gantt--${visualVersion}${embedded ? " watchlist-gantt--embedded" : ""}`} data-planner-version={version} aria-label={embedded ? "Interactive release planner" : undefined}>
+      {embedded ? null : <header className="watchlist-gantt__nav">
         <a href="/watchlist" className="watchlist-gantt__wordmark">Watchlist</a>
         <nav aria-label="Watchlist navigation">
           <span>Discover</span>
@@ -211,52 +319,77 @@ export function WatchlistReleasePlanner() {
           <span className="is-active">Releases</span>
         </nav>
         <span className="watchlist-gantt__profile" aria-label="Account">GD</span>
-      </header>
+      </header>}
 
       <section className="watchlist-gantt__content" aria-labelledby="planner-title">
         <div className="watchlist-gantt__workspace">
-        <section className="watchlist-gantt__timeline" aria-label={`${visibleWeeks}-week Gantt release planner`}>
+        <section className="watchlist-gantt__timeline" aria-label={`${formatZoomLabel(visibleDays)} Gantt release planner`}>
           <header className="watchlist-gantt__timeline-heading">
             <div><p>My shows / Releases</p><h1 id="planner-title">Release planner</h1></div>
-            <div className="watchlist-gantt__legend" aria-label="Release key">
+            {version !== "v3" ? <div className="watchlist-gantt__legend" aria-label="Release key">
               <span><i className="is-line" /> Weekly release</span>
               <span><i className="is-drop" /> Full release</span>
-            </div>
+            </div> : null}
           </header>
-          <header className="watchlist-gantt__timeline-controls">
-            <button type="button" onClick={() => setStartWeek((current) => current - navigationStep)} aria-label="Show earlier dates">← <span>Previous</span></button>
+          {isModernPlanner ? <section className="watchlist-gantt__control-panel" aria-label="Timeline controls">
+            <div className="watchlist-gantt__slider-control watchlist-gantt__zoom-slider">
+              <label htmlFor="release-planner-zoom"><span>Zoom</span><output htmlFor="release-planner-zoom">{formatZoomLabel(visibleDays)}</output></label>
+              <input id="release-planner-zoom" type="range" min="14" max="365" step="1" value={visibleDays} onChange={(event) => changeVisibleDays(Number(event.target.value))} aria-label={`Timeline zoom, ${formatZoomLabel(visibleDays)} visible`} dir="rtl" />
+            </div>
+            <div className="watchlist-gantt__slider-control watchlist-gantt__time-slider">
+              <label htmlFor="release-planner-time"><span>Position</span><output htmlFor="release-planner-time">{formatMonthYear(timelineCenterDate)}</output></label>
+              <div className="watchlist-gantt__time-track">
+                <span className="watchlist-gantt__today-marker" aria-hidden="true">Today</span>
+                <input id="release-planner-time" type="range" min="-90" max="455" step="1" value={timelineCenterDay} onChange={(event) => changeTimelineCenter(Number(event.target.value))} aria-label={`Timeline centred on ${formatRangeDate(timelineCenterDate)}; centre marker indicates today`} />
+              </div>
+            </div>
+            <div className="watchlist-gantt__control-range" aria-label="Visible range"><strong>{formatRangeDate(viewStart)} — {formatRangeDate(viewEndDate)}</strong></div>
+          </section> : <header className="watchlist-gantt__timeline-controls">
+            <button type="button" onClick={() => setStartDay((current) => current - navigationStep)} aria-label="Show earlier dates">← <span>Previous</span></button>
             <div className="watchlist-gantt__zoom-slider">
-              <label htmlFor="release-planner-zoom"><span>Zoom</span><output htmlFor="release-planner-zoom">{visibleWeeks} weeks</output></label>
-              <input id="release-planner-zoom" type="range" min="6" max="25" step="1" value={visibleWeeks} onChange={(event) => changeVisibleWeeks(Number(event.target.value))} aria-label={`Timeline zoom, ${visibleWeeks} weeks visible`} />
+              <label htmlFor="release-planner-zoom"><span>Zoom</span><output htmlFor="release-planner-zoom">{formatZoomLabel(visibleDays)}</output></label>
+              <input id="release-planner-zoom" type="range" min="14" max="365" step="1" value={visibleDays} onChange={(event) => changeVisibleDays(Number(event.target.value))} aria-label={`Timeline zoom, ${formatZoomLabel(visibleDays)} visible`} />
               <div aria-hidden="true"><span>Close</span><span>Zoomed out</span></div>
             </div>
-            <button type="button" onClick={() => setStartWeek((current) => current + navigationStep)} aria-label="Show later dates"><span>Next</span> →</button>
-          </header>
+            <button type="button" onClick={() => setStartDay((current) => current + navigationStep)} aria-label="Show later dates"><span>Next</span> →</button>
+          </header>}
 
-          <div className="watchlist-gantt__date-range">{formatRangeDate(viewStart)} — {formatRangeDate(viewEnd)}</div>
+          {version === "v1" ? <div className="watchlist-gantt__date-range">{formatRangeDate(viewStart)} — {formatRangeDate(viewEndDate)}</div> : null}
           <div className="watchlist-gantt__scroll" tabIndex={0} aria-label="Release calendar">
             <div ref={chartRef} className="watchlist-gantt__chart" style={gridStyle}>
-              <div className="watchlist-gantt__months" style={gridStyle}>
-                {monthGroups.map((month) => <span key={month.key} style={{ gridColumn: `span ${month.span}` }}>{month.label}</span>)}
+              <div className={`watchlist-gantt__months${isModernPlanner && !showDayLabels && !showWeekLabels ? " is-years" : ""}`} style={gridStyle}>
+                {isModernPlanner && !showDayLabels && !showWeekLabels
+                  ? yearGroups.map((year) => <span key={year.key} style={{ gridColumn: `span ${year.span}` }}>{year.label}</span>)
+                  : monthGroups.map((month) => <span key={month.key} style={{ gridColumn: `span ${month.span}` }} aria-hidden={hidePartialMonthLabels && !month.showLabel}>{!hidePartialMonthLabels || month.showLabel ? month.label : null}</span>)}
               </div>
-              {showWeekLabels ? <div className="watchlist-gantt__weeks" style={gridStyle}>{Array.from({ length: visibleWeeks }, (_, index) => <span key={index}>Week of {formatWeek(addWeeks(calendarStart, startWeek + index))}</span>)}</div> : null}
+              {isModernPlanner ? <div className={`watchlist-gantt__weeks is-visible${showDayLabels ? " is-day-detail" : showWeekLabels ? " is-week-detail" : " is-month-summary"}${visibleDays >= 210 ? " is-compact" : ""}`} style={gridStyle}>
+                {showDayLabels
+                  ? Array.from({ length: visibleDays }, (_, index) => <span key={index}>{formatDay(addDays(calendarStart, startDay + index), visibleDays <= 14)}</span>)
+                  : showWeekLabels
+                    ? weekGroups.map((week) => <span key={week.key} style={{ gridColumn: `span ${week.span}` }}>Week of {week.label}</span>)
+                    : monthGroups.map((month) => <span key={month.key} style={{ gridColumn: `span ${month.span}` }} aria-hidden={hidePartialMonthLabels && !month.showLabel}>{!hidePartialMonthLabels || month.showLabel ? month.label : null}</span>)}
+              </div> : showDayLabels || showWeekLabels ? <div className={`watchlist-gantt__weeks is-visible${showDayLabels ? " is-day-detail" : " is-week-detail"}`} style={gridStyle}>{showDayLabels
+                ? Array.from({ length: visibleDays }, (_, index) => <span key={index}>{formatDay(addDays(calendarStart, startDay + index), visibleDays <= 14)}</span>)
+                : weekGroups.map((week) => <span key={week.key} style={{ gridColumn: `span ${week.span}` }}>Week of {week.label}</span>)}</div> : null}
               <div className="watchlist-gantt__rows">
+                {isModernPlanner ? <div className="watchlist-gantt__month-fields" aria-hidden="true" style={gridStyle}>{monthGroups.map((month) => <span key={month.key} style={{ gridColumn: `span ${month.span}` }} />)}</div> : null}
                 {packedLanes.map((lane, laneIndex) => <article key={laneIndex} className="watchlist-gantt__row" style={gridStyle} aria-label={`Release lane ${laneIndex + 1}: ${lane.map((entry) => entry.show.title).join(", ")}`}>
-                    <div className="watchlist-gantt__guides" aria-hidden="true" style={gridStyle}>
-                      {Array.from({ length: visibleWeeks }, (_, index) => <span key={index} />)}
-                    </div>
-                    {lane.map(({ show, releases, visibleReleases, actualStart, actualEnd, barStyle }) => <div key={show.id} className="watchlist-gantt__series-placement" aria-label={`${show.title}, ${show.season}, releases from ${formatRangeDate(releases[0].parsedDate)} to ${formatRangeDate(releases.at(-1)!.parsedDate)}`}>
+                    {showDayLabels || showWeekLabels ? <div className="watchlist-gantt__guides is-detailed" aria-hidden="true" style={gridStyle}>
+                      {Array.from({ length: visibleDays }, (_, index) => <span key={index} />)}
+                    </div> : null}
+                    {lane.map(({ show, releases, visibleReleases, actualStart, actualEnd, barStyle }) => <div key={show.id} className="watchlist-gantt__series-placement" data-series={show.id} aria-label={`${show.title}, ${show.season}, releases from ${formatRangeDate(releases[0].parsedDate)} to ${formatRangeDate(releases.at(-1)!.parsedDate)}`}>
                       <div className={`watchlist-gantt__bar${show.fullRelease ? " is-full-release" : ""}${show.fullRelease && releases.some((episode) => episode.showLabel) ? " has-release-label" : ""}${actualEnd > 100 ? " is-end-clipped" : ""}${actualStart < 0 ? " is-start-clipped" : ""}`} style={barStyle}>
-                        <strong className="watchlist-gantt__bar-title"><span>{show.title}</span><em><span aria-hidden="true">·</span>{show.season}</em></strong>
+                        <strong className="watchlist-gantt__bar-title"><span>{show.title}</span><em><span aria-hidden="true">·</span>{show.season}{show.fullRelease ? <><span aria-hidden="true">·</span><span>Full release</span></> : null}</em></strong>
                       </div>
                       <div className="watchlist-gantt__event-layer">{visibleReleases.map((episode) => {
                         return <span key={`${show.id}-${episode.date}`} className={`watchlist-gantt__episode-event${episode.showLabel ? " is-labelled" : ""}${episode.label === "Finale" ? " is-finale" : ""}${show.fullRelease ? " is-full-release" : ""}`} style={{ "--event-x": episode.position } as CSSProperties} aria-label={`${episode.label}, ${formatRangeDate(episode.parsedDate)}`}>
-                          {episode.showLabel ? <small>{episode.label}</small> : null}<i aria-hidden="true" />
+                          {episode.showLabel && !show.fullRelease ? <small>{episode.label}</small> : null}<i aria-hidden="true" />
                         </span>;
                       })}</div>
                     </div>)}
                   </article>)}
-                {packedLanes.length === 0 ? <div className="watchlist-gantt__empty">No selected series release during this period. Try a different range or add a lane above.</div> : null}
+                {isModernPlanner && selectedSeries.length === 0 ? <div className="watchlist-gantt__empty">Choose at least one series to build your release plan.</div> : null}
+                {version === "v1" && packedLanes.length === 0 ? <div className="watchlist-gantt__empty">No selected series release during this period. Try a different range or add a lane above.</div> : null}
               </div>
             </div>
           </div>
@@ -281,6 +414,6 @@ export function WatchlistReleasePlanner() {
         </aside>
         </div>
       </section>
-    </main>
+    </Root>
   );
 }

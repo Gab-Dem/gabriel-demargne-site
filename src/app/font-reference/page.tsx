@@ -42,6 +42,7 @@ const sampleBody =
 export const metadata: Metadata = {
   title: "Font Reference",
   description: "Reference page for comparing non-serif font stacks and weights.",
+  robots: { index: false, follow: false },
 };
 
 export default function FontReferencePage() {

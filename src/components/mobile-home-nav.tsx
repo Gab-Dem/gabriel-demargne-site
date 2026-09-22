@@ -2,7 +2,7 @@ import Link from "next/link";
 import { site, services } from "@/data/site";
 
 const secondaryLinks = [
-  { href: "https://photography.gabrieldemargne.com", label: "Photography Gallery" },
+  { href: "/photography", label: "Photography Gallery" },
   { href: "/contact", label: "Contact" },
 ] as const;
 

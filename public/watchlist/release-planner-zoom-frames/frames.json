@@ -1,0 +1,155 @@
+{
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "capture": {
+    "x": 0,
+    "y": 48,
+    "width": 1440,
+    "height": 852
+  },
+  "direction": "zoom-in",
+  "frames": [
+    {
+      "index": 1,
+      "weeks": 25,
+      "filename": "001-25-weeks.png",
+      "width": 1440,
+      "height": 852
+    },
+    {
+      "index": 2,
+      "weeks": 24,
+      "filename": "002-24-weeks.png",
+      "width": 1440,
+      "height": 852
+    },
+    {
+      "index": 3,
+      "weeks": 23,
+      "filename": "003-23-weeks.png",
+      "width": 1440,
+      "height": 852
+    },
+    {
+      "index": 4,
+      "weeks": 22,
+      "filename": "004-22-weeks.png",
+      "width": 1440,
+      "height": 852
+    },
+    {
+      "index": 5,
+      "weeks": 21,
+      "filename": "005-21-weeks.png",
+      "width": 1440,
+      "height": 852
+    },
+    {
+      "index": 6,
+      "weeks": 20,
+      "filename": "006-20-weeks.png",
+      "width": 1440,
+      "height": 852
+    },
+    {
+      "index": 7,
+      "weeks": 19,
+      "filename": "007-19-weeks.png",
+      "width": 1440,
+      "height": 852
+    },
+    {
+      "index": 8,
+      "weeks": 18,
+      "filename": "008-18-weeks.png",
+      "width": 1440,
+      "height": 852
+    },
+    {
+      "index": 9,
+      "weeks": 17,
+      "filename": "009-17-weeks.png",
+      "width": 1440,
+      "height": 852
+    },
+    {
+      "index": 10,
+      "weeks": 16,
+      "filename": "010-16-weeks.png",
+      "width": 1440,
+      "height": 852
+    },
+    {
+      "index": 11,
+      "weeks": 15,
+      "filename": "011-15-weeks.png",
+      "width": 1440,
+      "height": 852
+    },
+    {
+      "index": 12,
+      "weeks": 14,
+      "filename": "012-14-weeks.png",
+      "width": 1440,
+      "height": 852
+    },
+    {
+      "index": 13,
+      "weeks": 13,
+      "filename": "013-13-weeks.png",
+      "width": 1440,
+      "height": 852
+    },
+    {
+      "index": 14,
+      "weeks": 12,
+      "filename": "014-12-weeks.png",
+      "width": 1440,
+      "height": 852
+    },
+    {
+      "index": 15,
+      "weeks": 11,
+      "filename": "015-11-weeks.png",
+      "width": 1440,
+      "height": 852
+    },
+    {
+      "index": 16,
+      "weeks": 10,
+      "filename": "016-10-weeks.png",
+      "width": 1440,
+      "height": 852
+    },
+    {
+      "index": 17,
+      "weeks": 9,
+      "filename": "017-09-weeks.png",
+      "width": 1440,
+      "height": 852
+    },
+    {
+      "index": 18,
+      "weeks": 8,
+      "filename": "018-08-weeks.png",
+      "width": 1440,
+      "height": 852
+    },
+    {
+      "index": 19,
+      "weeks": 7,
+      "filename": "019-07-weeks.png",
+      "width": 1440,
+      "height": 852
+    },
+    {
+      "index": 20,
+      "weeks": 6,
+      "filename": "020-06-weeks.png",
+      "width": 1440,
+      "height": 852
+    }
+  ]
+}

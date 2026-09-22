@@ -91,8 +91,8 @@ export function UXUIConsultingPage({
   const resolvedIntroLink = introLink ?? (
     showPortfolioLink
       ? {
-          href: "/ux-portfolio",
-          title: "UX Portfolio",
+          href: "/portfolio",
+          title: "Portfolio",
         }
       : undefined
   );

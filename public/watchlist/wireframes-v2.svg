@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 108 1600 864">
+  <style>
+    text{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;fill:#18181b}.kicker{font-size:15px;font-weight:650;letter-spacing:1.2px}.title{font-size:50px;font-weight:720;letter-spacing:-1.6px}.heading{font-size:23px;font-weight:680;letter-spacing:-.35px}.body{font-size:15px}.small{font-size:13px}.tiny{font-size:11px;font-weight:600}.muted{fill:#71717a}.inverse{fill:#fff}.card{fill:#fff;stroke:#e4e4e7;stroke-width:2}.panel{fill:#fafafa;stroke:#e4e4e7;stroke-width:2}.soft{fill:#f4f4f5}.dark{fill:#18181b}.line{stroke:#e4e4e7;stroke-width:2}.icon{fill:none;stroke:#18181b;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  </style>
+  <rect width="1600" height="1100" fill="#fff"/>
+  <text x="72" y="180" class="kicker">DESKTOP</text>
+  <g transform="translate(72 200)">
+    <rect width="1030" height="700" rx="16" class="card"/>
+    <line x1="0" y1="62" x2="1030" y2="62" class="line"/>
+    <text x="24" y="39" class="small" font-weight="700">Watchlist</text>
+    <rect x="98" y="21" width="56" height="24" rx="12" class="soft"/>
+    <text x="112" y="37" class="tiny muted">EARLY</text>
+    <circle cx="982" cy="31" r="15" class="soft"/>
+    <path d="M976 31h12M982 25v12" class="icon"/>
+
+    <text x="28" y="112" class="heading">What changed in your watchlist?</text>
+    <text x="28" y="140" class="small muted">Only updates that may affect what you choose next.</text>
+    <rect x="28" y="164" width="300" height="42" rx="9" class="soft"/>
+    <rect x="32" y="168" width="94" height="34" rx="7" fill="#fff"/>
+    <text x="50" y="190" class="tiny">All updates</text><text x="154" y="190" class="tiny muted">Dates</text><text x="236" y="190" class="tiny muted">Available</text>
+    <rect x="820" y="164" width="182" height="42" rx="9" class="card"/>
+    <text x="838" y="190" class="tiny muted">Newest first</text>
+    <path d="M978 181l5 5 5-5" class="icon"/>
+
+    <g transform="translate(28 232)">
+      <rect width="604" height="438" rx="12" class="card"/>
+      <text x="20" y="38" class="tiny muted">3 UNREAD UPDATES</text>
+      <line x1="0" y1="58" x2="604" y2="58" class="line"/>
+      <rect x="14" y="72" width="576" height="96" rx="10" fill="#fafafa" stroke="#18181b" stroke-width="2"/>
+      <rect x="30" y="94" width="58" height="48" rx="8" class="soft"/>
+      <text x="42" y="123" class="tiny">07 AUG</text>
+      <text x="108" y="108" class="body" font-weight="700">North Star</text>
+      <text x="108" y="133" class="small muted">Release date confirmed · 7 August</text>
+      <rect x="466" y="98" width="104" height="32" rx="16" class="soft"/>
+      <text x="488" y="119" class="tiny">NEW DATE</text>
+      <rect x="14" y="180" width="576" height="96" rx="10" fill="#fff"/>
+      <rect x="30" y="202" width="58" height="48" rx="8" class="soft"/>
+      <text x="44" y="231" class="tiny">NOW</text>
+      <text x="108" y="216" class="body" font-weight="700">Low Tide</text>
+      <text x="108" y="241" class="small muted">All episodes now available</text>
+      <rect x="466" y="206" width="104" height="32" rx="16" class="soft"/>
+      <text x="483" y="227" class="tiny">AVAILABLE</text>
+      <rect x="14" y="288" width="576" height="96" rx="10" fill="#fff"/>
+      <rect x="30" y="310" width="58" height="48" rx="8" class="soft"/>
+      <text x="44" y="339" class="tiny">SEP?</text>
+      <text x="108" y="324" class="body" font-weight="700">Glass House</text>
+      <text x="108" y="349" class="small muted">Expected September · month only</text>
+      <rect x="478" y="314" width="92" height="32" rx="16" class="card"/>
+      <text x="497" y="335" class="tiny muted">ROUGH DATE</text>
+    </g>
+
+    <g transform="translate(654 232)">
+      <rect width="348" height="438" rx="12" class="card"/>
+      <text x="20" y="38" class="tiny muted">WHAT CHANGED</text>
+      <line x1="0" y1="58" x2="348" y2="58" class="line"/>
+      <text x="20" y="104" class="heading">North Star</text>
+      <text x="20" y="130" class="small muted">Season 3</text>
+      <text x="20" y="176" class="tiny muted">NEW INFORMATION</text>
+      <text x="20" y="201" class="body">Release date confirmed</text>
+      <text x="20" y="248" class="tiny muted">RELEASE</text>
+      <text x="20" y="273" class="body">7 August · weekly</text>
+      <text x="20" y="320" class="tiny muted">WHERE</text>
+      <text x="20" y="345" class="body">Stream B</text>
+      <rect x="20" y="376" width="146" height="42" rx="8" class="dark"/>
+      <text x="50" y="402" class="small inverse">Plan to watch</text>
+      <rect x="176" y="376" width="152" height="42" rx="8" class="card"/>
+      <text x="202" y="402" class="small">Remind later</text>
+    </g>
+  </g>
+
+  <text x="1172" y="180" class="kicker">MOBILE</text>
+  <g transform="translate(1172 200)">
+    <rect width="356" height="700" rx="28" class="card"/>
+    <rect x="110" y="14" width="136" height="5" rx="3" fill="#d4d4d8"/>
+    <text x="22" y="56" class="small" font-weight="700">Watchlist</text>
+    <circle cx="318" cy="50" r="15" class="soft"/>
+    <path d="M312 50h12M318 44v12" class="icon"/>
+    <text x="22" y="104" class="heading">What changed?</text>
+    <text x="22" y="130" class="small muted">Updates to shows you saved.</text>
+    <rect x="22" y="152" width="312" height="42" rx="9" class="soft"/>
+    <rect x="26" y="156" width="100" height="34" rx="7" fill="#fff"/>
+    <text x="44" y="178" class="tiny">All updates</text><text x="157" y="178" class="tiny muted">Dates</text><text x="244" y="178" class="tiny muted">Available</text>
+    <text x="22" y="230" class="tiny muted">3 UNREAD UPDATES</text>
+    <rect x="22" y="246" width="312" height="82" rx="10" fill="#fafafa" stroke="#18181b" stroke-width="2"/>
+    <rect x="36" y="263" width="50" height="48" rx="8" class="soft"/>
+    <text x="43" y="292" class="tiny">NEW</text><text x="102" y="278" class="body" font-weight="700">North Star</text><text x="102" y="301" class="tiny muted">Release date confirmed</text>
+    <path d="M310 283l6 6-6 6" class="icon"/>
+    <rect x="22" y="338" width="312" height="82" rx="10" class="card"/>
+    <rect x="36" y="355" width="50" height="48" rx="8" class="soft"/>
+    <text x="41" y="384" class="tiny">NOW</text><text x="102" y="370" class="body" font-weight="700">Low Tide</text><text x="102" y="393" class="tiny muted">Now available</text>
+    <path d="M310 375l6 6-6 6" class="icon"/>
+    <rect x="22" y="430" width="312" height="82" rx="10" class="card"/>
+    <rect x="36" y="447" width="50" height="48" rx="8" class="soft"/>
+    <text x="47" y="476" class="tiny">SEP?</text><text x="102" y="462" class="body" font-weight="700">Glass House</text><text x="102" y="485" class="tiny muted">Expected month added</text>
+    <path d="M310 467l6 6-6 6" class="icon"/>
+
+    <rect x="10" y="514" width="336" height="176" rx="18" fill="#fff" stroke="#d4d4d8" stroke-width="2"/>
+    <rect x="140" y="524" width="76" height="5" rx="3" fill="#d4d4d8"/>
+    <text x="28" y="558" class="tiny muted">WHAT CHANGED</text>
+    <text x="28" y="592" class="heading">North Star</text>
+    <text x="28" y="618" class="small muted">7 August · weekly</text>
+    <rect x="28" y="636" width="140" height="40" rx="8" class="dark"/>
+    <text x="55" y="661" class="small inverse">Plan to watch</text>
+    <rect x="178" y="636" width="140" height="40" rx="8" class="card"/>
+    <text x="202" y="661" class="small">Remind later</text>
+  </g>
+
+</svg>

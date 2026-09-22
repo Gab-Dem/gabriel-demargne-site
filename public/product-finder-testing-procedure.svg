@@ -1,0 +1,94 @@
+<svg width="1600" height="520" viewBox="0 0 1600 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="520" fill="#FAFAF7"/>
+
+  <style>
+    .ink { stroke: #171717; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+    .soft { stroke: #171717; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; fill: none; opacity: 0.5; }
+    .paper { fill: #FFFFFF; stroke: #171717; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .accent { fill: #3A8BFF; }
+    .accent-stroke { stroke: #3A8BFF; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+    .skin { fill: #FFFFFF; stroke: #171717; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .hair { fill: #171717; }
+    .ground { stroke: #171717; stroke-width: 2.5; stroke-linecap: round; opacity: 0.35; }
+  </style>
+
+  <g transform="translate(46 82)">
+    <rect x="10" y="10" width="188" height="136" rx="24" class="accent"/>
+    <rect x="0" y="24" width="196" height="136" rx="24" class="paper"/>
+    <path d="M28 58H136" class="ink"/>
+    <path d="M28 84H158" class="soft"/>
+    <path d="M28 110H112" class="soft"/>
+    <path d="M138 80V121" class="ink"/>
+    <path d="M120 103L138 121L156 103" class="ink"/>
+    <circle cx="34" cy="192" r="20" class="skin"/>
+    <path d="M19 180C22 167 31 160 42 160C54 160 63 168 66 181" class="hair"/>
+    <path d="M12 228C18 206 35 196 56 196C76 196 91 207 98 227" class="ink"/>
+    <circle cx="156" cy="194" r="19" class="skin"/>
+    <path d="M142 182C145 170 154 163 165 163C176 163 184 171 187 183" class="hair"/>
+    <path d="M132 228C137 208 151 198 171 198C188 198 201 206 208 221" class="soft"/>
+  </g>
+
+  <g transform="translate(358 82)">
+    <rect x="34" y="18" width="178" height="130" rx="18" transform="rotate(-11 34 18)" class="paper"/>
+    <rect x="70" y="52" width="68" height="46" rx="8" transform="rotate(-11 70 52)" class="accent"/>
+    <path d="M148 60H186" class="ink"/>
+    <path d="M145 83H190" class="soft"/>
+    <path d="M58 174C64 150 80 139 101 139C120 139 136 149 143 171" class="ink"/>
+    <circle cx="100" cy="112" r="20" class="skin"/>
+    <path d="M85 99C88 87 97 79 110 79C121 79 129 88 132 101" class="hair"/>
+    <circle cx="210" cy="102" r="19" class="skin"/>
+    <path d="M196 89C199 77 208 70 220 70C231 70 239 78 242 90" class="hair"/>
+    <path d="M189 170C195 149 210 139 229 139C249 139 264 150 270 171" class="ink"/>
+    <rect x="221" y="152" width="48" height="32" rx="6" class="paper"/>
+    <path d="M231 163H257" class="soft"/>
+    <path d="M18 180C30 163 46 151 65 144" class="soft"/>
+  </g>
+
+  <g transform="translate(670 74)">
+    <path d="M38 38H160L198 76V204C198 220 186 232 170 232H38C22 232 10 220 10 204V66C10 50 22 38 38 38Z" class="paper"/>
+    <path d="M160 38V76H198" class="ink"/>
+    <path d="M42 88H144" class="ink"/>
+    <path d="M42 118H158" class="soft"/>
+    <path d="M42 148H142" class="soft"/>
+    <path d="M42 178H122" class="soft"/>
+    <path d="M130 190L147 208L176 168" class="ink"/>
+    <rect x="178" y="74" width="44" height="34" rx="7" class="accent"/>
+    <circle cx="250" cy="194" r="20" class="skin"/>
+    <path d="M236 181C239 169 248 162 260 162C271 162 279 170 282 182" class="hair"/>
+    <path d="M225 229C231 207 247 197 267 197C287 197 302 207 309 228" class="soft"/>
+    <path d="M214 118C234 104 256 100 281 104" class="accent-stroke"/>
+  </g>
+
+  <g transform="translate(986 82)">
+    <circle cx="44" cy="94" r="21" class="skin"/>
+    <path d="M29 81C32 68 42 60 54 60C66 60 75 69 78 83" class="hair"/>
+    <path d="M16 198C22 172 40 159 64 159C84 159 101 170 109 194" class="ink"/>
+    <rect x="96" y="28" width="172" height="128" rx="18" class="paper"/>
+    <circle cx="146" cy="82" r="25" class="ink"/>
+    <path d="M163 100L190 126" class="ink"/>
+    <path d="M196 64H238" class="ink"/>
+    <path d="M196 90H246" class="soft"/>
+    <path d="M196 116H228" class="soft"/>
+    <path d="M108 12H149" class="accent-stroke"/>
+    <path d="M160 12H187" class="accent-stroke"/>
+    <circle cx="278" cy="100" r="19" class="skin"/>
+    <path d="M264 87C267 75 276 68 287 68C299 68 307 76 310 88" class="hair"/>
+    <path d="M249 194C255 173 270 163 290 163C309 163 323 172 330 192" class="soft"/>
+  </g>
+
+  <g transform="translate(1298 86)">
+    <rect x="0" y="32" width="92" height="156" rx="14" class="paper"/>
+    <path d="M18 60H70" class="ink"/>
+    <path d="M18 88H66" class="soft"/>
+    <path d="M18 116H68" class="soft"/>
+    <path d="M18 144H62" class="soft"/>
+    <circle cx="156" cy="98" r="38" class="paper"/>
+    <path d="M138 98L152 113L179 80" class="ink"/>
+    <circle cx="108" cy="204" r="19" class="skin"/>
+    <path d="M94 191C97 179 106 172 118 172C129 172 137 180 140 192" class="hair"/>
+    <path d="M84 238C90 217 105 207 124 207C143 207 157 216 164 236" class="soft"/>
+    <rect x="114" y="26" width="30" height="24" rx="4" class="accent"/>
+  </g>
+
+  <path d="M64 430H1536" class="ground"/>
+</svg>

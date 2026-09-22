@@ -1,67 +1,53 @@
 import type { Metadata } from "next";
-import { ServiceGlobalNav } from "@/components/service-global-nav";
-import { SplitShell } from "@/components/split-shell";
-
-const contactLinks = [
-  {
-    title: "Email Me",
-    href: "mailto:gabriel@demargne.com",
-  },
-  {
-    title: "View Gallery",
-    href: "https://photography.gabrieldemargne.com",
-  },
-] as const;
+import Link from "next/link";
+import { PhotographyMobileNav } from "@/components/photography-mobile-nav";
 
 export const metadata: Metadata = {
   title: "Contact",
   description: "Contact Gabriel Demargne.",
 };
 
-export default async function ContactPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ returnTo?: string }>;
-}) {
-  const { returnTo } = await searchParams;
-  const backHref = returnTo?.startsWith("/") ? returnTo : "/";
-
+export default function ContactPage() {
   return (
-    <SplitShell
-      leftLowerContent={<ServiceGlobalNav selectedPath="/contact" />}
-      mobileMode="detail"
-      rightPanelClassName="split-page__right--detail"
-      backHref={backHref}
-    >
-      <div className="right-content right-content--detail-topless">
-        <div className="ux-research-page">
-          <div className="website-detail-top">
-            <div className="website-detail-content">
-              <div className="website-detail-heading">
-                <div className="website-detail-heading__column">
-                  <h1 className="website-detail-title">Get in Touch</h1>
-                </div>
-              </div>
-            </div>
-          </div>
+    <main className="contact-page">
+      <PhotographyMobileNav activePage="services" />
 
-          <div className="website-detail-content website-detail-content--body">
-            <section className="contact-page__links" aria-label="Contact links">
-              {contactLinks.map((link) => (
-                <a
-                  key={link.title}
-                  href={link.href}
-                  target={link.href.startsWith("http") ? "_blank" : undefined}
-                  rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-                  className="contact-page__link-block"
-                >
-                  <h2 className="contact-page__link-title">{link.title}</h2>
-                </a>
-              ))}
-            </section>
+      <header className="contact-page__header">
+        <Link href="/" className="contact-page__identity" aria-label="Home">
+          <span>Gabriel</span>
+          <span>Demargne</span>
+        </Link>
+
+        <nav className="contact-page__nav" aria-label="Primary navigation">
+          <Link className="site-top-contact" href="/contact" aria-current="page">Contact me</Link>
+          <Link href="/photography">Photography</Link>
+          <Link href="/design-portfolio">Portfolio</Link>
+          <Link href="/services">Services</Link>
+        </nav>
+      </header>
+
+      <section className="contact-page__content" aria-labelledby="contact-title">
+        <h1 id="contact-title">Contact Me</h1>
+
+        <dl className="contact-page__details">
+          <div>
+            <dt aria-label="Mobile">M</dt>
+            <dd><a href="tel:+447495935834">+44 7495935834</a></dd>
           </div>
-        </div>
-      </div>
-    </SplitShell>
+          <div>
+            <dt aria-label="LinkedIn">L</dt>
+            <dd>
+              <a href="https://www.linkedin.com/in/gabriel-demargne" target="_blank" rel="noreferrer">
+                www.linkedin.com/in/gabriel-demargne
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt aria-label="Email">E</dt>
+            <dd><a href="mailto:gabriel@demargne.com">gabriel@demargne.com</a></dd>
+          </div>
+        </dl>
+      </section>
+    </main>
   );
 }

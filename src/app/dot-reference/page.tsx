@@ -18,6 +18,7 @@ const dots = [
 export const metadata: Metadata = {
   title: "Dot Reference",
   description: "Numbered dot reference for navigation marker selection.",
+  robots: { index: false, follow: false },
 };
 
 export default function DotReferencePage() {

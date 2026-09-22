@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <rect width="1600" height="1000" fill="#f7f6f2"/><defs><filter id="shadow"><feDropShadow dx="4" dy="7" stdDeviation="6" flood-color="#000" flood-opacity=".15"/></filter></defs><style>text{font-family:Arial,sans-serif;fill:#171717}.small{font-size:22px;letter-spacing:2px}.body{font-size:28px}.line{stroke:#171717;stroke-width:2;fill:none}.red{fill:#b64229}.blue{fill:#6d87a1}.muted{fill:#777}.note{filter:url(#shadow);stroke:#171717;stroke-width:1}</style>
+  <text x="80" y="80" class="small muted">Current behaviour / a loop, not a line</text><text x="80" y="155" font-size="62">How I currently keep track</text><text x="80" y="220" font-size="62">of shows</text>
+  <g transform="translate(180 420)">
+    <path d="M110 100 C110 -80 470 -100 470 100 C470 300 830 300 830 100 C830 -100 1190 -80 1190 100" class="line"/>
+    <path d="m1165 84 25 16-25 16" class="line"/>
+    <g transform="rotate(-4 110 100)"><rect x="20" y="25" width="180" height="150" fill="#f2d990" class="note"/><text x="55" y="108" class="body">Hear about it</text></g>
+    <g transform="translate(300) rotate(3 110 100)"><rect x="20" y="25" width="180" height="150" fill="#cbdc9c" class="note"/><text x="72" y="108" class="body">Save</text></g>
+    <g transform="translate(600) rotate(-2 110 100)"><rect x="20" y="25" width="180" height="150" fill="#b8d1e2" class="note"/><text x="59" y="108" class="body">Check date</text></g>
+    <g transform="translate(900) rotate(4 110 100)"><rect x="20" y="25" width="180" height="150" fill="#f0b8a6" class="note"/><text x="46" y="108" class="body">Find service</text></g>
+  </g>
+  <g transform="translate(160 760)"><text class="body red">What gets lost between steps?</text><text y="50" class="body muted">Release time · platform · season status · whether now is the right time</text></g>
+</svg>

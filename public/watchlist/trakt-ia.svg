@@ -1,0 +1,94 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#FFFFFF"/>
+  <text x="56" y="68" fill="#111111" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700">Trakt information architecture</text>
+  <text x="56" y="104" fill="#555555" font-family="Arial, Helvetica, sans-serif" font-size="18">Observed navigation and content relationships from the benchmark review</text>
+
+  <g stroke="#CFCFCF" stroke-width="2">
+    <path d="M362 250H430"/>
+    <path d="M362 380H430"/>
+    <path d="M362 510H430"/>
+    <path d="M362 640H430"/>
+    <path d="M760 250H830"/>
+    <path d="M760 470H830"/>
+    <path d="M760 690H830"/>
+    <path d="M1160 250H1230"/>
+    <path d="M1160 470H1230"/>
+    <path d="M1160 690H1230"/>
+  </g>
+
+  <g fill="#FFFFFF" stroke="#111111" stroke-width="2">
+    <rect x="56" y="170" width="306" height="548" rx="8"/>
+    <rect x="430" y="170" width="330" height="170" rx="8"/>
+    <rect x="430" y="390" width="330" height="170" rx="8"/>
+    <rect x="430" y="610" width="330" height="170" rx="8"/>
+    <rect x="830" y="170" width="330" height="170" rx="8"/>
+    <rect x="830" y="390" width="330" height="170" rx="8"/>
+    <rect x="830" y="610" width="330" height="170" rx="8"/>
+    <rect x="1230" y="170" width="314" height="170" rx="8"/>
+    <rect x="1230" y="390" width="314" height="170" rx="8"/>
+    <rect x="1230" y="610" width="314" height="170" rx="8"/>
+  </g>
+
+  <g fill="#F4F1FF">
+    <rect x="56" y="170" width="306" height="58" rx="8"/>
+    <rect x="430" y="170" width="330" height="58" rx="8"/>
+    <rect x="830" y="170" width="330" height="58" rx="8"/>
+    <rect x="1230" y="170" width="314" height="58" rx="8"/>
+  </g>
+
+  <g fill="#111111" font-family="Arial, Helvetica, sans-serif">
+    <text x="80" y="207" font-size="20" font-weight="700">Primary navigation</text>
+    <text x="80" y="270" font-size="18" font-weight="700">Home</text>
+    <text x="80" y="316" font-size="17">Continue Watching</text>
+    <text x="80" y="348" font-size="17">Calendar</text>
+    <text x="80" y="380" font-size="17">Recommended</text>
+    <text x="80" y="426" font-size="18" font-weight="700">Discover</text>
+    <text x="80" y="458" font-size="17">Trending · Releases</text>
+    <text x="80" y="490" font-size="17">Anticipated · Popular</text>
+    <text x="80" y="536" font-size="18" font-weight="700">Lists</text>
+    <text x="80" y="568" font-size="17">Watchlist · Smart Lists</text>
+    <text x="80" y="600" font-size="17">My Lists · Liked</text>
+    <text x="80" y="646" font-size="18" font-weight="700">History</text>
+    <text x="80" y="692" font-size="18" font-weight="700">Library · Settings</text>
+
+    <text x="454" y="207" font-size="20" font-weight="700">Home</text>
+    <text x="454" y="264" font-size="17">Continue Watching</text>
+    <text x="454" y="296" font-size="17">Start Watching</text>
+    <text x="454" y="328" font-size="17">Empty states + discovery CTA</text>
+
+    <text x="454" y="427" font-size="20" font-weight="700">Calendar</text>
+    <text x="454" y="484" font-size="17">Date strip → release list</text>
+    <text x="454" y="516" font-size="17">Episode cards → episode detail</text>
+
+    <text x="454" y="647" font-size="20" font-weight="700">Lists and history</text>
+    <text x="454" y="704" font-size="17">Watchlist · Smart Lists</text>
+    <text x="454" y="736" font-size="17">My Lists · Liked · History</text>
+
+    <text x="854" y="207" font-size="20" font-weight="700">Discover</text>
+    <text x="854" y="264" font-size="17">Search and top searches</text>
+    <text x="854" y="296" font-size="17">Trending · Releases · Popular</text>
+    <text x="854" y="328" font-size="17">Related content</text>
+
+    <text x="854" y="427" font-size="20" font-weight="700">Show detail</text>
+    <text x="854" y="484" font-size="17">Overview · ratings · availability</text>
+    <text x="854" y="516" font-size="17">Save · watched · rate</text>
+
+    <text x="854" y="647" font-size="20" font-weight="700">Season and episode detail</text>
+    <text x="854" y="704" font-size="17">Season selector → episode list</text>
+    <text x="854" y="736" font-size="17">Cast · trivia · related shows</text>
+
+    <text x="1254" y="207" font-size="20" font-weight="700">Recognition</text>
+    <text x="1254" y="264" font-size="17">Poster and title</text>
+    <text x="1254" y="296" font-size="17">Metadata and ratings</text>
+
+    <text x="1254" y="427" font-size="20" font-weight="700">Actions</text>
+    <text x="1254" y="484" font-size="17">Watched · save · rate</text>
+    <text x="1254" y="516" font-size="17">Watch-date dialog</text>
+
+    <text x="1254" y="647" font-size="20" font-weight="700">Context</text>
+    <text x="1254" y="704" font-size="17">Where to watch</text>
+    <text x="1254" y="736" font-size="17">Lists · cast · trivia</text>
+  </g>
+
+  <text x="56" y="850" fill="#555555" font-family="Arial, Helvetica, sans-serif" font-size="16">Working model for discussion — based on observed screens, not confirmed product documentation.</text>
+</svg>

@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Gabriel Demargne creative consulting website preview";
+export const alt =
+  "Gabriel Demargne — independent design and consulting services";
 export const size = {
   width: 1200,
   height: 630,

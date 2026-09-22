@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 88 1600 824">
+  <style>
+    text{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;fill:#18181b}.kicker{font-size:15px;font-weight:650;letter-spacing:1.2px}.title{font-size:50px;font-weight:720;letter-spacing:-1.6px}.heading{font-size:24px;font-weight:680;letter-spacing:-.4px}.body{font-size:17px}.small{font-size:14px}.tiny{font-size:12px;font-weight:600}.muted{fill:#71717a}.inverse{fill:#fff}.card{fill:#fff;stroke:#e4e4e7;stroke-width:2}.panel{fill:#fafafa;stroke:#e4e4e7;stroke-width:2}.soft{fill:#f4f4f5}.dark{fill:#18181b}.line{stroke:#e4e4e7;stroke-width:2}.dash{stroke:#a1a1aa;stroke-width:2;stroke-dasharray:5 5}.check{fill:none;stroke:#18181b;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  </style>
+  <rect width="1600" height="1000" fill="#fff"/>
+  <g transform="translate(72 160)">
+    <rect width="464" height="680" rx="16" class="card"/>
+    <rect x="24" y="24" width="34" height="28" rx="14" class="soft"/>
+    <text x="36" y="43" class="tiny">A</text>
+    <text x="24" y="90" class="heading">Year map</text>
+    <text x="24" y="118" class="small muted">See busy and quiet months at a glance.</text>
+
+    <rect x="24" y="148" width="416" height="322" rx="12" class="panel"/>
+    <text x="44" y="182" class="tiny muted">YOUR YEAR</text>
+    <rect x="340" y="164" width="78" height="34" rx="8" class="card"/>
+    <text x="359" y="186" class="tiny">2026⌄</text>
+    <line x1="44" y1="218" x2="420" y2="218" class="line"/>
+    <text x="44" y="252" class="tiny muted">JAN</text><text x="120" y="252" class="tiny muted">MAR</text><text x="196" y="252" class="tiny muted">MAY</text><text x="272" y="252" class="tiny muted">JUL</text><text x="348" y="252" class="tiny muted">SEP</text>
+    <text x="44" y="304" class="small">North Star</text><rect x="144" y="287" width="116" height="22" rx="6" class="dark"/>
+    <line x1="44" y1="328" x2="420" y2="328" class="line"/>
+    <text x="44" y="368" class="small">Workshop</text><rect x="236" y="351" width="98" height="22" rx="6" fill="#d4d4d8"/>
+    <line x1="44" y1="392" x2="420" y2="392" class="line"/>
+    <text x="44" y="432" class="small">Glass House</text><rect x="320" y="415" width="72" height="22" rx="6" fill="#fff" class="dash"/>
+
+    <text x="24" y="520" class="kicker muted">HELPS WITH</text>
+    <text x="24" y="550" class="body">Seeing the shape of a whole year</text>
+    <line x1="24" y1="580" x2="440" y2="580" class="line"/>
+    <text x="24" y="616" class="kicker muted">WATCH OUT FOR</text>
+    <text x="24" y="646" class="body">Rough dates can look too exact</text>
+  </g>
+
+  <g transform="translate(568 160)">
+    <rect width="464" height="680" rx="16" class="card"/>
+    <rect x="24" y="24" width="34" height="28" rx="14" class="soft"/>
+    <text x="36" y="43" class="tiny">B</text>
+    <text x="24" y="90" class="heading">Next-up list</text>
+    <text x="24" y="118" class="small muted">Put the nearest useful choice first.</text>
+
+    <rect x="24" y="148" width="416" height="322" rx="12" class="panel"/>
+    <text x="44" y="182" class="tiny muted">NEXT 30 DAYS</text>
+    <rect x="334" y="164" width="84" height="34" rx="8" class="card"/>
+    <text x="352" y="186" class="tiny">All shows⌄</text>
+    <line x1="44" y1="218" x2="420" y2="218" class="line"/>
+    <rect x="44" y="238" width="376" height="60" rx="9" fill="#fff"/>
+    <rect x="58" y="251" width="48" height="34" rx="7" class="soft"/>
+    <text x="69" y="273" class="tiny">NOW</text><text x="122" y="263" class="small">Low Tide</text><text x="122" y="282" class="tiny muted">Ready to watch</text>
+    <rect x="44" y="308" width="376" height="60" rx="9" fill="#fff"/>
+    <rect x="58" y="321" width="48" height="34" rx="7" class="soft"/>
+    <text x="65" y="343" class="tiny">07 AUG</text><text x="122" y="333" class="small">North Star</text><text x="122" y="352" class="tiny muted">Date confirmed</text>
+    <rect x="44" y="378" width="376" height="60" rx="9" fill="#fff"/>
+    <rect x="58" y="391" width="48" height="34" rx="7" class="soft"/>
+    <text x="70" y="413" class="tiny">SEP?</text><text x="122" y="403" class="small">Glass House</text><text x="122" y="422" class="tiny muted">Month only</text>
+
+    <text x="24" y="520" class="kicker muted">HELPS WITH</text>
+    <text x="24" y="550" class="body">Making a quick next choice</text>
+    <line x1="24" y1="580" x2="440" y2="580" class="line"/>
+    <text x="24" y="616" class="kicker muted">WATCH OUT FOR</text>
+    <text x="24" y="646" class="body">Later shows can disappear from view</text>
+  </g>
+
+  <g transform="translate(1064 160)">
+    <rect width="464" height="680" rx="16" fill="#fff" stroke="#18181b" stroke-width="3"/>
+    <rect x="24" y="24" width="34" height="28" rx="14" class="dark"/>
+    <text x="36" y="43" class="tiny inverse">C</text>
+    <rect x="338" y="22" width="102" height="32" rx="16" class="dark"/>
+    <text x="359" y="43" class="tiny inverse">TEST FIRST</text>
+    <text x="24" y="90" class="heading">Update inbox</text>
+    <text x="24" y="118" class="small muted">Notice when something meaningful changes.</text>
+
+    <rect x="24" y="148" width="416" height="322" rx="12" class="panel"/>
+    <rect x="44" y="168" width="376" height="42" rx="9" class="soft"/>
+    <rect x="48" y="172" width="86" height="34" rx="7" fill="#fff"/>
+    <text x="72" y="195" class="tiny">All updates</text><text x="170" y="195" class="tiny muted">Dates</text><text x="274" y="195" class="tiny muted">Available</text>
+    <text x="44" y="246" class="tiny muted">3 CHANGES SINCE YOUR LAST VISIT</text>
+    <rect x="44" y="264" width="376" height="60" rx="9" fill="#fff" stroke="#18181b" stroke-width="2"/>
+    <rect x="58" y="277" width="48" height="34" rx="7" class="soft"/>
+    <text x="58" y="289" class="small">North Star</text><text x="58" y="308" class="tiny muted">Release date confirmed</text><rect x="322" y="278" width="84" height="28" rx="14" class="soft"/><text x="338" y="297" class="tiny">NEW DATE</text>
+    <rect x="44" y="334" width="376" height="60" rx="9" fill="#fff"/>
+    <rect x="58" y="347" width="48" height="34" rx="7" class="soft"/>
+    <text x="58" y="359" class="small">Low Tide</text><text x="58" y="378" class="tiny muted">All episodes now available</text><rect x="316" y="348" width="90" height="28" rx="14" class="soft"/><text x="329" y="367" class="tiny">AVAILABLE</text>
+    <rect x="44" y="404" width="376" height="44" rx="9" fill="#fff"/>
+    <text x="58" y="432" class="small">Glass House</text><text x="300" y="432" class="tiny muted">MONTH ONLY</text>
+
+    <text x="24" y="520" class="kicker muted">HELPS WITH</text>
+    <text x="24" y="550" class="body">Remembering what changed</text>
+    <line x1="24" y1="580" x2="440" y2="580" class="line"/>
+    <text x="24" y="616" class="kicker muted">WATCH OUT FOR</text>
+    <text x="24" y="646" class="body">Could become a noisy feed</text>
+  </g>
+
+</svg>

@@ -39,6 +39,7 @@ const arrows = [
 export const metadata: Metadata = {
   title: "Arrow Reference",
   description: "Numbered arrow reference for navigation marker selection.",
+  robots: { index: false, follow: false },
 };
 
 export default function ArrowReferencePage() {

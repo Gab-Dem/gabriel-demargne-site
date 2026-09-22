@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="4" dy="7" stdDeviation="6" flood-color="#000" flood-opacity=".11"/></filter>
+    <style>
+      text{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Arial,sans-serif;fill:#171717}.small{font-size:18px;letter-spacing:1.5px}.body{font-size:21px}.label{font-size:24px;font-weight:600}.muted{fill:#6e6e69}.line{stroke:#171717;stroke-width:2;fill:none}.soft{stroke:#aaa9a3;stroke-width:1.5;fill:none}.panel{fill:#fff;stroke:#171717;stroke-width:1.5;filter:url(#shadow)}.chip{fill:#f4f2ec;stroke:#171717;stroke-width:1.3}
+    </style>
+  </defs>
+  <rect width="1600" height="1100" fill="#f5f3ee"/>
+  <text x="72" y="68" class="small muted">INTERACTION DESIGN / FIRST-PASS STATES</text>
+  <text x="72" y="132" font-size="56">The design lives in the transitions and exceptions</text>
+  <text x="72" y="178" class="body muted">Each frame records a behaviour to test, not a polished visual outcome.</text>
+
+  <g transform="translate(72 242)">
+    <g>
+      <rect width="700" height="350" class="panel"/>
+      <text x="28" y="44" class="small muted">01 / CHANGE HORIZON + FILTER</text><text x="28" y="82" class="label">Preserve context when the result set changes</text>
+      <g transform="translate(28 118)">
+        <rect width="86" height="34" class="chip"/><rect x="86" width="102" height="34" fill="#171717"/><rect x="188" width="92" height="34" class="chip"/><rect x="280" width="72" height="34" class="chip"/>
+        <text x="22" y="23" font-size="13">7 days</text><text x="104" y="23" font-size="13" fill="#fff">30 days</text><text x="207" y="23" font-size="13">Season</text><text x="299" y="23" font-size="13">Year</text>
+        <text x="470" y="23" font-size="14" class="muted">3 releases</text>
+        <line x1="0" y1="62" x2="642" y2="62" class="soft"/>
+        <text x="0" y="98" font-size="17">07 AUG</text><text x="96" y="98" font-size="18" font-weight="600">North Star</text><rect x="485" y="76" width="112" height="28" class="chip"/><text x="505" y="95" font-size="12">CONFIRMED</text>
+        <line x1="0" y1="122" x2="642" y2="122" class="soft"/>
+        <text x="0" y="158" font-size="17">SEP?</text><text x="96" y="158" font-size="18" font-weight="600">Glass House</text><rect x="485" y="136" width="112" height="28" fill="#fff" stroke="#8c5f10" stroke-dasharray="5 4"/><text x="501" y="155" font-size="12">APPROXIMATE</text>
+      </g>
+    </g>
+
+    <g transform="translate(756 0)">
+      <rect width="700" height="350" class="panel"/>
+      <text x="28" y="44" class="small muted">02 / PROGRESSIVE DISCLOSURE</text><text x="28" y="82" class="label">Reveal detail without leaving the collection</text>
+      <g transform="translate(28 118)">
+        <rect width="250" height="190" fill="#faf9f6" stroke="#171717"/><text x="16" y="28" font-size="14" class="muted">RELEASE LIST</text><line x1="16" y1="48" x2="234" y2="48" class="soft"/><rect x="10" y="59" width="230" height="48" fill="#e9eef2"/><text x="22" y="88" font-size="16" font-weight="600">North Star · 07 Aug</text><line x1="16" y1="122" x2="234" y2="122" class="soft"/><text x="22" y="153" font-size="16">Workshop · 14 Aug</text>
+        <path d="M270 95h54" class="line"/><path d="m312 83 14 12-14 12" class="line"/>
+        <rect x="344" width="298" height="190" fill="#fff" stroke="#171717"/><text x="362" y="28" font-size="14" class="muted">SELECTED SHOW</text><text x="362" y="64" font-size="24" font-weight="600">North Star</text><text x="362" y="98" font-size="15">7 August · weekly</text><text x="362" y="126" font-size="15">Date confirmed</text><text x="362" y="154" font-size="15">Stream B · region may vary</text>
+      </g>
+    </g>
+
+    <g transform="translate(0 402)">
+      <rect width="700" height="350" class="panel"/>
+      <text x="28" y="44" class="small muted">03 / RELEASE CONFIDENCE</text><text x="28" y="82" class="label">Uncertainty is a visible state, not missing polish</text>
+      <g transform="translate(28 125)">
+        <rect width="188" height="152" fill="#f8fbf8" stroke="#2d6548"/><text x="18" y="32" font-size="13" fill="#2d6548">CONFIRMED</text><text x="18" y="68" font-size="21" font-weight="600">07 August</text><text x="18" y="100" font-size="15">Weekly release</text><text x="18" y="128" font-size="14" class="muted">High confidence</text>
+        <rect x="222" width="188" height="152" fill="#fffaf0" stroke="#8c5f10" stroke-dasharray="6 4"/><text x="240" y="32" font-size="13" fill="#8c5f10">APPROXIMATE</text><text x="240" y="68" font-size="21" font-weight="600">September</text><text x="240" y="100" font-size="15">Date not confirmed</text><text x="240" y="128" font-size="14" class="muted">Month only</text>
+        <rect x="444" width="188" height="152" fill="#fbf8fd" stroke="#6f567f" stroke-dasharray="2 5"/><text x="462" y="32" font-size="13" fill="#6f567f">UNANNOUNCED</text><text x="462" y="68" font-size="21" font-weight="600">This winter</text><text x="462" y="100" font-size="15">No date or service</text><text x="462" y="128" font-size="14" class="muted">Memory aid only</text>
+      </g>
+    </g>
+
+    <g transform="translate(756 402)">
+      <rect width="700" height="350" class="panel"/>
+      <text x="28" y="44" class="small muted">04 / EXCEPTIONS + RECOVERY</text><text x="28" y="82" class="label">Design the state that interrupts the happy path</text>
+      <g transform="translate(28 124)">
+        <rect width="298" height="168" fill="#faf9f6" stroke="#171717"/><text x="18" y="32" font-size="13" class="muted">NO FILTER RESULTS</text><text x="18" y="70" font-size="21" font-weight="600">Nothing matches this view</text><text x="18" y="102" font-size="15">Widen the horizon or include</text><text x="18" y="126" font-size="15">uncertain releases.</text><rect x="18" y="138" width="100" height="26" class="chip"/><text x="37" y="156" font-size="12">RESET VIEW</text>
+        <rect x="334" width="298" height="168" fill="#faf9f6" stroke="#171717"/><text x="352" y="32" font-size="13" class="muted">DATE CHANGED</text><text x="352" y="70" font-size="21" font-weight="600">Release delayed</text><text x="352" y="102" font-size="15">Old: 14 August</text><text x="352" y="126" font-size="15">New: date unannounced</text><text x="352" y="154" font-size="12" fill="#a60000">PLAN PRESERVED · NOTIFICATION PAUSED</text>
+      </g>
+    </g>
+  </g>
+
+  <line x1="72" y1="1033" x2="1528" y2="1033" class="line"/>
+  <text x="72" y="1074" class="body" fill="#a60000">Accessibility rule: every state uses language and structure; colour only reinforces the meaning.</text>
+</svg>

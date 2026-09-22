@@ -1,80 +1,47 @@
 import type { Metadata } from "next";
-import { MobileHomeNav } from "@/components/mobile-home-nav";
-import { ServiceGlobalNav } from "@/components/service-global-nav";
-import { SplitShell } from "@/components/split-shell";
-import { contactEmailHref, homeProfile } from "@/data/site";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Creative Consulting",
-  description: "Services offered by Gabriel Demargne.",
+  title: "Gabriel Demargne Design",
+  description:
+    "Portfolio, photography, and design services by Gabriel Demargne.",
 };
 
 export default function HomePage() {
   return (
-    <SplitShell
-      leftLowerContent={
-        <>
-          <div className="mobile-home-nav-shell">
-            <MobileHomeNav />
-          </div>
-          <div className="desktop-service-nav-shell">
-            <ServiceGlobalNav />
-          </div>
-        </>
-      }
-      mobileMode="home"
-      rightPanelClassName="split-page__right--detail"
-    >
-      <div className="right-content right-content--detail-topless services-home-layout">
-        <div className="website-detail-top">
-          <div className="website-detail-content">
-            <div className="website-detail-heading">
-              <div className="website-detail-heading__column">
-                <h1 className="website-detail-title">Experiences</h1>
-              </div>
-              <div className="website-detail-heading__column website-detail-heading__column--contact">
-                <a
-                  href={`${contactEmailHref}?subject=Request%20CV&body=Hi%20Gabriel%2C%0A%0AI%27d%20like%20to%20request%20your%20CV.%0A%0AThanks%2C`}
-                  className="desktop-detail-contact-link"
-                >
-                  Request CV
-                  <span className="desktop-detail-contact-link__arrow" aria-hidden="true">
-                    →
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="website-detail-content website-detail-content--body">
-          <section className="home-cv" aria-label="Gabriel Demargne profile">
-            <div className="home-cv__sheet">
-              <div className="home-cv__experience">
-              {homeProfile.experience.map((item) => (
-                <article key={`${item.period}-${item.title}`} className="home-cv__experience-item">
-                  <div className="home-cv__experience-side">
-                    <h3 className="home-cv__experience-title">{item.title}</h3>
-                    <p className="home-cv__experience-period">{item.period}</p>
-                  </div>
-                  <div className="home-cv__experience-body">
-                    <div className="home-cv__experience-meta">
-                      <p className="home-cv__experience-organisation">{item.organisation}</p>
-                    </div>
-                    <p className="home-cv__experience-copy">{item.copy}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-
-            <div className="home-cv__languages-inline">
-              <p className="home-cv__languages-label">Languages</p>
-              <p className="home-cv__languages-copy">{homeProfile.languages.join(", ")}</p>
-            </div>
-            </div>
-          </section>
-        </div>
+    <main className="home-landing">
+      <div className="home-landing__center">
+        <h1 className="home-landing__title">
+          <span>Gabriel</span>
+          <span>Demargne</span>
+        </h1>
+        <nav className="home-landing__nav" aria-label="Primary navigation">
+          <Link href="/design-portfolio">
+            <span>Portfolio</span>
+            <svg className="home-landing__arrow" width="13" height="12" viewBox="0 0 13 12" fill="none" aria-hidden="true">
+              <path d="M1 6h11m0 0-4.5-4.5M12 6 7.5 10.5" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
+          <Link href="/photography">
+            <span>Photography</span>
+            <svg className="home-landing__arrow" width="13" height="12" viewBox="0 0 13 12" fill="none" aria-hidden="true">
+              <path d="M1 6h11m0 0-4.5-4.5M12 6 7.5 10.5" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
+          <Link href="/services">
+            <span>Services</span>
+            <svg className="home-landing__arrow" width="13" height="12" viewBox="0 0 13 12" fill="none" aria-hidden="true">
+              <path d="M1 6h11m0 0-4.5-4.5M12 6 7.5 10.5" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
+          <Link href="/contact">
+            <span>Contact</span>
+            <svg className="home-landing__arrow" width="13" height="12" viewBox="0 0 13 12" fill="none" aria-hidden="true">
+              <path d="M1 6h11m0 0-4.5-4.5M12 6 7.5 10.5" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
+        </nav>
       </div>
-    </SplitShell>
+    </main>
   );
 }

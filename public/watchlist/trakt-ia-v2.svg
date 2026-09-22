@@ -1,0 +1,97 @@
+<svg width="2048" height="1280" viewBox="0 0 2048 1280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.8" fill="#D9D9D9"/>
+    </pattern>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="8" refY="6" orient="auto">
+      <path d="M1 1L8 6L1 11" stroke="#A9A9A9" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="2048" height="1280" fill="#E9E9E9"/>
+  <rect x="122" y="112" width="1804" height="1056" rx="26" fill="#FFFFFF" filter="url(#shadow)"/>
+  <rect x="122" y="112" width="1804" height="1056" rx="26" fill="url(#dots)"/>
+
+  <g font-family="Arial, Helvetica, sans-serif" fill="#191919">
+    <text x="188" y="184" font-size="28" font-weight="700">Trakt — information architecture</text>
+    <text x="188" y="222" font-size="17" fill="#676767">Observed objects, actions, states and attributes from the benchmark review</text>
+
+    <text x="188" y="292" font-size="20" font-weight="700">Objects (pages)</text>
+    <text x="588" y="292" font-size="20" font-weight="700">Actions</text>
+    <text x="930" y="292" font-size="20" font-weight="700">States / modals</text>
+    <text x="1354" y="292" font-size="20" font-weight="700">Attributes</text>
+  </g>
+
+  <g stroke="#A9A9A9" stroke-width="3" fill="none" marker-end="url(#arrow)">
+    <path d="M386 410H548"/>
+    <path d="M386 560H548"/>
+    <path d="M386 710H548"/>
+    <path d="M386 860H548"/>
+    <path d="M386 1010H548"/>
+    <path d="M746 410H892"/>
+    <path d="M746 560H892"/>
+    <path d="M746 710H892"/>
+    <path d="M746 860H892"/>
+    <path d="M1126 410H1314"/>
+    <path d="M1126 560H1314"/>
+    <path d="M1126 710H1314"/>
+    <path d="M1126 860H1314"/>
+  </g>
+
+  <g filter="url(#shadow)" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#191919">
+    <g fill="#DCC4FA">
+      <rect x="188" y="332" width="198" height="112" rx="12"/><rect x="188" y="482" width="198" height="112" rx="12"/>
+      <rect x="188" y="632" width="198" height="112" rx="12"/><rect x="188" y="782" width="198" height="112" rx="12"/>
+      <rect x="188" y="932" width="198" height="112" rx="12"/>
+    </g>
+    <g font-weight="700">
+      <text x="258" y="395">Home</text>
+      <text x="244" y="545">Discover</text>
+      <text x="252" y="695">Calendar</text>
+      <text x="253" y="845">Lists</text>
+      <text x="238" y="995">Show detail</text>
+    </g>
+
+    <g fill="#FFD49C">
+      <rect x="548" y="332" width="198" height="112" rx="12"/><rect x="548" y="482" width="198" height="112" rx="12"/>
+      <rect x="548" y="632" width="198" height="112" rx="12"/><rect x="548" y="782" width="198" height="112" rx="12"/>
+    </g>
+    <g font-weight="700">
+      <text x="613" y="395">View</text>
+      <text x="609" y="545">Search</text>
+      <text x="604" y="695">Filter</text>
+      <text x="603" y="845">Track</text>
+    </g>
+
+    <g fill="#FFF0B7">
+      <rect x="892" y="332" width="234" height="112" rx="12"/><rect x="892" y="482" width="234" height="112" rx="12"/>
+      <rect x="892" y="632" width="234" height="112" rx="12"/><rect x="892" y="782" width="234" height="112" rx="12"/>
+    </g>
+    <g font-weight="700">
+      <text x="923" y="382">Empty home</text><text x="923" y="408">state</text>
+      <text x="923" y="532">Watch-date</text><text x="923" y="558">dialog</text>
+      <text x="923" y="682">Rating</text><text x="923" y="708">pop-up</text>
+      <text x="923" y="832">Season / episode</text><text x="923" y="858">progress</text>
+    </g>
+
+    <g fill="#B9DFFF">
+      <rect x="1314" y="332" width="238" height="92" rx="12"/><rect x="1570" y="332" width="238" height="92" rx="12"/>
+      <rect x="1314" y="482" width="238" height="92" rx="12"/><rect x="1570" y="482" width="238" height="92" rx="12"/>
+      <rect x="1314" y="632" width="238" height="92" rx="12"/><rect x="1570" y="632" width="238" height="92" rx="12"/>
+      <rect x="1314" y="782" width="238" height="92" rx="12"/><rect x="1570" y="782" width="238" height="92" rx="12"/>
+    </g>
+    <g>
+      <text x="1380" y="387">Title</text><text x="1633" y="387">Poster</text>
+      <text x="1372" y="537">Metadata</text><text x="1633" y="537">Ratings</text>
+      <text x="1372" y="687">Release date</text><text x="1633" y="687">Availability</text>
+      <text x="1370" y="837">Progress</text><text x="1633" y="837">Season / episode</text>
+    </g>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif" fill="#676767" font-size="16">
+    <text x="188" y="1110">Working model for discussion — based on observed screens, not confirmed product documentation.</text>
+  </g>
+</svg>

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 188 1600 564">
+  <style>
+    text{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;fill:#18181b}.kicker{font-size:15px;font-weight:650;letter-spacing:1.2px}.title{font-size:50px;font-weight:720;letter-spacing:-1.6px}.heading{font-size:22px;font-weight:680;letter-spacing:-.3px}.body{font-size:16px}.small{font-size:13px}.tiny{font-size:11px;font-weight:600}.muted{fill:#71717a}.inverse{fill:#fff}.card{fill:#fff;stroke:#e4e4e7;stroke-width:2}.panel{fill:#fafafa;stroke:#e4e4e7;stroke-width:2}.soft{fill:#f4f4f5}.dark{fill:#18181b}.line{stroke:#e4e4e7;stroke-width:2}.chevron{fill:none;stroke:#a1a1aa;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+  </style>
+  <rect width="1600" height="940" fill="#fff"/>
+  <g transform="translate(108 260)">
+    <rect width="310" height="420" rx="14" class="panel"/>
+    <circle cx="28" cy="30" r="16" class="dark"/>
+    <text x="24" y="35" class="tiny inverse">1</text>
+    <text x="54" y="36" class="small">Notice one change</text>
+    <rect x="20" y="70" width="270" height="316" rx="11" class="card"/>
+    <text x="40" y="104" class="tiny muted">WATCHLIST UPDATE</text>
+    <rect x="40" y="126" width="230" height="98" rx="10" fill="#fafafa" stroke="#18181b" stroke-width="2"/>
+    <text x="56" y="156" class="body" font-weight="700">North Star</text>
+    <text x="56" y="181" class="small muted">Release date confirmed</text>
+    <rect x="56" y="194" width="78" height="24" rx="12" class="soft"/>
+    <text x="71" y="211" class="tiny">NEW DATE</text>
+    <text x="40" y="268" class="small muted">Saved six months ago</text>
+    <line x1="40" y1="292" x2="270" y2="292" class="line"/>
+    <text x="40" y="326" class="body">Open update</text>
+    <path d="M254 320l6 6-6 6" class="chevron"/>
+  </g>
+  <path d="M435 464l8 8-8 8" class="chevron"/>
+
+  <g transform="translate(466 260)">
+    <rect width="310" height="420" rx="14" class="panel"/>
+    <circle cx="28" cy="30" r="16" class="dark"/>
+    <text x="24" y="35" class="tiny inverse">2</text>
+    <text x="54" y="36" class="small">See what changed</text>
+    <rect x="20" y="70" width="270" height="316" rx="11" class="card"/>
+    <text x="40" y="104" class="tiny muted">RELEASE</text>
+    <text x="40" y="140" class="small muted">Previously</text>
+    <text x="40" y="166" class="body muted">Expected August</text>
+    <line x1="40" y1="158" x2="158" y2="158" stroke="#a1a1aa" stroke-width="1.5"/>
+    <text x="40" y="214" class="small muted">Now confirmed</text>
+    <text x="40" y="246" class="heading">7 August · weekly</text>
+    <line x1="40" y1="278" x2="270" y2="278" class="line"/>
+    <text x="40" y="310" class="tiny muted">WHY THIS IS HERE</text>
+    <text x="40" y="338" class="small">The date may affect when</text>
+    <text x="40" y="358" class="small">you want to return.</text>
+  </g>
+  <path d="M793 464l8 8-8 8" class="chevron"/>
+
+  <g transform="translate(824 260)">
+    <rect width="310" height="420" rx="14" class="panel"/>
+    <circle cx="28" cy="30" r="16" class="dark"/>
+    <text x="24" y="35" class="tiny inverse">3</text>
+    <text x="54" y="36" class="small">Check the context</text>
+    <rect x="20" y="70" width="270" height="316" rx="11" class="card"/>
+    <rect x="40" y="90" width="230" height="36" rx="8" class="soft"/>
+    <text x="54" y="113" class="tiny muted">SHOW DETAILS</text><text x="247" y="113" class="body">×</text>
+    <text x="40" y="164" class="heading">North Star</text>
+    <text x="40" y="190" class="small muted">Season 3</text>
+    <line x1="40" y1="212" x2="270" y2="212" class="line"/>
+    <text x="40" y="242" class="tiny muted">RELEASE</text><text x="40" y="266" class="body">7 August · weekly</text>
+    <text x="40" y="304" class="tiny muted">WHERE</text><text x="40" y="328" class="body">Stream B</text>
+    <text x="40" y="364" class="tiny muted">DATE AND PATTERN CONFIRMED</text>
+  </g>
+  <path d="M1151 464l8 8-8 8" class="chevron"/>
+
+  <g transform="translate(1182 260)">
+    <rect width="310" height="420" rx="14" class="panel"/>
+    <circle cx="28" cy="30" r="16" class="dark"/>
+    <text x="24" y="35" class="tiny inverse">4</text>
+    <text x="54" y="36" class="small">Choose what happens</text>
+    <rect x="20" y="70" width="270" height="316" rx="11" class="card"/>
+    <text x="40" y="112" class="heading">North Star</text>
+    <text x="40" y="138" class="small muted">7 August · weekly</text>
+    <rect x="40" y="174" width="230" height="44" rx="8" class="dark"/>
+    <text x="109" y="202" class="small inverse">Plan to watch</text>
+    <rect x="40" y="230" width="230" height="44" rx="8" class="card"/>
+    <text x="113" y="258" class="small">Remind me later</text>
+    <rect x="40" y="286" width="230" height="44" rx="8" fill="#fff"/>
+    <text x="120" y="314" class="small muted">Dismiss</text>
+    <line x1="40" y1="348" x2="270" y2="348" class="line"/>
+    <text x="40" y="372" class="tiny muted">THE UPDATE LEAVES THE INBOX</text>
+  </g>
+
+</svg>

@@ -7,7 +7,8 @@ export const metadata: Metadata = {
     default: "Gabriel Demargne",
     template: "%s | Gabriel Demargne",
   },
-  description: "Website exploration for Gabriel Demargne.",
+  description:
+    "Independent designer and consultant specialising in website design, UX, research, strategy, and photography.",
   alternates: {
     canonical: "/",
   },
@@ -16,12 +17,14 @@ export const metadata: Metadata = {
     url: "https://gabrieldemargne.com",
     siteName: "Gabriel Demargne",
     title: "Gabriel Demargne",
-    description: "Website exploration for Gabriel Demargne.",
+    description:
+      "Independent designer and consultant specialising in website design, UX, research, strategy, and photography.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Gabriel Demargne",
-    description: "Website exploration for Gabriel Demargne.",
+    description:
+      "Independent designer and consultant specialising in website design, UX, research, strategy, and photography.",
   },
 };
 

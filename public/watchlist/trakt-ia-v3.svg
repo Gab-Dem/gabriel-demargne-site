@@ -1,0 +1,78 @@
+<svg width="2200" height="1400" viewBox="0 0 2200 1400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="2200" height="1400" fill="#F7F7F7"/>
+  <rect x="42" y="42" width="2116" height="1316" rx="18" fill="#FFFFFF" stroke="#D3D3D3" stroke-width="2"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#151515">
+    <text x="86" y="112" font-size="32" font-weight="700">Trakt information architecture</text>
+    <text x="86" y="150" font-size="18" fill="#666666">Pages, links, actions and modals observed during the benchmark</text>
+    <text x="86" y="214" font-size="18" font-weight="700">Primary pages</text>
+    <text x="620" y="214" font-size="18" font-weight="700">What each page facilitates</text>
+  </g>
+
+  <g stroke="#A6A6A6" stroke-width="3" fill="none">
+    <path d="M330 708H388"/>
+    <path d="M388 276V1116"/>
+    <path d="M388 276H438"/><path d="M388 486H438"/><path d="M388 696H438"/><path d="M388 906H438"/><path d="M388 1116H438"/>
+    <path d="M768 276H844"/><path d="M844 236V356"/><path d="M844 236H906"/><path d="M844 296H906"/><path d="M844 356H906"/>
+    <path d="M768 486H844"/><path d="M844 446V566"/><path d="M844 446H906"/><path d="M844 506H906"/><path d="M844 566H906"/>
+    <path d="M768 696H844"/><path d="M844 656V806"/><path d="M844 656H906"/><path d="M844 731H906"/><path d="M844 806H906"/>
+    <path d="M768 906H844"/><path d="M844 866V1046"/><path d="M844 866H906"/><path d="M844 926H906"/><path d="M844 986H906"/><path d="M844 1046H906"/>
+    <path d="M768 1116H844"/><path d="M844 1076V1256"/><path d="M844 1076H906"/><path d="M844 1136H906"/><path d="M844 1196H906"/><path d="M844 1256H906"/>
+  </g>
+
+  <g stroke="#A6A6A6" stroke-width="3" fill="none">
+    <path d="M438 276H768"/><path d="M438 486H768"/><path d="M438 696H768"/><path d="M438 906H768"/><path d="M438 1116H768"/>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif" fill="#151515">
+    <g fill="#DCC4FA" stroke="#7C4BB5" stroke-width="2">
+      <rect x="86" y="658" width="244" height="100" rx="12"/>
+    </g>
+    <text x="170" y="718" font-size="24" font-weight="700">Trakt</text>
+    <text x="142" y="744" font-size="14" fill="#5B397C">product / root</text>
+
+    <g fill="#DCC4FA" stroke="#7C4BB5" stroke-width="2">
+      <rect x="438" y="226" width="330" height="100" rx="12"/><rect x="438" y="436" width="330" height="100" rx="12"/>
+      <rect x="438" y="646" width="330" height="100" rx="12"/><rect x="438" y="856" width="330" height="100" rx="12"/>
+      <rect x="438" y="1066" width="330" height="100" rx="12"/>
+    </g>
+    <g font-size="23" font-weight="700">
+      <text x="484" y="286">Home</text><text x="484" y="496">Discover</text><text x="484" y="706">Calendar</text><text x="484" y="916">Lists</text><text x="484" y="1126">Show detail</text>
+    </g>
+    <g font-size="15" fill="#5B397C">
+      <text x="484" y="310">returning to active viewing</text><text x="484" y="520">finding something to watch</text><text x="484" y="730">browsing upcoming releases</text><text x="484" y="940">organising saved media</text><text x="484" y="1150">understanding and acting on a title</text>
+    </g>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#151515">
+    <g fill="#FFD49C" stroke="#B9792C" stroke-width="2">
+      <rect x="906" y="196" width="310" height="80" rx="10"/><rect x="906" y="296" width="310" height="80" rx="10"/>
+      <rect x="906" y="396" width="310" height="80" rx="10"/><rect x="906" y="496" width="310" height="80" rx="10"/>
+      <rect x="906" y="606" width="310" height="80" rx="10"/><rect x="906" y="681" width="310" height="80" rx="10"/><rect x="906" y="756" width="310" height="80" rx="10"/>
+      <rect x="906" y="826" width="310" height="80" rx="10"/><rect x="906" y="886" width="310" height="80" rx="10"/><rect x="906" y="946" width="310" height="80" rx="10"/><rect x="906" y="1006" width="310" height="80" rx="10"/>
+      <rect x="906" y="1036" width="310" height="80" rx="10"/><rect x="906" y="1096" width="310" height="80" rx="10"/><rect x="906" y="1156" width="310" height="80" rx="10"/><rect x="906" y="1216" width="310" height="80" rx="10"/>
+    </g>
+
+    <g>
+      <text x="945" y="230">▣  Continue Watching</text><text x="945" y="330">▣  Start Watching</text><text x="945" y="430">↗  Recommended</text>
+      <text x="945" y="530">⌕  Search</text><text x="945" y="640">↗  Trending</text><text x="945" y="715">↗  Releases</text><text x="945" y="790">↗  Anticipated</text>
+      <text x="945" y="860">▣  Watchlist</text><text x="945" y="920">▣  Smart Lists</text><text x="945" y="980">▣  My Lists</text><text x="945" y="1040">▣  Liked</text>
+      <text x="945" y="1070">✓  Save / mark watched</text><text x="945" y="1130">▣  Seasons and episodes</text><text x="945" y="1190">↗  Cast, trivia, related</text><text x="945" y="1250">□  Rating and availability</text>
+    </g>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif" fill="#151515">
+    <text x="1390" y="214" font-size="18" font-weight="700">Supporting details</text>
+    <g fill="#B9DFFF" stroke="#4A8AB8" stroke-width="2" font-size="17">
+      <rect x="1390" y="248" width="300" height="84" rx="10"/><rect x="1390" y="352" width="300" height="84" rx="10"/>
+      <rect x="1390" y="456" width="300" height="84" rx="10"/><rect x="1390" y="560" width="300" height="84" rx="10"/>
+      <rect x="1390" y="664" width="300" height="84" rx="10"/><rect x="1390" y="768" width="300" height="84" rx="10"/>
+    </g>
+    <text x="1460" y="298">poster + title</text><text x="1460" y="402">metadata + ratings</text><text x="1460" y="506">release date</text><text x="1460" y="610">availability</text><text x="1460" y="714">watch progress</text><text x="1460" y="818">season / episode</text>
+
+    <text x="1770" y="214" font-size="18" font-weight="700">Type key</text>
+    <rect x="1770" y="248" width="46" height="38" rx="8" fill="#DCC4FA" stroke="#7C4BB5" stroke-width="2"/><text x="1832" y="274" font-size="16">page</text>
+    <rect x="1770" y="306" width="46" height="38" rx="8" fill="#FFD49C" stroke="#B9792C" stroke-width="2"/><text x="1832" y="332" font-size="16">action / link</text>
+    <rect x="1770" y="364" width="46" height="38" rx="8" fill="#B9DFFF" stroke="#4A8AB8" stroke-width="2"/><text x="1832" y="390" font-size="16">attribute</text>
+    <text x="86" y="1320" font-size="16" fill="#666666">Working model for discussion — page relationships are inferred from the reviewed screens.</text>
+  </g>
+</svg>
