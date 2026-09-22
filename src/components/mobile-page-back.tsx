@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { HistoryBackLink } from "@/components/history-back-link";
 
 export function MobilePageBack({
   href,
@@ -10,10 +10,10 @@ export function MobilePageBack({
   className?: string;
 }) {
   return (
-    <Link
+    <HistoryBackLink
       href={href}
       className={["mobile-page-back", className].filter(Boolean).join(" ")}
-      aria-label={ariaLabel}
+      ariaLabel={ariaLabel}
     >
       <svg width="13" height="12" viewBox="0 0 13 12" fill="none" aria-hidden="true">
         <path
@@ -25,6 +25,6 @@ export function MobilePageBack({
         />
       </svg>
       <span>Back</span>
-    </Link>
+    </HistoryBackLink>
   );
 }

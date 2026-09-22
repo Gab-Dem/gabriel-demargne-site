@@ -5,6 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PhotographyReturnLink } from "@/components/photography-return-link";
 import { PhotographyMobileNav } from "@/components/photography-mobile-nav";
+import { SiteDesktopIdentity } from "@/components/site-desktop-identity";
 
 const collections = {
   warsaw: { title: "Warsaw", folder: "warsaw" },
@@ -60,10 +61,7 @@ export default async function PhotographyCollectionPage({
     <main className="photography-detail">
       <PhotographyMobileNav />
       <header className="photography-detail__header">
-        <Link href="/" className="photography-detail__identity" aria-label="Home">
-          <span>Gabriel</span>
-          <span>Demargne</span>
-        </Link>
+        <SiteDesktopIdentity identityClassName="photography-detail__identity" backHref="/photography" />
         <nav className="photography-detail__nav" aria-label="Primary navigation">
           <Link className="site-top-contact" href="/contact">Contact me</Link>
           <Link href="/photography" className="photography-detail__active">Photography</Link>

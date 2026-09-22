@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { MobilePageBack } from "@/components/mobile-page-back";
 import { PhotographyMobileNav } from "@/components/photography-mobile-nav";
+import { SiteDesktopIdentity } from "@/components/site-desktop-identity";
 import { ServicesScrollGrid } from "@/components/services-scroll-grid";
 import { contactEmailHref } from "@/data/site";
 
@@ -115,10 +116,7 @@ export default function ServicesPage() {
       <PhotographyMobileNav activePage="services" />
 
       <header className="photography-index__header">
-        <Link href="/" className="photography-index__identity" aria-label="Home">
-          <span>Gabriel</span>
-          <span>Demargne</span>
-        </Link>
+        <SiteDesktopIdentity identityClassName="photography-index__identity" />
         <nav className="photography-index__nav" aria-label="Primary navigation">
           <Link className="site-top-contact" href="/contact">Contact me</Link>
           <Link href="/photography">Photography</Link>

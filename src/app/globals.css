@@ -477,7 +477,41 @@ body:has(.photography-index) {
   line-height: 1;
   letter-spacing: -0.035em;
   opacity: var(--services-identity-opacity, 1);
+  transition: opacity 180ms ease;
+}
+
+.site-desktop-identity {
+  display: grid;
+  justify-items: start;
+  gap: 22px;
+}
+
+.site-desktop-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  width: fit-content;
+  color: #666666;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: transform 160ms ease;
+  transform-origin: left center;
+}
+
+.services-index .site-desktop-back {
+  opacity: var(--services-identity-opacity, 1);
   transition: opacity 180ms ease, transform 160ms ease;
+}
+
+.site-desktop-back:hover {
+  transform: scale(1.04);
+}
+
+.site-desktop-back:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 5px;
 }
 
 .photography-index__nav {
@@ -506,7 +540,8 @@ body:has(.photography-index) {
   color: #fff;
   font-size: clamp(12px, 1.56vh, 14px);
   line-height: 1.2;
-  transition: background-color 160ms ease, color 160ms ease;
+  box-shadow: 0 0 0 0 rgba(34, 34, 34, 0);
+  transition: background-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
 }
 
 .photography-index .site-top-contact:hover,
@@ -514,6 +549,8 @@ body:has(.photography-index) {
 .contact-page .site-top-contact:hover {
   background: #f7f7f7;
   color: #222;
+  box-shadow: 0 0 0 3px rgba(34, 34, 34, 0.12);
+  transform: none;
 }
 
 .photography-index__nav a,
@@ -523,14 +560,12 @@ body:has(.photography-index) {
 }
 
 .photography-index__nav a,
-.photography-index__identity,
 .photography-folder figcaption {
   transition: opacity 180ms ease, transform 160ms ease;
   transform-origin: left center;
 }
 
 .photography-index__nav a:hover,
-.photography-index__identity:hover,
 .photography-folder__link:hover figcaption {
   transform: scale(1.04);
   text-decoration: none;
@@ -631,10 +666,11 @@ body:has(.contact-page) {
 }
 
 .contact-page {
-  --contact-edge: clamp(70px, 4.5vw, 92px);
+  --contact-edge: 70px;
+  --photography-edge: 70px;
   min-height: 100dvh;
   overflow: hidden;
-  padding-top: clamp(70px, 6.1vh, 96px);
+  padding-top: clamp(50px, 6.84vh, 70px);
   background: #f7f7f7;
   color: #292929;
   font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -642,10 +678,7 @@ body:has(.contact-page) {
 }
 
 .contact-page__header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: 0 var(--contact-edge);
+  padding: 0 var(--photography-edge);
 }
 
 .contact-page__identity {
@@ -658,11 +691,12 @@ body:has(.contact-page) {
 }
 
 .contact-page__nav {
-  display: flex;
   align-items: baseline;
-  gap: 24px;
-  font-size: clamp(12px, 1.56vh, 14px);
-  line-height: 1.2;
+}
+
+.contact-page__contact-placeholder {
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .contact-page__nav [aria-current="page"] {
@@ -677,14 +711,12 @@ body:has(.contact-page) {
   text-underline-offset: 4px;
 }
 
-.contact-page__identity,
 .contact-page__nav a,
 .contact-page__details a {
   transition: transform 160ms ease;
   transform-origin: left center;
 }
 
-.contact-page__identity:hover,
 .contact-page__nav a:hover,
 .contact-page__details a:hover {
   transform: scale(1.025);
@@ -1398,7 +1430,7 @@ body:has(.photography-detail) {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 70px 70px 0;
+  padding: clamp(50px, 6.84vh, 70px) 70px 0;
 }
 
 .photography-detail__identity {
@@ -1411,10 +1443,10 @@ body:has(.photography-detail) {
 
 .photography-detail__nav {
   display: flex;
-  gap: 32px;
+  gap: 24px;
   align-items: baseline;
-  font-size: 14px;
-  font-weight: 400;
+  font-size: clamp(12px, 1.56vh, 14px);
+  font-weight: 300;
   line-height: 1.2;
 }
 
@@ -1452,7 +1484,7 @@ body:has(.photography-detail) {
   z-index: 1;
   top: calc(50dvh - 246px);
   left: 70px;
-  display: inline-flex;
+  display: none;
   align-items: center;
   gap: 7px;
   min-height: 34px;
@@ -1502,8 +1534,7 @@ body:has(.photography-detail) {
 }
 
 .photography-detail__index nav a:hover,
-.photography-detail__nav a:hover,
-.photography-detail__identity:hover {
+.photography-detail__nav a:hover {
   transform: scale(1.04);
   text-decoration: none;
 }
@@ -1516,8 +1547,7 @@ body:has(.photography-detail) {
 }
 
 .photography-detail__index nav a,
-.photography-detail__nav a,
-.photography-detail__identity {
+.photography-detail__nav a {
   display: inline-block;
   transition: transform 160ms ease;
   transform-origin: left center;
@@ -3958,6 +3988,11 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+img {
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
 a {
@@ -13480,6 +13515,19 @@ body .ux-portfolio-workspace--watchlist .ux-portfolio-workspace__summary-tool-me
   overscroll-behavior: contain;
   scroll-behavior: smooth;
   scroll-padding-top: 1px;
+}
+
+@media (min-width: 1440px) {
+  .design-portfolio-plan .ux-portfolio-workspace__body {
+    grid-template-columns:
+      minmax(var(--design-portfolio-index-width), 1fr)
+      minmax(0, calc(100vw - (2 * var(--design-portfolio-index-width))))
+      minmax(var(--design-portfolio-index-width), 1fr);
+  }
+
+  .design-portfolio-plan__main {
+    grid-column: 2;
+  }
 }
 
 .design-portfolio-plan__nav {

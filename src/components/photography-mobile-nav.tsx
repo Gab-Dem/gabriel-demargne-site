@@ -15,7 +15,7 @@ export function PhotographyMobileNav({
 }: {
   title?: string;
   chapters?: readonly Chapter[];
-  activePage?: "photography" | "services";
+  activePage?: "photography" | "services" | "contact";
 }) {
   const [openMenu, setOpenMenu] = useState<"site" | "chapters" | null>(null);
   const [activeId, setActiveId] = useState(chapters?.[0]?.id);
@@ -127,7 +127,7 @@ export function PhotographyMobileNav({
         <Link href="/design-portfolio">Portfolio</Link>
         <Link href="/photography" aria-current={activePage === "photography" ? "page" : undefined}>Photography</Link>
         <Link href="/services" aria-current={activePage === "services" ? "page" : undefined}>Services</Link>
-        <Link href="/contact">Contact</Link>
+        <Link href="/contact" aria-current={activePage === "contact" ? "page" : undefined}>Contact</Link>
       </nav>
 
       {chapters?.length ? (

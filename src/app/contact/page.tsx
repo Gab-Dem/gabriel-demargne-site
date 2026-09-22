@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PhotographyMobileNav } from "@/components/photography-mobile-nav";
+import { SiteDesktopIdentity } from "@/components/site-desktop-identity";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -10,16 +11,13 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <main className="contact-page">
-      <PhotographyMobileNav activePage="services" />
+      <PhotographyMobileNav activePage="contact" />
 
-      <header className="contact-page__header">
-        <Link href="/" className="contact-page__identity" aria-label="Home">
-          <span>Gabriel</span>
-          <span>Demargne</span>
-        </Link>
+      <header className="photography-index__header contact-page__header">
+        <SiteDesktopIdentity identityClassName="photography-index__identity contact-page__identity" />
 
-        <nav className="contact-page__nav" aria-label="Primary navigation">
-          <Link className="site-top-contact" href="/contact" aria-current="page">Contact me</Link>
+        <nav className="photography-index__nav contact-page__nav" aria-label="Primary navigation">
+          <span className="site-top-contact contact-page__contact-placeholder" aria-hidden="true">Contact me</span>
           <Link href="/photography">Photography</Link>
           <Link href="/design-portfolio">Portfolio</Link>
           <Link href="/services">Services</Link>

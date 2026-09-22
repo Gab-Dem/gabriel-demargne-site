@@ -5,6 +5,7 @@ import Link from "next/link";
 import { PhotographyChapterNav } from "@/components/photography-chapter-nav";
 import { PhotographyMobileNav } from "@/components/photography-mobile-nav";
 import { PhotographyReturnLink } from "@/components/photography-return-link";
+import { SiteDesktopIdentity } from "@/components/site-desktop-identity";
 
 const chapters = [
   { id: "reuben-stovold", title: "Reuben Stovold", folder: "reuben-stovold" },
@@ -35,10 +36,7 @@ export default function RoadRacePage() {
     <main className="photography-detail photography-detail--chapters">
       <PhotographyMobileNav title="Road Race" chapters={chapters} />
       <header className="photography-detail__header">
-        <Link href="/" className="photography-detail__identity" aria-label="Home">
-          <span>Gabriel</span>
-          <span>Demargne</span>
-        </Link>
+        <SiteDesktopIdentity identityClassName="photography-detail__identity" backHref="/photography" />
         <nav className="photography-detail__nav" aria-label="Primary navigation">
           <Link className="site-top-contact" href="/contact">Contact me</Link>
           <Link href="/photography" className="photography-detail__active">Photography</Link>

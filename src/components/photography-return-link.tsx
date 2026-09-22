@@ -1,8 +1,8 @@
-import Link from "next/link";
+import { HistoryBackLink } from "@/components/history-back-link";
 
 export function PhotographyReturnLink() {
   return (
-    <Link href="/photography" className="photography-detail__return" aria-label="Back to photography">
+    <HistoryBackLink href="/photography" className="photography-detail__return" ariaLabel="Back to photography">
       <svg
         className="photography-detail__return-arrow"
         width="13"
@@ -20,6 +20,6 @@ export function PhotographyReturnLink() {
         />
       </svg>
       <span>Back</span>
-    </Link>
+    </HistoryBackLink>
   );
 }
