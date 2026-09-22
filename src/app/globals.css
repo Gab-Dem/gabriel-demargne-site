@@ -502,7 +502,12 @@ body:has(.photography-index) {
 
 .services-index .site-desktop-back {
   opacity: var(--services-identity-opacity, 1);
-  transition: opacity 180ms ease, transform 160ms ease;
+  transition: opacity 0ms linear, transform 160ms ease;
+}
+
+.services-index .photography-index__identity,
+.services-index .photography-index__nav {
+  transition: opacity 0ms linear;
 }
 
 .site-desktop-back:hover {
