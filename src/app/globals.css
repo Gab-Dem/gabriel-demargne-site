@@ -13522,7 +13522,7 @@ body .ux-portfolio-workspace--watchlist .ux-portfolio-workspace__summary-tool-me
   scroll-padding-top: 1px;
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1800px) and (min-height: 850px) {
   .design-portfolio-plan .ux-portfolio-workspace__body {
     grid-template-columns:
       minmax(var(--design-portfolio-index-width), 1fr)
@@ -13727,13 +13727,13 @@ body .ux-portfolio-workspace--watchlist .ux-portfolio-workspace__summary-tool-me
 }
 
 .design-portfolio-plan__chapter.is-project-start .design-portfolio-plan__chapter-header :is(h1, h2) {
-  max-width: 12ch;
+  max-width: 15ch;
   font-size: clamp(42px, 5vw, 72px);
 }
 
 .design-portfolio-plan__chapter-header {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
   column-gap: 64px;
   align-items: start;
 }
@@ -13767,6 +13767,12 @@ body .ux-portfolio-workspace--watchlist .ux-portfolio-workspace__summary-tool-me
   font-size: 17px;
   font-weight: 300;
   line-height: 1.5;
+}
+
+@media (min-width: 801px) {
+  .design-portfolio-plan__chapter.is-project-start .design-portfolio-plan__chapter-summary {
+    margin-top: 34px;
+  }
 }
 
 .design-portfolio-visual {
@@ -13819,6 +13825,8 @@ body .ux-portfolio-workspace--watchlist .ux-portfolio-workspace__summary-tool-me
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   column-gap: 48px;
   margin: 0;
+  padding-top: 24px;
+  border-top: 1px solid #d8d8d8;
 }
 
 .design-portfolio-visual__caption h3,

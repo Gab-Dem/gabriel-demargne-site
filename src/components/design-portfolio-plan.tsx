@@ -171,6 +171,11 @@ export function DesignPortfolioPlan({
     document.getElementById(slug)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  const followOverviewLink = (slug: string) => {
+    window.history.pushState(null, "", `#${slug}`);
+    goToChapter(slug);
+  };
+
   const goToSection = (id: string) => {
     setActiveSlug(id);
     setMobileMenu(null);
@@ -342,7 +347,7 @@ export function DesignPortfolioPlan({
                   )}
                 </header>
 
-                <DesignPortfolioChapterVisual chapter={chapter} />
+                <DesignPortfolioChapterVisual chapter={chapter} onOverviewNavigate={followOverviewLink} />
                 {index === 0 && chapters[1] ? (
                   <button
                   type="button"

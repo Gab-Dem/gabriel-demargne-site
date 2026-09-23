@@ -5,12 +5,14 @@ import type { DesignPortfolioChapter } from "@/data/design-portfolio";
 
 export function DesignPortfolioChapterVisual({
   chapter,
+  onOverviewNavigate,
 }: {
   chapter: DesignPortfolioChapter;
+  onOverviewNavigate: (slug: string) => void;
 }) {
   switch (chapter.slug) {
     case "portfolio-direction":
-      return <PortfolioOverviewVisual />;
+      return <PortfolioOverviewVisual onNavigate={onOverviewNavigate} />;
     case "spaces-problem":
       return <SpacesProblemVisual />;
     case "spaces-two-sided-service":
@@ -42,8 +44,14 @@ export function DesignPortfolioChapterVisual({
   }
 }
 
-function PortfolioOverviewVisual() {
+function PortfolioOverviewVisual({ onNavigate }: { onNavigate: (slug: string) => void }) {
   const introduction = "Product and UX work spanning research, product definition, information architecture, interaction design, prototyping and implementation.";
+
+  const followChapter = (event: React.MouseEvent<HTMLAnchorElement>, slug: string) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    onNavigate(slug);
+  };
 
   return (
     <section className="design-portfolio-overview" aria-label="Contents of this portfolio">
@@ -59,7 +67,7 @@ function PortfolioOverviewVisual() {
       <div className="design-portfolio-overview__contents">
         <div className="design-portfolio-overview__item is-spaces">
           <span className="design-portfolio-overview__marker" aria-hidden="true" />
-          <a className="design-portfolio-overview__link" href="#spaces-problem" aria-label="Go to Spaces Project" />
+          <a className="design-portfolio-overview__link" href="#spaces-problem" aria-label="Go to Spaces Project" onClick={(event) => followChapter(event, "spaces-problem")} />
           <p className="design-portfolio-overview__mobile-project">Spaces Project</p>
           <h4><span className="design-portfolio-overview__headline--desktop">Turning competing needs into a working service</span><span className="design-portfolio-overview__headline--mobile">Mapping a two-sided service through to implementation</span></h4>
           <div className="design-portfolio-overview__meta">
@@ -70,17 +78,17 @@ function PortfolioOverviewVisual() {
               <span>[Product Strategy]</span>
               <span>[Information Architecture]</span>
               <span>[Interaction Design]</span>
-              <span>[Responsive Design]</span>
+              <span>[Service Modelling]</span>
               <span>[Implementation]</span>
             </div>
-            <div className="design-portfolio-overview__skills">Journey mapping · Product strategy · Responsive delivery</div>
+            <div className="design-portfolio-overview__skills">Journey mapping · Product strategy · Service modelling</div>
           </div>
-          <PortfolioOverviewJumpLink href="#spaces-problem" project="Spaces Project" />
+          <PortfolioOverviewJumpLink href="#spaces-problem" project="Spaces Project" onClick={(event) => followChapter(event, "spaces-problem")} />
         </div>
 
         <div className="design-portfolio-overview__item is-watchlist">
           <span className="design-portfolio-overview__marker" aria-hidden="true" />
-          <a className="design-portfolio-overview__link" href="#watchlist-introduction" aria-label="Go to Watchlist Investigation" />
+          <a className="design-portfolio-overview__link" href="#watchlist-introduction" aria-label="Go to Watchlist Investigation" onClick={(event) => followChapter(event, "watchlist-introduction")} />
           <p className="design-portfolio-overview__mobile-project">Watchlist Investigation</p>
           <h4><span className="design-portfolio-overview__headline--desktop">Investigating and prototyping a connected product model</span><span className="design-portfolio-overview__headline--mobile">Developing a product from research to working prototype</span></h4>
           <div className="design-portfolio-overview__meta">
@@ -96,12 +104,12 @@ function PortfolioOverviewVisual() {
             </div>
             <div className="design-portfolio-overview__skills">Benchmarking · Interaction design · Prototyping</div>
           </div>
-          <PortfolioOverviewJumpLink href="#watchlist-introduction" project="Watchlist Investigation" />
+          <PortfolioOverviewJumpLink href="#watchlist-introduction" project="Watchlist Investigation" onClick={(event) => followChapter(event, "watchlist-introduction")} />
         </div>
 
         <div className="design-portfolio-overview__item is-finder">
           <span className="design-portfolio-overview__marker" aria-hidden="true" />
-          <a className="design-portfolio-overview__link" href="#finder-problem" aria-label="Go to Product Finder" />
+          <a className="design-portfolio-overview__link" href="#finder-problem" aria-label="Go to Product Finder" onClick={(event) => followChapter(event, "finder-problem")} />
           <p className="design-portfolio-overview__mobile-project">Product Finder</p>
           <h4><span className="design-portfolio-overview__headline--desktop">Designing adaptive search logic for finding products nearby</span><span className="design-portfolio-overview__headline--mobile">Modelling and refining adaptive search decisions</span></h4>
           <div className="design-portfolio-overview__meta">
@@ -114,12 +122,12 @@ function PortfolioOverviewVisual() {
             </div>
             <div className="design-portfolio-overview__skills">Process mapping · Decision logic · Systems design</div>
           </div>
-          <PortfolioOverviewJumpLink href="#finder-problem" project="Product Finder" />
+          <PortfolioOverviewJumpLink href="#finder-problem" project="Product Finder" onClick={(event) => followChapter(event, "finder-problem")} />
         </div>
 
         <div className="design-portfolio-overview__item is-practice">
           <span className="design-portfolio-overview__marker" aria-hidden="true" />
-          <a className="design-portfolio-overview__link" href="#ai-supported-design-practice" aria-label="Go to Design Practices" />
+          <a className="design-portfolio-overview__link" href="#ai-supported-design-practice" aria-label="Go to Design Practices" onClick={(event) => followChapter(event, "ai-supported-design-practice")} />
           <p className="design-portfolio-overview__mobile-project">Design Practices</p>
           <h4><span className="design-portfolio-overview__headline--desktop">Using AI responsibly in design thinking</span><span className="design-portfolio-overview__headline--mobile">How I use AI in design thinking</span></h4>
           <div className="design-portfolio-overview__meta">
@@ -131,16 +139,16 @@ function PortfolioOverviewVisual() {
             </div>
             <div className="design-portfolio-overview__skills">Synthesis · Prototyping · AI practice</div>
           </div>
-          <PortfolioOverviewJumpLink href="#ai-supported-design-practice" project="Design Practices" />
+          <PortfolioOverviewJumpLink href="#ai-supported-design-practice" project="Design Practices" onClick={(event) => followChapter(event, "ai-supported-design-practice")} />
         </div>
       </div>
     </section>
   );
 }
 
-function PortfolioOverviewJumpLink({ href, project }: { href: string; project: string }) {
+function PortfolioOverviewJumpLink({ href, project, onClick }: { href: string; project: string; onClick: React.MouseEventHandler<HTMLAnchorElement> }) {
   return (
-    <a className="design-portfolio-overview__jump" href={href} aria-label={`Jump to ${project}`}>
+    <a className="design-portfolio-overview__jump" href={href} aria-label={`Jump to ${project}`} onClick={onClick}>
       <span>View section</span>
       <svg width="18" height="18" viewBox="0 0 13 12" fill="none" aria-hidden="true">
         <path d="M1 6h11m0 0-4.5-4.5M12 6l-4.5 4.5" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
@@ -296,32 +304,14 @@ function WatchlistConnectedProductVisual() {
       </div>
     </div>
     <div className="design-portfolio-watchlist-evidence-group">
-      <h4>Selected connected wireframes</h4>
-      <div className="design-portfolio-watchlist-wireframe-contact-sheet">
-        <SourceArtefact
-          src="/watchlist/wireframes-v1.svg"
-          width={1600}
-          height={1200}
-          alt="Responsive wireframes exploring a hybrid planning horizon and its edge states"
-        />
-        <SourceArtefact
-          src="/watchlist/wireframes-v2.svg"
-          width={1600}
-          height={864}
-          alt="Connected desktop and mobile wireframes for changes in a saved watchlist"
-        />
-      </div>
-    </div>
-    <div className="design-portfolio-watchlist-evidence-group">
       <h4>Focused working model</h4>
       <div className="design-portfolio-watchlist-working-model">
         <SourceArtefact src="/watchlist/control-panel-studies/01-zoom-only.png" width={1376} height={777} alt="Early release-planner working model" />
       </div>
     </div>
-    <VisualCaption label="Exploring, reviewing and connecting interaction decisions">
-      Annotated sketches recorded design critique and refinement before the interactions were
-      developed across a connected wireframe set. Focused working prototypes were then used where
-      particular behaviours required deeper iteration.
+    <VisualCaption label="Exploring and refining interaction decisions">
+      Annotated sketches recorded design critique and refinement. A focused working model was then
+      used to test behaviour that needed deeper iteration.
     </VisualCaption>
   </figure>;
 }
@@ -370,9 +360,8 @@ function ProductFinderIntroductionVisual() {
       />
     </div>
     <VisualCaption label="Modelling and refining decision logic">
-      I mapped the existing process, then iterated the model into explicit interpretation, matching,
-      fallback and revision rules. This shows how I make complex system behaviour understandable
-      and testable.
+      Mapping the existing process led to explicit interpretation, matching, fallback and revision
+      rules. The refined model makes complex search behaviour easier to understand and test.
     </VisualCaption>
   </figure>;
 }
@@ -474,10 +463,10 @@ function SpacesProblemVisual() {
           mobile="/design-portfolio/spaces/directory-mobile.png"
         />
       </div>
-      <VisualCaption label="Taking a responsive design into implementation">
-        The original UX work was developed into a functioning website. Paired desktop and mobile
-        captures show how the information architecture, interaction model and visual system were
-        carried through to implementation.
+      <VisualCaption label="From service model to working product">
+        The early work was carried into a functioning website. These captures show how the
+        information architecture, interaction model and visual system were applied across the
+        discovery experience.
       </VisualCaption>
     </figure>
   );
@@ -496,11 +485,11 @@ function SpacesServiceVisual() {
             alt="The strategy, scope, structure and skeleton stages used for the project"
           />
           <SourceArtefact
-            label="Interview setup · illustrative"
+            label="Interview setup"
             src="/portfolio-lab/v2/3.png"
             width={6480}
             height={3020}
-            alt="An illustrative interview guide and note-taking setup"
+            alt="Interview guide and note-taking setup prepared for the Spaces project"
           />
           <SourceArtefact
             label="Synthesis setup · illustrative"
@@ -528,9 +517,9 @@ function SpacesServiceVisual() {
         </div>
       </div>
       <VisualCaption label="Planning the investigation and mapping both sides">
-        The work included a staged project model, illustrative preparation for interviews and
-        synthesis, and separate journey maps for people using and operating the spaces. The research
-        preparation is shown as process evidence, not as completed fieldwork.
+        The work included a staged project model, an interview setup, an illustrative synthesis
+        board, and separate journey maps for people using and operating the spaces. The interview
+        materials document preparation; no interviews were conducted for this project.
       </VisualCaption>
     </figure>
   );
@@ -607,7 +596,7 @@ function SpacesExperienceVisual() {
             alt="Spaces map-view wireframe"
           />
           <SourceArtefact
-            label="List comparison"
+            label="Streamlined Evaluation"
             src="/portfolio-lab/v2/16.png"
             width={6480}
             height={4320}
@@ -673,10 +662,9 @@ function SpacesLiveProductVisual() {
         />
       </div>
 
-      <VisualCaption label="Carrying the design system into a live product">
-        I translated the product model into a responsive implementation, combining content
-        structure, interaction logic and visual patterns across directory, location detail and
-        feedback flows.
+      <VisualCaption label="Developing the wireframes into a working experience">
+        The earlier wireframes informed a working implementation, bringing content structure and
+        interaction logic into the directory, location detail and feedback flows.
       </VisualCaption>
     </figure>
   );

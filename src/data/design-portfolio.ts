@@ -29,7 +29,7 @@ export const designPortfolioChapters: readonly DesignPortfolioChapter[] = [
     navTag: "Product Design",
     title: "Helping people find spaces that meet their needs",
     summary:
-      "Using a structured design process, I developed the project through research planning, user and owner journey mapping, opportunity qualification, product requirements, task flows, information architecture, interaction design and responsive implementation. The work demonstrates how I connect early product thinking to a coherent, functioning service.",
+      "The project moved through research planning, user and owner journey mapping, opportunity qualification, product requirements, task flows, information architecture and interaction design before the service model became a working product.",
   },
   {
     slug: "spaces-two-sided-service",
@@ -38,7 +38,7 @@ export const designPortfolioChapters: readonly DesignPortfolioChapter[] = [
     navTag: "Service Design",
     title: "Mapping a service across user and owner needs",
     summary:
-      "I used service-design methods to plan research, structure synthesis and map separate journeys for people using and operating the spaces. This made both sides’ needs and constraints visible for clearer service and product decisions.",
+      "Service-design methods shaped research planning, synthesis and separate journeys for people using and operating the spaces. This made both sides’ needs and constraints visible for clearer service and product decisions.",
   },
   {
     slug: "spaces-product-scope",
@@ -47,7 +47,7 @@ export const designPortfolioChapters: readonly DesignPortfolioChapter[] = [
     navTag: "Product Strategy",
     title: "Turning opportunities into a focused product scope",
     summary:
-      "I translated user stories and opportunities into prioritised requirements, qualified How Might We questions and defined primary flows for a focused first release.",
+      "User stories and opportunities became prioritised requirements. Qualified How Might We questions and primary flows then defined a focused first release.",
   },
   {
     slug: "spaces-experience-model",
@@ -56,25 +56,25 @@ export const designPortfolioChapters: readonly DesignPortfolioChapter[] = [
     navTag: "Interaction Design",
     title: "Modelling two connected experiences",
     summary:
-      "I developed separate information architectures and task flows for users and space owners, then explored the key journeys through wireframes for discovery, comparison, evaluation and operational overview.",
+      "Separate information architectures and task flows for users and space owners informed wireframes for discovery, comparison, evaluation and operational overview.",
   },
   {
     slug: "spaces-live-product",
     project: "Spaces",
     navLabel: "Live product",
     navTag: "Implementation",
-    title: "Taking a design system into a responsive product",
+    title: "From wireframes to a functioning model",
     summary:
-      "I carried the service model into a working responsive product, applying a design system, structured content and interaction logic across directory, location detail and feedback flows.",
+      "The wireframes informed a functioning model of the user experience, carrying content structure and interaction logic into the directory, location detail and feedback flows.",
   },
   {
     slug: "watchlist-introduction",
     project: "Watchlist",
     navLabel: "Introduction",
     navTag: "Product Design",
-    title: "Framing a connected product experience",
+    title: "Supporting content tracking & building excitement for releases",
     summary:
-      "I defined a product direction through framing, comparative investigation and early interaction modelling, connecting saving, progress and release planning into one experience.",
+      "Watchlist brings saved shows, viewing progress and upcoming releases into one tracker. Product framing, comparative investigation and early interaction modelling shaped how those parts work together.",
   },
   {
     slug: "watchlist-benchmark",
@@ -83,7 +83,7 @@ export const designPortfolioChapters: readonly DesignPortfolioChapter[] = [
     navTag: "Benchmarking",
     title: "Understanding the existing landscape",
     summary:
-      "I analysed comparable products and synthesised the findings into research outcomes, working requirements and How Might We prompts. This gave the later product work a grounded basis.",
+      "A comparison of existing products informed research outcomes, working requirements and How Might We prompts, grounding later product decisions.",
   },
   {
     slug: "watchlist-structure",
@@ -99,9 +99,9 @@ export const designPortfolioChapters: readonly DesignPortfolioChapter[] = [
     project: "Watchlist",
     navLabel: "Interaction model",
     navTag: "Interaction Design",
-    title: "Developing interactions through sketches and wireframes",
+    title: "Developing interactions through sketches and prototypes",
     summary:
-      "Early interactions were sketched, annotated and refined before being expanded into connected wireframes and focused working prototypes across the product.",
+      "Early interactions were sketched, annotated and refined, with focused working prototypes used to explore behaviours that needed deeper iteration.",
   },
   {
     slug: "watchlist-review",
@@ -119,7 +119,7 @@ export const designPortfolioChapters: readonly DesignPortfolioChapter[] = [
     navTag: "Systems Design",
     title: "Modelling adaptive search and fallback logic",
     summary:
-      "I mapped an existing process, translated it into decision logic and iterated the model through matching, fallback and revision rules. This demonstrates systems design and prototyping for complex search behaviour.",
+      "Process mapping established the decision logic; systems design and prototyping refined the matching, fallback and revision rules, making the search behaviour explicit and testable.",
   },
   {
     slug: "ai-supported-design-practice",
