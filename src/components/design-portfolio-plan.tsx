@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { MobilePageBack } from "@/components/mobile-page-back";
-import { HistoryBackLink } from "@/components/history-back-link";
 import type { DesignPortfolioChapter } from "@/data/design-portfolio";
 import { DesignPortfolioChapterVisual } from "@/components/design-portfolio-visuals";
 
@@ -185,7 +184,7 @@ export function DesignPortfolioPlan({
   return (
     <main className="ux-portfolio-workspace design-portfolio-plan">
       <header className="ux-portfolio-workspace__header">
-        <HistoryBackLink href="/" className="ux-portfolio-workspace__back-link" ariaLabel="Back to home">
+        <Link href="/" className="ux-portfolio-workspace__back-link" aria-label="Go to home page">
           <svg width="13" height="12" viewBox="0 0 13 12" fill="none" aria-hidden="true">
             <path
               d="M12 6H1m0 0 4.5-4.5M1 6l4.5 4.5"
@@ -196,7 +195,7 @@ export function DesignPortfolioPlan({
             />
           </svg>
           <span>Home</span>
-        </HistoryBackLink>
+        </Link>
         <span className="design-portfolio-plan__header-name">Gabriel Demargne</span>
       </header>
 
