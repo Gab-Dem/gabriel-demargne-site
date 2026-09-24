@@ -10,6 +10,7 @@ import { SiteDesktopIdentity } from "@/components/site-desktop-identity";
 const collections = {
   warsaw: { title: "Warsaw", folder: "warsaw" },
   "costa-brava": { title: "Costa Brava", folder: "costa-brava" },
+  "costa-rica": { title: "Costa Rica", folder: "costa-rica" },
   lisbon: { title: "Lisbon", folder: "lisbon" },
   sweden: { title: "Sweden", folder: "sweden" },
 } as const;

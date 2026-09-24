@@ -38,6 +38,13 @@ const places: readonly PhotographyFolder[] = [
     slug: "costa-brava",
   },
   {
+    title: "Costa Rica",
+    src: "/photography-places/costa-rica/B2400006-ABBA-485B-83E1-EE6405BC97D5_1_105_c.jpg",
+    alt: "A palm-lined beach in Costa Rica",
+    ratio: 1800 / 1200,
+    slug: "costa-rica",
+  },
+  {
     title: "Lisbon",
     src: "/photography-places/lisbon/26CF21C4-F7C1-487B-A37A-066BDFDF447C_1_105_c.jpg",
     alt: "A Lisbon street scene",
