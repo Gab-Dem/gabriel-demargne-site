@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { PhotographyReturnLink } from "@/components/photography-return-link";
 import { PhotographyMobileNav } from "@/components/photography-mobile-nav";
 import { SiteDesktopIdentity } from "@/components/site-desktop-identity";
+import costaRicaPhotos from "@/data/costa-rica-photos.json";
 
 const collections = {
   warsaw: { title: "Warsaw", folder: "warsaw" },
@@ -36,10 +37,18 @@ function getImages(folder: string) {
   const directory = join(process.cwd(), "public", "photography-places", folder);
 
   try {
-    return readdirSync(directory)
+    const files = readdirSync(directory)
       .filter((file) => /\.(?:jpe?g|png)$/i.test(file))
       .filter((file) => folder !== "warsaw" || file !== "671A68B6-A4D0-4865-BFF9-1D289EAE65B2_1_105_c.jpg")
-      .sort()
+      .sort();
+    const orderedFiles = folder === "costa-rica"
+      ? [
+          ...costaRicaPhotos.order.filter((file) => files.includes(file)),
+          ...files.filter((file) => !costaRicaPhotos.order.includes(file)),
+        ]
+      : files;
+    return orderedFiles
+      .filter((file) => folder !== "costa-rica" || !costaRicaPhotos.hidden.includes(file))
       .map((file) => `/photography-places/${folder}/${file}`);
   } catch {
     return [];
