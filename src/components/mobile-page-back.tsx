@@ -19,7 +19,7 @@ export function MobilePageBack({
         <path
           d="M12 6H1m0 0 4.5-4.5M1 6l4.5 4.5"
           stroke="currentColor"
-          strokeWidth="1.25"
+          strokeWidth="1"
           strokeLinecap="round"
           strokeLinejoin="round"
         />

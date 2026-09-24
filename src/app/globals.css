@@ -176,7 +176,7 @@ body:has(.home-landing) {
     width: fit-content;
     color: #666666;
     font-size: 13px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.2;
     text-decoration: none;
   }
@@ -493,7 +493,7 @@ body:has(.photography-index) {
   width: fit-content;
   color: #666666;
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.2;
   text-decoration: none;
   transition: transform 160ms ease;
@@ -1495,7 +1495,7 @@ body:has(.photography-detail) {
   min-height: 34px;
   color: #666;
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.2;
   text-decoration: none;
   transition: color 160ms ease;
