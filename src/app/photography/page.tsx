@@ -45,13 +45,6 @@ const places: readonly PhotographyFolder[] = [
     slug: "lisbon",
   },
   {
-    title: "Lisbon",
-    src: "/photography-places/lisbon/DSCF3235.jpg",
-    alt: "A second Lisbon street scene",
-    ratio: 398 / 265,
-    slug: "lisbon",
-  },
-  {
     title: "Stockholm",
     src: "/photography-places/sweden/039E8535-03AF-4D46-9EE4-E42D74AE10FB_1_201_a.jpg",
     alt: "A waterside view in Sweden",
